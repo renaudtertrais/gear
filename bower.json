@@ -1,0 +1,18 @@
+{
+  "name": "gear",
+  "version": "0.0.1",
+  "homepage": "http://emaj-fr.github.io/gear/",
+  "authors": [
+    "eMaj-Fr <renaud.tertrais@gmail.com>"
+  ],
+  "description": "An awesome front-end framework",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib",
+    "test",
+    "tests"
+  ]
+}
