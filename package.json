@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/eMaj-Fr/gear/issues"
   },
-  "homepage": "http://emaj-fr.github.io/gear/"
+  "homepage": "http://emaj-fr.github.io/gear/",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-sass": "~0.7.2"
+  }
 }
