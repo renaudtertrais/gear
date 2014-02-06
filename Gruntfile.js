@@ -1,18 +1,43 @@
 module.exports = function(grunt){
 	grunt.initConfig({	
 		sass: {                             
-		    dist: {                          
+		    min: {                          
+				options: {                      
+					style: 'compressed',
+					compass : true
+				},
+			    files: {
+			        'dist/css/gear.min.css' : 'sass/themes/default/default.scss',       // 'destination': 'source'
+			    }
+			},
+			exp: {                          
 				options: {                      
 					style: 'expanded',
 					compass : true
 				},
 			    files: {
-			        'dist/gear.css' : 'scss/themes/default/theme.scss',       // 'destination': 'source'
+			        'dist/css/gear.css' : 'sass/themes/default/default.scss',    
 			    }
 			}
+		},
+		watch: {
+			all: {
+				files: ['scss/**'],
+				tasks: ['dist-css'],
+				options: {
+					spawn: false,
+				},
+			},
 		}
 	});
 
-	grunt.loadNpmTasks('grunt-contrib-sass');
+	// * * * Custom tasks * * *
+	// dist-css (sass->css)
+	grunt.task.registerTask("dist-css", ["sass"]);
 
+	// * * * Grunt Plugins * * *
+	grunt.loadNpmTasks('grunt-contrib-sass');
 }
+
+
+grunt.loadNpmTasks('grunt-contrib-watch');
