@@ -72,6 +72,36 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+h1 {
+  font-size: 2em;
+  line-height: 2;
+}
+
+h2 {
+  font-size: 1.8em;
+  line-height: 2;
+}
+
+h3 {
+  font-size: 1.6em;
+  line-height: 2;
+}
+
+h4 {
+  font-size: 1.4em;
+  line-height: 2;
+}
+
+h5 {
+  font-size: 1.2em;
+  line-height: 2;
+}
+
+h6 {
+  font-size: 1em;
+  line-height: 2;
+}
+
 .btn, .btn-sign {
   cursor: pointer;
   display: inline-block;

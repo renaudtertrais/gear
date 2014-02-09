@@ -16,18 +16,15 @@ $LINE-HEIGHT 	: 1.2 	!default;
 $FONT-FAMILY 	: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 
-
-
-
-
 // * * * GLOBAL VARS * * *
+
 // EXT list of template available to extends
 $TPL : ();
-
 
 
 
 // button
 @import "utilities";
 @import "init";
+@import "typographie";
 @import "button";

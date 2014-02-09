@@ -1,0 +1,9 @@
+@mixin headings( $headings : "" ){
+	@for $_i from 1 through 6{
+
+		h#{$_i}{
+			font-size: 2em - ($_i - 1) * .2;
+			line-height: 2;
+		}
+	}
+}
