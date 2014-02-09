@@ -1,3 +1,22 @@
-p{
-	color:red;
-}
+//$PREFIX : "gear";
+
+
+@import "compass";
+@import "../../gear/gear.scss";
+
+
+$colors :
+	( "default" , #FFF , #555 , #CCC ),
+	( "primary" , #58E ),
+	( "success" , #3C7 );
+
+
+// * * * buttons * * * 
+$btn-colors : $colors ;
+$btn-sizes 	: 
+	( "medium" 	, 40px ),
+	( "min" 	, 30px ),
+	( "micro" 	, 20px ),
+	( "max" 	, 50px ),
+	( "fat" 	, 60px );
+@include btn( $btn-colors , $btn-sizes );

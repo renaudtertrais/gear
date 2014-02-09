@@ -1,0 +1,12 @@
+@function name( $_elts , $separator : "-" , $pfx : $PREFIX ){
+	$out : $pfx;
+	$i : 0 ;
+	@each $elt in $elts{
+		@if $i > 0{
+			$out : $out + $separator ;
+		}
+		$out : $out + #{$elt} ;
+		$i : $i + 1 ;
+	}
+	@return $out;
+}

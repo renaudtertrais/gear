@@ -1,0 +1,121 @@
+// btn-color
+@mixin _btn-color( $color ){
+	$_color-name 	: nth( $color , 1 );
+	$_color-bg 		: nth( $color , 2 );
+	$_color-font 	: "";
+	$_color-border 	: "";
+	// font-color
+	@if length( $color ) < 3{
+		@if lightness( $_color-bg ) > lightness( #BBB ){
+			$_color-font : $FONT-COLOR;
+		}@else{
+			$_color-font 	: #FFF;
+		}
+	}@else{
+		$_color-font 		: nth( $color , 3 );
+	}
+	// border-color
+	@if length( $color ) < 4{
+		$_color-border 		: $_color-bg ;
+	}@else{
+		$_color-border 		: nth( $color , 4 );
+	}
+
+	// output
+	background-color 	: $_color-bg ;
+	color 				: $_color-font ;
+	border-color 		: $_color-border ;
+	// hover
+	&:hover{
+		background-color: darken( $_color-bg , 5% );
+		border-color 	: darken( $_color-border , 5% );
+	}
+	// active
+	&:active,
+	.active{
+		background-color: darken( $_color-bg , 10% ) ;
+		border-color 	: darken( $_color-border , 10% ) ;
+	}
+}
+
+// btn-size
+@mixin _btn-size( $size ){
+	$_size-name 	: nth( $size , 1 );
+	$_size-height 	: nth( $size , 2 );
+	$_size-font 	: "";
+	$_size-padding 	: "";
+	$_size-border 	: "";
+
+	// font-size
+	@if length( $size ) < 3{
+		$_size-font 	: $_size-height / 2.5 ;
+	}@else{
+		$_size-font 	: nth( $size , 3 );
+	}
+	// padding
+	@if length( $size ) < 4{
+		$_size-padding 		: 0 $_size-height / 2 ;
+	}@else{
+		$_size-padding 		: nth( $size , 4 );
+	}
+	// border-width
+	@if length( $size ) < 5{
+		$_size-border 		: 1px ;
+	}@else{
+		$_size-border 		: nth( $size , 5 );
+	}
+
+	// output
+	height 			: $_size-height ;
+	border-width 	: $_size-border ;
+	padding 		: $_size-padding ;
+	font-size 		: $_size-font ;
+	@include _line-height( $_size-height );
+}
+
+
+
+
+// btn
+@mixin btn( $colors , $sizes , $radius : 4px , $btn_class : "btn" ){
+	
+	@if index( $EXT , $btn_class ) {
+
+	}@else{
+		// create the %btn Placeholder
+		%#{$PX + $btn_class}{
+			outline 		: none ;
+    		cursor 			: pointer ;
+			display 		: inline-block ;
+			border-style 	: solid ;
+			@include border-radius( $radius );
+
+			// apply first color / size to default behavior
+			@include _btn-color( nth( $colors , 1 ) );
+			@include _btn-size( nth( $sizes , 1 ) );
+
+			// create all the colors classes
+			@each $color in $colors{
+				$_color-name 	: nth( $color , 1 );
+
+				&.#{$PX + $btn_class+"-"+$_color-name}{
+					@include _btn-color( $color );
+				}
+			}
+			// create all the sizes classes
+			@each $size in $sizes{
+				$_size-name 	: nth( $size , 1 );
+
+				&.#{$PX + $btn_class+"-"+$_size-name}{
+					@include _btn-size( $size );
+				}
+			}
+		}
+		// create the .btn class which extends %btn
+		.#{$PX + $btn_class}{
+			@extend %#{$PX + $btn_class};
+		}
+		$EXT : append( $EXT , $btn_class );
+	}
+
+}

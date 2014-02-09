@@ -1,0 +1,32 @@
+// * * * GLOBAL CONTANTS * * *
+
+// PREFIX : default value : '';
+$PREFIX 		: "" 	!default;
+	// PREFIX alias
+	$PX 			: $PREFIX;
+	@if $PX != "" { $PX  : $PX +"-" ; }
+
+// FONT-COLOR
+$FONT-COLOR 	: #555 	!default;
+// FONT-SIZE
+$FONT-SIZE 		: 16px 	!default;
+// LINE-HEIGTH 
+$LINE-HEIGHT 	: 1.2 	!default;
+
+
+
+
+
+
+
+
+// * * * GLOBAL VARS * * *
+// EXT list of extends available
+$EXT : ();
+
+
+
+
+// button
+@import "utilities";
+@import "button";

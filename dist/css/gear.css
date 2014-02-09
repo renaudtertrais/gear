@@ -1,3 +1,110 @@
-p {
-  color: red;
+.btn > * {
+  line-height: initial;
+  display: inline-block;
+}
+
+.btn {
+  outline: none;
+  cursor: pointer;
+  display: inline-block;
+  border-style: solid;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  background-color: white;
+  color: #555555;
+  border-color: #cccccc;
+  height: 40px;
+  border-width: 1px;
+  padding: 0 20px;
+  font-size: 16px;
+  line-height: 40px;
+}
+.btn:hover {
+  background-color: #f2f2f2;
+  border-color: #bfbfbf;
+}
+.btn:active,
+.btn .active {
+  background-color: #e6e6e6;
+  border-color: #b3b3b3;
+}
+.btn-default.btn {
+  background-color: white;
+  color: #555555;
+  border-color: #cccccc;
+}
+.btn-default.btn:hover {
+  background-color: #f2f2f2;
+  border-color: #bfbfbf;
+}
+.btn-default.btn:active,
+.btn-default.btn .active {
+  background-color: #e6e6e6;
+  border-color: #b3b3b3;
+}
+.btn-primary.btn {
+  background-color: #5588ee;
+  color: white;
+  border-color: #5588ee;
+}
+.btn-primary.btn:hover {
+  background-color: #3e78ec;
+  border-color: #3e78ec;
+}
+.btn-primary.btn:active,
+.btn-primary.btn .active {
+  background-color: #2768e9;
+  border-color: #2768e9;
+}
+.btn-success.btn {
+  background-color: #33cc77;
+  color: white;
+  border-color: #33cc77;
+}
+.btn-success.btn:hover {
+  background-color: #2eb86b;
+  border-color: #2eb86b;
+}
+.btn-success.btn:active,
+.btn-success.btn .active {
+  background-color: #29a35f;
+  border-color: #29a35f;
+}
+.btn-medium.btn {
+  height: 40px;
+  border-width: 1px;
+  padding: 0 20px;
+  font-size: 16px;
+  line-height: 40px;
+}
+.btn-min.btn {
+  height: 30px;
+  border-width: 1px;
+  padding: 0 15px;
+  font-size: 12px;
+  line-height: 30px;
+}
+.btn-micro.btn {
+  height: 20px;
+  border-width: 1px;
+  padding: 0 10px;
+  font-size: 8px;
+  line-height: 20px;
+}
+.btn-max.btn {
+  height: 50px;
+  border-width: 1px;
+  padding: 0 25px;
+  font-size: 20px;
+  line-height: 50px;
+}
+.btn-fat.btn {
+  height: 60px;
+  border-width: 1px;
+  padding: 0 30px;
+  font-size: 24px;
+  line-height: 60px;
 }

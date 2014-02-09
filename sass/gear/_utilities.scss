@@ -1,0 +1,11 @@
+// _line-height change the linehaight just in the container
+%_line-height{
+	line-height : initial ;
+	display: inline-block;
+}
+@mixin _line-height( $line-height ){
+	line-height : $line-height ;
+	> *{
+		@extend %_line-height;
+	}
+}

@@ -21,13 +21,21 @@ module.exports = function(grunt){
 			}
 		},
 		watch: {
-			all: {
-				files: ['scss/**'],
+			scss: {
+				files: ['*.html,gh-pages/**'],
+				options: {
+					spawn: false,
+					livereload: true
+				},
+			},
+			scss: {
+				files: ['sass/**'],
 				tasks: ['dist-css'],
 				options: {
 					spawn: false,
+					livereload: true
 				},
-			},
+			}
 		}
 	});
 
