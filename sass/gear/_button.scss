@@ -78,17 +78,13 @@
 
 // btn
 @mixin btn( $colors , $sizes , $radius : 4px , $btn_class : "btn" ){
-	
-	@if index( $EXT , $btn_class ) {
-
-	}@else{
+	$template : $PX + "btn";
+	@if index( $TPL , $template ) == false {
 		// create the %btn Placeholder
-		%#{$PX + $btn_class}{
-			outline 		: none ;
+		%#{$template}{
     		cursor 			: pointer ;
 			display 		: inline-block ;
 			border-style 	: solid ;
-			@include border-radius( $radius );
 
 			// apply first color / size to default behavior
 			@include _btn-color( nth( $colors , 1 ) );
@@ -111,11 +107,67 @@
 				}
 			}
 		}
-		// create the .btn class which extends %btn
-		.#{$PX + $btn_class}{
-			@extend %#{$PX + $btn_class};
+		$TPL : append( $TPL , $template );
+	}
+
+	// create the .btn class which extends %btn
+	.#{$btn_class}{
+		@extend %#{ $template };
+		@include border-radius( $radius );
+	}
+}
+
+// btn-size
+@mixin _btn-sign-size( $size ){
+	@include _btn-size( $size );
+	$_size-name 	: nth( $size , 1 );
+	$_size-width 	: nth( $size , 2 );
+	width  		: $_size-width ;
+	text-align 	: center ;
+	padding 	: 0 ;
+}
+
+// btn-sign
+@mixin btn-sign(  $colors , $sizes , $radius : 4px , $btn-sign_class : "btn-sign" ){
+
+	// @include btn( $colors , $sizes , $radius, $btn-sign_class );
+	
+	$template : $PX + "btn-sign";
+
+	@if index( $TPL , $template ) == false {
+		// create the %btn Placeholder
+		%#{$template}{
+			// extend %btn template
+			@extend %#{$PX + "btn"} ;
+
+			// apply first color / size to default behavior
+			@include _btn-color( nth( $colors , 1 ) );
+			@include _btn-sign-size( nth( $sizes , 1 ) );
+
+			// create all the colors classes
+			@each $color in $colors{
+				$_color-name 	: nth( $color , 1 );
+
+				&.#{$PX + $btn-sign_class+"-"+$_color-name}{
+					@include _btn-color( $color );
+				}
+			}
+			// create all the sizes classes
+			@each $size in $sizes{
+				$_size-name 	: nth( $size , 1 );
+
+				&.#{$PX + $btn-sign_class+"-"+$_size-name}{
+					@include _btn-sign-size( $size );	
+				}
+			}
 		}
-		$EXT : append( $EXT , $btn_class );
+		$TPL : append( $TPL , $template );
+	}
+
+	// create the .btn-sign class which extends %btn-sign template
+	.#{$btn-sign_class}{
+		@extend %#{ $template };
+		@include border-radius( $radius );
 	}
 
 }
