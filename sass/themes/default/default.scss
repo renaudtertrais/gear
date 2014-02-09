@@ -1,9 +1,9 @@
-//$PREFIX : "gear";
-
+// $PREFIX : "gear";
 
 @import "compass";
 @import "../../gear/gear.scss";
 
+// * * * VARS * * *
 
 $colors :
 	( "default" , #FFF , #555 , #CCC ),
@@ -11,12 +11,25 @@ $colors :
 	( "success" , #3C7 );
 
 
+// * * * init * * *
+@include init( #FFF );
+
 // * * * buttons * * * 
+// btn
 $btn-colors : $colors ;
 $btn-sizes 	: 
 	( "medium" 	, 40px ),
-	( "min" 	, 30px ),
-	( "micro" 	, 20px ),
+	( "min" 	, 30px , 14px ),
+	( "micro" 	, 22px , 12px ),
 	( "max" 	, 50px ),
 	( "fat" 	, 60px );
 @include btn( $btn-colors , $btn-sizes );
+// btn-sign
+$btn-sign-colors 	: $colors;
+$btn-sign-sizes 	: 
+	( "medium" 	, 40px , 26px),
+	( "min" 	, 30px , 18px ),
+	( "micro" 	, 20px , 14px ),
+	( "max" 	, 50px , 34px ),
+	( "fat" 	, 60px , 42px );
+@include btn-sign( $btn-sign-colors , $btn-sign-sizes );
