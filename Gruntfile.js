@@ -7,7 +7,7 @@ module.exports = function(grunt){
 					compass : true
 				},
 			    files: {
-			        'dist/css/gear.min.css' : 'sass/themes/default/default.scss',       // 'destination': 'source'
+			        'dist/css/gear.min.css' : 'themes/default/default.scss',       // 'destination': 'source'
 			    }
 			},
 			exp: {                          
@@ -16,12 +16,12 @@ module.exports = function(grunt){
 					compass : true
 				},
 			    files: {
-			        'dist/css/gear.css' : 'sass/themes/default/default.scss',    
+			        'dist/css/gear.css' : 'themes/default/default.scss',    
 			    }
 			}
 		},
 		watch: {
-			scss: {
+			livereload: {
 				files: ['*.html,gh-pages/**'],
 				options: {
 					spawn: false,
@@ -29,7 +29,7 @@ module.exports = function(grunt){
 				},
 			},
 			scss: {
-				files: ['sass/**'],
+				files: ['gear/scss/**','themes/**'],
 				tasks: ['dist-css'],
 				options: {
 					spawn: false,

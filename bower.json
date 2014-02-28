@@ -18,5 +18,9 @@
   "devDependencies": {
     "jquery": "~2.1.0",
     "font-awesome": "~4.0.3"
+  },
+  "dependencies": {
+    "angular": "~1.2.13",
+    "angular-route": "~1.2.13"
   }
 }
