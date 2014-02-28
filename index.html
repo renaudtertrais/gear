@@ -13,7 +13,7 @@
 	<script src="lib/angular-route/angular-route.js"></script>
 
 	<!-- GEAR -->
-	<link rel="stylesheet" href="dist/css/gear.min.css">
+	<link rel="stylesheet" href="dist/css/gear.css">
 
 	<!-- GH-PAGES -->
 	<script src="gh-pages/js/gear-gh-pages.js"></script>
@@ -25,13 +25,15 @@
 			<h1>gear framework</h1>
 			<h4>An awesome front-end framework is comming... stay tuned !</h4>
 		</div>
-
-		<ul id="main-menu">
-			<li><a href="#/getting-started">Geting started</a></li>
-			<li><a href="#/css">CSS</a></li>
-			<li><a href="#/js">JS</a></li>
-			<li><a href="#/doc">Doc</a></li>
-		</ul>
+		
+		<nav>
+			<ul id="main-menu" class="container">
+				<li><a href="#/getting-started">Geting started</a></li>
+				<li><a href="#/css">CSS</a></li>
+				<li><a href="#/js">JS</a></li>
+				<li><a href="#/doc">Doc</a></li>
+			</ul>
+		</nav>
 	</header>
 
 	<div class="container" ng-view></div>

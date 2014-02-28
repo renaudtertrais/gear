@@ -1,0 +1,9 @@
+@mixin container( $fluid  : true , $breakpoints : 960px , $container_class : "container"){
+	.#{$PX + $container_class}{
+		margin: auto;
+		@if( $fluid ){
+			width: 100%;
+			max-width: $breakpoints;
+		}	
+	}
+}
