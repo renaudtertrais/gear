@@ -4,7 +4,7 @@
 		$font-size 		: $FONT-SIZE ,
 		$color 			: $FONT-COLOR ,
 		$line-height 	: $LINE-HEIGHT ,
-		$reset : "Eric Meyer" ){
+		$reset 			: "Eric Meyer" ){
 
 	@if( $reset == "Eric Meyer" ){
 		/**

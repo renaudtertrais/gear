@@ -30,9 +30,9 @@ $btn-sizes 	:
 // btn-sign
 $btn-sign-colors 	: $colors;
 $btn-sign-sizes 	: 
-	( "medium" 	, 40px , 26px),
-	( "min" 	, 30px , 18px ),
+	( "medium" 	, 40px , 28px),
+	( "min" 	, 30px , 21px ),
 	( "micro" 	, 20px , 14px ),
-	( "max" 	, 50px , 34px ),
+	( "max" 	, 50px , 35px ),
 	( "fat" 	, 60px , 42px );
 @include btn-sign( $btn-sign-colors , $btn-sign-sizes );
