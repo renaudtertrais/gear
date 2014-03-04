@@ -1,8 +1,4 @@
-.btn > *, .btn-sign > * {
-  line-height: initial;
-  display: inline-block;
-}
-
+/* SIZES */
 /**
  * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
  * http://cssreset.com
@@ -108,237 +104,230 @@ h6 {
   line-height: 2;
 }
 
-.btn, .btn-sign {
+/* default behavior */
+.btn,
+.btn-sign {
   cursor: pointer;
   display: inline-block;
   border-style: solid;
-  background-color: white;
-  color: #555555;
-  border-color: #cccccc;
-  height: 40px;
-  border-width: 1px;
-  padding: 0 20px;
-  font-size: 16px;
-  line-height: 40px;
-}
-.btn:hover, .btn-sign:hover {
-  background-color: #f2f2f2;
-  border-color: #bfbfbf;
-}
-.btn:active, .btn-sign:active,
-.btn .active,
-.btn-sign .active {
-  background-color: #e6e6e6;
-  border-color: #b3b3b3;
-}
-.btn-default.btn, .btn-default.btn-sign {
-  background-color: white;
-  color: #555555;
-  border-color: #cccccc;
-}
-.btn-default.btn:hover, .btn-default.btn-sign:hover {
-  background-color: #f2f2f2;
-  border-color: #bfbfbf;
-}
-.btn-default.btn:active, .btn-default.btn-sign:active,
-.btn-default.btn .active,
-.btn-default.btn-sign .active {
-  background-color: #e6e6e6;
-  border-color: #b3b3b3;
-}
-.btn-primary.btn, .btn-primary.btn-sign {
-  background-color: #5588ee;
-  color: white;
-  border-color: #5588ee;
-}
-.btn-primary.btn:hover, .btn-primary.btn-sign:hover {
-  background-color: #3e78ec;
-  border-color: #3e78ec;
-}
-.btn-primary.btn:active, .btn-primary.btn-sign:active,
-.btn-primary.btn .active,
-.btn-primary.btn-sign .active {
-  background-color: #2768e9;
-  border-color: #2768e9;
-}
-.btn-success.btn, .btn-success.btn-sign {
-  background-color: #33cc77;
-  color: white;
-  border-color: #33cc77;
-}
-.btn-success.btn:hover, .btn-success.btn-sign:hover {
-  background-color: #2eb86b;
-  border-color: #2eb86b;
-}
-.btn-success.btn:active, .btn-success.btn-sign:active,
-.btn-success.btn .active,
-.btn-success.btn-sign .active {
-  background-color: #29a35f;
-  border-color: #29a35f;
-}
-.btn-medium.btn, .btn-medium.btn-sign {
-  height: 40px;
-  border-width: 1px;
-  padding: 0 20px;
-  font-size: 16px;
-  line-height: 40px;
-}
-.btn-min.btn, .btn-min.btn-sign {
-  height: 30px;
-  border-width: 1px;
-  padding: 0 15px;
-  font-size: 14px;
-  line-height: 30px;
-}
-.btn-micro.btn, .btn-micro.btn-sign {
-  height: 22px;
-  border-width: 1px;
-  padding: 0 11px;
-  font-size: 12px;
-  line-height: 22px;
-}
-.btn-max.btn, .btn-max.btn-sign {
-  height: 50px;
-  border-width: 1px;
-  padding: 0 25px;
-  font-size: 20px;
-  line-height: 50px;
-}
-.btn-fat.btn, .btn-fat.btn-sign {
-  height: 60px;
-  border-width: 1px;
-  padding: 0 30px;
-  font-size: 24px;
-  line-height: 60px;
-}
-
-.btn {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
   border-radius: 4px;
-}
-
-.btn-sign {
   background-color: white;
   color: #555555;
   border-color: #cccccc;
-  height: 40px;
-  border-width: 1px;
-  padding: 0 20px;
-  font-size: 28px;
-  line-height: 40px;
-  width: 40px;
-  text-align: center;
-  padding: 0;
 }
+.btn:hover,
 .btn-sign:hover {
   background-color: #f2f2f2;
   border-color: #bfbfbf;
 }
+.btn:active,
+.btn .active,
 .btn-sign:active,
 .btn-sign .active {
   background-color: #e6e6e6;
   border-color: #b3b3b3;
 }
-.btn-sign-default.btn-sign {
+.btn.btn-default,
+.btn-sign.btn-default {
   background-color: white;
   color: #555555;
   border-color: #cccccc;
 }
-.btn-sign-default.btn-sign:hover {
+.btn.btn-default:hover,
+.btn-sign.btn-default:hover {
   background-color: #f2f2f2;
   border-color: #bfbfbf;
 }
-.btn-sign-default.btn-sign:active,
-.btn-sign-default.btn-sign .active {
+.btn.btn-default:active,
+.btn.btn-default .active,
+.btn-sign.btn-default:active,
+.btn-sign.btn-default .active {
   background-color: #e6e6e6;
   border-color: #b3b3b3;
 }
-.btn-sign-primary.btn-sign {
+.btn.btn-primary,
+.btn-sign.btn-primary {
   background-color: #5588ee;
   color: white;
   border-color: #5588ee;
 }
-.btn-sign-primary.btn-sign:hover {
+.btn.btn-primary:hover,
+.btn-sign.btn-primary:hover {
   background-color: #3e78ec;
   border-color: #3e78ec;
 }
-.btn-sign-primary.btn-sign:active,
-.btn-sign-primary.btn-sign .active {
+.btn.btn-primary:active,
+.btn.btn-primary .active,
+.btn-sign.btn-primary:active,
+.btn-sign.btn-primary .active {
   background-color: #2768e9;
   border-color: #2768e9;
 }
-.btn-sign-success.btn-sign {
+.btn.btn-success,
+.btn-sign.btn-success {
   background-color: #33cc77;
   color: white;
   border-color: #33cc77;
 }
-.btn-sign-success.btn-sign:hover {
+.btn.btn-success:hover,
+.btn-sign.btn-success:hover {
   background-color: #2eb86b;
   border-color: #2eb86b;
 }
-.btn-sign-success.btn-sign:active,
-.btn-sign-success.btn-sign .active {
+.btn.btn-success:active,
+.btn.btn-success .active,
+.btn-sign.btn-success:active,
+.btn-sign.btn-success .active {
   background-color: #29a35f;
   border-color: #29a35f;
 }
-.btn-sign-medium.btn-sign {
+
+.btn {
   height: 40px;
   border-width: 1px;
-  padding: 0 20px;
-  font-size: 28px;
+  padding: 0 26.66667px;
+  font-size: 16px;
   line-height: 40px;
-  width: 40px;
-  text-align: center;
-  padding: 0;
 }
-.btn-sign-min.btn-sign {
+.btn > * {
+  line-height: initial;
+  vertical-align: middle;
+}
+.btn.btn-medium {
+  height: 40px;
+  border-width: 1px;
+  padding: 0 26.66667px;
+  font-size: 16px;
+  line-height: 40px;
+}
+.btn.btn-medium > * {
+  line-height: initial;
+  vertical-align: middle;
+}
+.btn.btn-micro {
+  height: 22px;
+  border-width: 1px;
+  padding: 0 14.66667px;
+  font-size: 12px;
+  line-height: 22px;
+}
+.btn.btn-micro > * {
+  line-height: initial;
+  vertical-align: middle;
+}
+.btn.btn-min {
   height: 30px;
   border-width: 1px;
-  padding: 0 15px;
-  font-size: 21px;
-  line-height: 30px;
-  width: 30px;
-  text-align: center;
-  padding: 0;
-}
-.btn-sign-micro.btn-sign {
-  height: 20px;
-  border-width: 1px;
-  padding: 0 10px;
+  padding: 0 20px;
   font-size: 14px;
-  line-height: 20px;
-  width: 20px;
-  text-align: center;
-  padding: 0;
+  line-height: 30px;
 }
-.btn-sign-max.btn-sign {
+.btn.btn-min > * {
+  line-height: initial;
+  vertical-align: middle;
+}
+.btn.btn-max {
   height: 50px;
   border-width: 1px;
-  padding: 0 25px;
-  font-size: 35px;
+  padding: 0 33.33333px;
+  font-size: 20px;
   line-height: 50px;
-  width: 50px;
-  text-align: center;
-  padding: 0;
 }
-.btn-sign-fat.btn-sign {
+.btn.btn-max > * {
+  line-height: initial;
+  vertical-align: middle;
+}
+.btn.btn-fat {
   height: 60px;
   border-width: 1px;
-  padding: 0 30px;
-  font-size: 42px;
+  padding: 0 40px;
+  font-size: 24px;
   line-height: 60px;
-  width: 60px;
-  text-align: center;
-  padding: 0;
+}
+.btn.btn-fat > * {
+  line-height: initial;
+  vertical-align: middle;
 }
 
 .btn-sign {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
+  height: 40px;
+  width: 40px;
+  font-size: 28px;
+  border-width: 1px;
+  padding: 0;
+  text-align: center;
+  line-height: 40px;
+}
+.btn-sign > * {
+  line-height: initial;
+  vertical-align: middle;
+}
+.btn-sign.btn-medium {
+  height: 40px;
+  width: 40px;
+  font-size: 28px;
+  border-width: 1px;
+  padding: 0;
+  text-align: center;
+  line-height: 40px;
+}
+.btn-sign.btn-medium > * {
+  line-height: initial;
+  vertical-align: middle;
+}
+.btn-sign.btn-micro {
+  height: 22px;
+  width: 22px;
+  font-size: 15px;
+  border-width: 1px;
+  padding: 0;
+  text-align: center;
+  line-height: 22px;
+}
+.btn-sign.btn-micro > * {
+  line-height: initial;
+  vertical-align: middle;
+}
+.btn-sign.btn-min {
+  height: 30px;
+  width: 30px;
+  font-size: 21px;
+  border-width: 1px;
+  padding: 0;
+  text-align: center;
+  line-height: 30px;
+}
+.btn-sign.btn-min > * {
+  line-height: initial;
+  vertical-align: middle;
+}
+.btn-sign.btn-max {
+  height: 50px;
+  width: 50px;
+  font-size: 35px;
+  border-width: 1px;
+  padding: 0;
+  text-align: center;
+  line-height: 50px;
+}
+.btn-sign.btn-max > * {
+  line-height: initial;
+  vertical-align: middle;
+}
+.btn-sign.btn-fat {
+  height: 60px;
+  width: 60px;
+  font-size: 42px;
+  border-width: 1px;
+  padding: 0;
+  text-align: center;
+  line-height: 60px;
+}
+.btn-sign.btn-fat > * {
+  line-height: initial;
+  vertical-align: middle;
 }

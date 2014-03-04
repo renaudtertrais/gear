@@ -6,14 +6,20 @@ $PREFIX 		: "" 	!default;
 	$PX 			: $PREFIX;
 	@if $PX != "" { $PX  : $PX +"-" ; }
 
+
+// * FONT *
+
 // FONT-COLOR
 $FONT-COLOR 	: #555 	!default;
 // FONT-SIZE
 $FONT-SIZE 		: 16px 	!default;
 // LINE-HEIGTH 
 $LINE-HEIGHT 	: 1.2 	!default;
-//
-$FONT-FAMILY 	: "Helvetica Neue", Helvetica, Arial, sans-serif;
+// FONT-FAMILY
+$FONT-FAMILY 	: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+
+// RADIUS
+$RADIUS 		: 4px !default;
 
 
 // * * * GLOBAL VARS * * *

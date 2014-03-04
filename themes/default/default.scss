@@ -10,6 +10,20 @@ $colors :
 	( "primary" , #58E ),
 	( "success" , #3C7 );
 
+/* SIZES */
+
+$size-micro 	: "micro" 		, 22px , 12px ;
+$size-min 		: "min" 		, 30px , 14px ;
+$size-default 	: "medium" 		, 40px ;
+$size-max 		: "max" 		, 50px ;
+$size-fat 		: "fat" 		, 60px ;
+
+$sizes : 
+	$size-default 	, 
+	$size-micro 	, 
+	$size-min 		, 
+	$size-max 		, 
+	$size-fat 		;
 
 // * * * init * * *
 @include init( #FFF );
@@ -23,19 +37,5 @@ $colors :
 // * * * buttons * * * 
 // btn
 $btn-colors : $colors ;
-$btn-sizes 	: 
-	( "medium" 	, 40px ),
-	( "min" 	, 30px , 14px ),
-	( "micro" 	, 22px , 12px ),
-	( "max" 	, 50px ),
-	( "fat" 	, 60px );
+$btn-sizes 	: $sizes ;
 @include btn( $btn-colors , $btn-sizes );
-// btn-sign
-$btn-sign-colors 	: $colors;
-$btn-sign-sizes 	: 
-	( "medium" 	, 40px , 28px),
-	( "min" 	, 30px , 21px ),
-	( "micro" 	, 20px , 14px ),
-	( "max" 	, 50px , 35px ),
-	( "fat" 	, 60px , 42px );
-@include btn-sign( $btn-sign-colors , $btn-sign-sizes );

@@ -1,173 +1,157 @@
 // btn-color
-@mixin _btn-color( $color ){
-	$_color-name 	: nth( $color , 1 );
-	$_color-bg 		: nth( $color , 2 );
-	$_color-font 	: "";
-	$_color-border 	: "";
-	// font-color
-	@if length( $color ) < 3{
-		@if lightness( $_color-bg ) > lightness( #BBB ){
-			$_color-font : $FONT-COLOR;
-		}@else{
-			$_color-font 	: #FFF;
-		}
-	}@else{
-		$_color-font 		: nth( $color , 3 );
-	}
-	// border-color
-	@if length( $color ) < 4{
-		$_color-border 		: $_color-bg ;
-	}@else{
-		$_color-border 		: nth( $color , 4 );
-	}
-
-	// output
-	background-color 	: $_color-bg ;
-	color 				: $_color-font ;
-	border-color 		: $_color-border ;
+@mixin _btn-color( $color-bg , $color-font , $color-border ){	
+	// normal
+	background-color 	: $color-bg ;
+	color 				: $color-font ;
+	border-color 		: $color-border ;
 	// hover
 	&:hover{
-		background-color: darken( $_color-bg , 5% );
-		border-color 	: darken( $_color-border , 5% );
+		background-color: darken( $color-bg , 5% );
+		border-color 	: darken( $color-border , 5% );
 	}
 	// active
 	&:active,
 	.active{
-		background-color: darken( $_color-bg , 10% ) ;
-		border-color 	: darken( $_color-border , 10% ) ;
+		background-color: darken( $color-bg , 10% ) ;
+		border-color 	: darken( $color-border , 10% ) ;
 	}
 }
 
 // btn-size
-@mixin _btn-size( $size ){
-	$_size-name 	: nth( $size , 1 );
-	$_size-height 	: nth( $size , 2 );
-	$_size-font 	: "";
-	$_size-padding 	: "";
-	$_size-border 	: "";
+@mixin _btn-size( $size-height , $size-font , $size-padding , $size-border ){
+	height 			: $size-height ;
+	border-width 	: $size-border ;
+	padding 		: $size-padding ;
+	font-size 		: $size-font ;
+	@include _line-height( $size-height );
+}
+
+// btn-sign-size
+@mixin _btn-sign-size( $size-height , $size-font , $size-padding , $size-border ){
+	height 			: $size-height ;
+	width  			: $size-height ;
+	font-size 		: round( $size-height / 1.42 ) ;
+	border-width 	: $size-border ;
+	padding 		: 0 ;
+	text-align 	: center ;
+	@include _line-height( $size-height );
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * *
+// YOU SHOULD NOT OVERRIDE THE MIXINS BELOW
+// * * * * * * * * * * * * * * * * * * * * *
+
+// btn-color-params
+@mixin _btn-color-params( $color ){
+	$color-name 	: nth( $color , 1 );
+	$color-bg 		: nth( $color , 2 );
+	$color-font 	: "";
+	$color-border 	: "";
+	// font-color
+	@if length( $color ) < 3{
+		@if lightness( $color-bg ) > lightness( #BBB ){
+			$color-font : $FONT-COLOR;
+		}@else{
+			$color-font 	: #FFF;
+		}
+	}@else{
+		$color-font 		: nth( $color , 3 );
+	}
+	// border-color
+	@if length( $color ) < 4{
+		$color-border 		: $color-bg ;
+	}@else{
+		$color-border 		: nth( $color , 4 );
+	}
+
+	@include _btn-color( $color-bg , $color-font , $color-border );
+}
+
+// btn-size-params
+@mixin _btn-size-params( $size , $callback : "_btn-size" ){
+	$size-name 		: nth( $size , 1 );
+	$size-height 	: nth( $size , 2 );
+	$size-font 		: "";
+	$size-padding 	: "";
+	$size-border 	: "";
 
 	// font-size
 	@if length( $size ) < 3{
-		$_size-font 	: $_size-height / 2.5 ;
+		$size-font 	: $size-height / 2.5 ;
 	}@else{
-		$_size-font 	: nth( $size , 3 );
+		$size-font 	: nth( $size , 3 );
 	}
 	// padding
 	@if length( $size ) < 4{
-		$_size-padding 		: 0 $_size-height / 2 ;
+		$size-padding 		: 0 $size-height / 1.5 ;
 	}@else{
-		$_size-padding 		: nth( $size , 4 );
+		$size-padding 		: nth( $size , 4 );
 	}
 	// border-width
 	@if length( $size ) < 5{
-		$_size-border 		: 1px ;
+		$size-border 		: 1px ;
 	}@else{
-		$_size-border 		: nth( $size , 5 );
+		$size-border 		: nth( $size , 5 );
 	}
-
-	// output
-	height 			: $_size-height ;
-	border-width 	: $_size-border ;
-	padding 		: $_size-padding ;
-	font-size 		: $_size-font ;
-	@include _line-height( $_size-height );
-}
-
-
-
-
-// btn
-@mixin btn( $colors , $sizes , $radius : 4px , $btn_class : "btn" ){
-	$template : $PX + "btn";
-	@if index( $TPL , $template ) == false {
-		// create the %btn Placeholder
-		%#{$template}{
-    		cursor 			: pointer ;
-			display 		: inline-block ;
-			border-style 	: solid ;
-
-			// apply first color / size to default behavior
-			@include _btn-color( nth( $colors , 1 ) );
-			@include _btn-size( nth( $sizes , 1 ) );
-
-			// create all the colors classes
-			@each $color in $colors{
-				$_color-name 	: nth( $color , 1 );
-
-				&.#{$PX + $btn_class+"-"+$_color-name}{
-					@include _btn-color( $color );
-				}
-			}
-			// create all the sizes classes
-			@each $size in $sizes{
-				$_size-name 	: nth( $size , 1 );
-
-				&.#{$PX + $btn_class+"-"+$_size-name}{
-					@include _btn-size( $size );
-				}
-			}
-		}
-		$TPL : append( $TPL , $template );
-	}
-
-	// create the .btn class which extends %btn
-	.#{$btn_class}{
-		@extend %#{ $template };
-		@include border-radius( $radius );
+	// call the callback
+	@if( $callback == "_btn-size"){
+		@include _btn-size( $size-height , $size-font , $size-padding , $size-border );
+	}@else if( $callback == "_btn-sign-size"){
+		@include _btn-sign-size( $size-height , $size-font , $size-padding , $size-border );
 	}
 }
 
-// btn-size
-@mixin _btn-sign-size( $size ){
-	@include _btn-size( $size );
-	$_size-name 	: nth( $size , 1 );
-	$_size-width 	: nth( $size , 2 );
-	width  		: $_size-width ;
-	text-align 	: center ;
-	padding 	: 0 ;
-}
 
-// btn-sign
-@mixin btn-sign(  $colors , $sizes , $radius : 4px , $btn-sign_class : "btn-sign" ){
-
-	// @include btn( $colors , $sizes , $radius, $btn-sign_class );
+// btn main mixin
+@mixin btn( $colors , $sizes , $radius : $RADIUS , $btn_class : "btn" , $btn-sign_suffix : "sign" ){
+	$btn-sign_class : $btn_class + '-' + $btn-sign_suffix ;
 	
-	$template : $PX + "btn-sign";
+	/* default behavior */
+	.#{$btn_class},
+	.#{$btn-sign_class}{
+		cursor 			: pointer ;
+		display 		: inline-block ;
+		border-style 	: solid ;
+		@include border-radius( $radius );
 
-	@if index( $TPL , $template ) == false {
-		// create the %btn Placeholder
-		%#{$template}{
-			// extend %btn template
-			@extend %#{$PX + "btn"} ;
+		// * COLORS *
+		// apply first color to default behavior
+		@include _btn-color-params( nth( $colors , 1 ) );
+		// create all the colors classes
+		@each $color in $colors{
+			$color-name 	: nth( $color , 1 );
 
-			// apply first color / size to default behavior
-			@include _btn-color( nth( $colors , 1 ) );
-			@include _btn-sign-size( nth( $sizes , 1 ) );
-
-			// create all the colors classes
-			@each $color in $colors{
-				$_color-name 	: nth( $color , 1 );
-
-				&.#{$PX + $btn-sign_class+"-"+$_color-name}{
-					@include _btn-color( $color );
-				}
-			}
-			// create all the sizes classes
-			@each $size in $sizes{
-				$_size-name 	: nth( $size , 1 );
-
-				&.#{$PX + $btn-sign_class+"-"+$_size-name}{
-					@include _btn-sign-size( $size );	
-				}
+			&.#{$PX + $btn_class+"-"+$color-name}{
+				@include _btn-color-params( $color) ;
 			}
 		}
-		$TPL : append( $TPL , $template );
 	}
+	// * SIZE *
+	// .btn
+	.#{$btn_class}{
+		// apply first size to default behavior
+		@include _btn-size-params( nth( $sizes , 1 ) );
+		// create all the sizes classes
+		@each $size in $sizes{
+			$size-name 	: nth( $size , 1 );
 
-	// create the .btn-sign class which extends %btn-sign template
+			&.#{$PX + $btn_class+"-"+$size-name}{
+				@include _btn-size-params( $size );
+			}
+		}
+	}
+	// .btn-sign
 	.#{$btn-sign_class}{
-		@extend %#{ $template };
-		@include border-radius( $radius );
-	}
+		// apply first size to default behavior
+		@include _btn-size-params( nth( $sizes , 1 ) , "_btn-sign-size" );
+		// create all the sizes classes
+		@each $size in $sizes{
+			$size-name 	: nth( $size , 1 );
 
+			&.#{$PX + $btn_class+"-"+$size-name}{
+				@include _btn-size-params( $size , "_btn-sign-size" );
+			}
+		}
+	}
 }
