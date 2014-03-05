@@ -4,6 +4,10 @@
 		@if( $fluid ){
 			width: 100%;
 			max-width: $breakpoints;
+		}@else{
+			@each $breakpoint in $breakpoints {
+				
+			}
 		}	
 	}
 }
