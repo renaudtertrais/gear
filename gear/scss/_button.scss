@@ -33,7 +33,7 @@
 	font-size 		: round( $size-height / 1.42 ) ;
 	border-width 	: $size-border ;
 	padding 		: 0 ;
-	text-align 	: center ;
+	text-align 		: center ;
 	@include _line-height( $size-height );
 }
 
@@ -105,6 +105,7 @@
 
 // btn main mixin
 @mixin btn( $colors , $sizes , $radius : $RADIUS , $btn_class : "btn" , $btn-sign_suffix : "sign" ){
+	$btn_class 		: $PX + $btn_class;	
 	$btn-sign_class : $btn_class + '-' + $btn-sign_suffix ;
 	
 	/* default behavior */
@@ -122,7 +123,7 @@
 		@each $color in $colors{
 			$color-name 	: nth( $color , 1 );
 
-			&.#{$PX + $btn_class+"-"+$color-name}{
+			&.#{c $btn_class+"-"+$color-name}{
 				@include _btn-color-params( $color) ;
 			}
 		}
