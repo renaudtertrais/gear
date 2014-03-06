@@ -1,4 +1,14 @@
-@mixin container( $max-width : 960px , $fluid  : true , $container_class : "container" , $breakpoints : "" ){
+// * * * * * * * * * * * * * * * * * * * * *
+// YOU SHOULD NOT OVERRIDE THE MIXINS BELOW
+// * * * * * * * * * * * * * * * * * * * * *
+
+// container
+@mixin container( 
+		$max-width 			: $MAX-WIDTH , 
+		$fluid  			: true , 
+		$container_class 	: "container" , 
+		$breakpoints 		: "" 
+	){
 	.#{$PX + $container_class}{
 		margin: auto;
 		width: 100%;

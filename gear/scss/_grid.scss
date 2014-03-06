@@ -1,0 +1,54 @@
+// * * * * * * * * * * * * * * * * * * * * *
+// YOU SHOULD NOT OVERRIDE THE MIXINS BELOW
+// * * * * * * * * * * * * * * * * * * * * *
+
+// grid
+@mixin grid( 
+		$breakpoints , 
+		$col-gap 			: $GRID_COL-GAP , 
+		$col-number 		: $GRID_COL-NUMBER , 
+		$grid_class 		: "grid" , 
+		$cell_class 		: "cell" , 
+		$grid-close_suffix 	: "close" 
+	){
+	$grid_class 		: $PX + $grid_class ;
+	$grid-close_class 	: $grid_class +"-"+ $grid-close_suffix ;
+	$cell_class 		: $PX + $cell_class ;
+	.#{$grid_class},
+	.#{$grid-close_class}{
+		&:after{
+			clear: both;
+			display: table;
+  			content: " ";
+		}
+	}
+	.#{$grid_class}{
+		margin-left 	: $col-gap / -2 ;
+		margin-right 	: $col-gap / -2 ;
+	}
+
+	@include _checkList( $breakpoints , "breakpoints" );
+
+	@each $breakpoint in $breakpoints{
+		@include _checkList( $breakpoint , "breakpoint" );
+
+		@media (min-width: nth($breakpoint,2)){
+			@for $i from 1 through $col-number {
+				.#{$grid_class},
+				.#{$grid-close_class}{
+					& > .#{$cell_class +"-"+ nth($breakpoint,1) +"-"+ $i }{
+						width 			: ( $i * 100% ) / $col-number ;
+						float 			: left ;
+					}
+				}
+				.#{$grid_class}{
+					& > .#{$cell_class +"-"+ nth($breakpoint,1) +"-"+ $i }{
+						padding-left  : $col-gap / 2 ;
+						padding-right : $col-gap / 2 ;
+					}
+				}
+			}
+		}
+	}
+
+}

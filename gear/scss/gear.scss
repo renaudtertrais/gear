@@ -1,37 +1,53 @@
-// * * * GLOBAL CONTANTS * * *
+// * * * * * * * * * * * * * * * * * * * * *
+//
+// * * * * DEFAULT GLOBAL CONTANTS * * * * *
+//
+// YOU SHOULD NOT CHANGE THE GLOBALS BELOW
+// YOU CAN OVERRIDE THEM IN YOUR THEME
+//
+// * * * * * * * * * * * * * * * * * * * * *
 
-// PREFIX : default value : '';
-$PREFIX 		: "" 	!default;
-	// PREFIX alias
-	$PX 			: $PREFIX;
-	@if $PX != "" { $PX  : $PX +"-" ; }
-
-
+// PREFIX 
+$PREFIX 			: "" 	!default;
+	
 // * FONT *
 
 // FONT-COLOR
-$FONT-COLOR 	: #555 	!default;
+$FONT-COLOR 		: #555 	!default;
 // FONT-SIZE
-$FONT-SIZE 		: 16px 	!default;
+$FONT-SIZE 			: 16px 	!default;
 // LINE-HEIGTH 
-$LINE-HEIGHT 	: 1.2 	!default;
+$LINE-HEIGHT 		: 1.2 	!default;
 // FONT-FAMILY
-$FONT-FAMILY 	: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$FONT-FAMILY 		: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 
+// * DIMMENSIONS *
+
+// MAX-WITH
+$MAX-WIDTH 			: 960;
 // RADIUS
-$RADIUS 		: 4px !default;
+$RADIUS 			: 4px !default;
+
+// GRID
+$GRID_COL-NUMBER 	: 12 ;
+$GRID_COL-GAP 		: 30px ;
 
 
-// * * * GLOBAL VARS * * *
-
-// EXT list of template available to extends
-$TPL : ();
 
 
+// * * * * * * * * * * * * * * * * * * * * 
+// YOU SHOULD NOT OVERRIDE THE CODE BELOW
+// * * * * * * * * * * * * * * * * * * * * 
 
-// button
+
+// PREFIX alias
+$PX 			: $PREFIX;
+@if $PX != "" { $PX  : $PX +"-" ; }
+
+// * * * IMPORTS * * *
 @import "utilities";
 @import "init";
 @import "responsive";
+@import "grid";
 @import "typographie";
 @import "button";
