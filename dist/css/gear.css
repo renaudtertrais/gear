@@ -932,7 +932,6 @@ h6 {
 }
 .btn > * {
   line-height: initial;
-  vertical-align: middle;
 }
 .btn.btn-medium {
   height: 40px;
@@ -943,7 +942,6 @@ h6 {
 }
 .btn.btn-medium > * {
   line-height: initial;
-  vertical-align: middle;
 }
 .btn.btn-micro {
   height: 22px;
@@ -954,7 +952,6 @@ h6 {
 }
 .btn.btn-micro > * {
   line-height: initial;
-  vertical-align: middle;
 }
 .btn.btn-min {
   height: 30px;
@@ -965,7 +962,6 @@ h6 {
 }
 .btn.btn-min > * {
   line-height: initial;
-  vertical-align: middle;
 }
 .btn.btn-max {
   height: 50px;
@@ -976,7 +972,6 @@ h6 {
 }
 .btn.btn-max > * {
   line-height: initial;
-  vertical-align: middle;
 }
 .btn.btn-fat {
   height: 60px;
@@ -987,7 +982,6 @@ h6 {
 }
 .btn.btn-fat > * {
   line-height: initial;
-  vertical-align: middle;
 }
 
 .btn-sign {
@@ -1001,7 +995,6 @@ h6 {
 }
 .btn-sign > * {
   line-height: initial;
-  vertical-align: middle;
 }
 .btn-sign.btn-medium {
   height: 40px;
@@ -1014,7 +1007,6 @@ h6 {
 }
 .btn-sign.btn-medium > * {
   line-height: initial;
-  vertical-align: middle;
 }
 .btn-sign.btn-micro {
   height: 22px;
@@ -1027,7 +1019,6 @@ h6 {
 }
 .btn-sign.btn-micro > * {
   line-height: initial;
-  vertical-align: middle;
 }
 .btn-sign.btn-min {
   height: 30px;
@@ -1040,7 +1031,6 @@ h6 {
 }
 .btn-sign.btn-min > * {
   line-height: initial;
-  vertical-align: middle;
 }
 .btn-sign.btn-max {
   height: 50px;
@@ -1053,7 +1043,6 @@ h6 {
 }
 .btn-sign.btn-max > * {
   line-height: initial;
-  vertical-align: middle;
 }
 .btn-sign.btn-fat {
   height: 60px;
@@ -1066,5 +1055,58 @@ h6 {
 }
 .btn-sign.btn-fat > * {
   line-height: initial;
-  vertical-align: middle;
+}
+
+.navbar {
+  height: 60px;
+  line-height: 60px;
+  background-color: #222222;
+  color: white;
+}
+.navbar > * {
+  line-height: initial;
+}
+.navbar * {
+  color: white;
+}
+.navbar .nav {
+  height: 100%;
+  line-height: 60px;
+}
+.navbar .nav > * {
+  line-height: initial;
+}
+.navbar ul.nav > li {
+  float: left;
+  height: 100%;
+}
+.navbar ul.nav > li > a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 0 20px;
+  line-height: 60px;
+}
+.navbar ul.nav > li > a > * {
+  line-height: initial;
+}
+.navbar ul.nav > li > a:hover {
+  background-color: #151515;
+  color: white;
+}
+.navbar ul.nav > li > a:active, .navbar ul.nav > li > a.active {
+  background-color: #090909;
+  color: white;
+}
+.navbar ul.nav > li > a.brand {
+  font-size: 1.6em;
+  font-weight: 300;
+}
+.navbar ul.nav > li > a.brand:hover {
+  background-color: transparent;
+  color: #e6e6e6;
+}
+.navbar ul.nav > li > a.brand:active, .navbar ul.nav > li > a.brand.active {
+  background-color: transparent;
+  color: #cccccc;
 }
