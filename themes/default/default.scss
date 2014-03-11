@@ -24,7 +24,7 @@ $colors :
 	$color-warning ,
 	$color-alert ;
 
-/* SIZES */
+// * * * SIZES 
 
 $size-micro 	: "micro" 		, 22px , 12px ;
 $size-min 		: "min" 		, 30px , 14px ;
@@ -39,13 +39,33 @@ $sizes :
 	$size-max 		, 
 	$size-fat 		;
 
+// * * * BREAKPOINTS
+
+
+$breakpoint-xs 	: "xs"	, 320px ;
+$breakpoint-s 	: "s"	, 480px ;
+$breakpoint-m 	: "m"	, 768px ;
+$breakpoint-l  : "l"	, 1024px ;
+$breakpoint-xl  : "xl"	, 1200px ;
+
+$breakpoints :
+	$breakpoint-xs,
+	$breakpoint-s ,
+	$breakpoint-m ,
+	$breakpoint-l,
+	$breakpoint-xl;
 
 
 // * * * init * * *
 @include init( #FFF );
 
 // * * * responsive * * *
-@include container();
+@include container(960px);
+@include container(960px, false, "container-fixed", $breakpoints);
+
+// * * * grid * * *
+@include grid($breakpoints);
+
 
 // * * * typographie * * *
 @include headings();
