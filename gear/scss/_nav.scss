@@ -59,7 +59,7 @@
 	// active
 	$bg-color-active 	: darken( $bg-color ,10% );
 	@if length( $bg-colors ) > 1 {
-		$bg-colors-active 	: nth( $bg-colors , 2 );
+		$bg-color-active 	: nth( $bg-colors , 2 );
 	}
 	// hover
 	$bg-color-hover 	: darken( $bg-color ,5% );
