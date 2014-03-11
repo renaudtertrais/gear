@@ -1,7 +1,7 @@
 module.exports = function(grunt){
 	grunt.initConfig({	
 		sass: {                             
-		    min: {                          
+		    dist_min: {                          
 				options: {                      
 					style: 'compressed',
 					compass : true
@@ -10,13 +10,31 @@ module.exports = function(grunt){
 			        'dist/css/gear.min.css' : 'themes/default/default.scss',       // 'destination': 'source'
 			    }
 			},
-			exp: {                          
+			dist_exp: {                          
 				options: {                      
 					style: 'expanded',
 					compass : true
 				},
 			    files: {
 			        'dist/css/gear.css' : 'themes/default/default.scss',    
+			    }
+			},
+			demo_min: {                          
+				options: {                      
+					style: 'compressed',
+					compass : true
+				},
+			    files: {
+			        'gh-pages/css/demo.min.css' : 'gh-pages/scss/demo.scss',       // 'destination': 'source'
+			    }
+			},
+			demo_exp: {                          
+				options: {                      
+					style: 'expanded',
+					compass : true
+				},
+			    files: {
+			        'gh-pages/css/demo.css' : 'gh-pages/scss/demo.scss',    
 			    }
 			}
 		},
@@ -29,7 +47,7 @@ module.exports = function(grunt){
 				},
 			},
 			scss: {
-				files: ['gear/scss/**','themes/**'],
+				files: ['gear/scss/**','themes/**','gh-pages/scss/**'],
 				tasks: ['dist-css'],
 				options: {
 					spawn: false,

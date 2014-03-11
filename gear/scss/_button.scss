@@ -44,6 +44,7 @@
 
 // btn-color-params
 @mixin _btn-color-params( $color ){
+	@include _checkList( $color , "color" );
 	$color-name 	: nth( $color , 1 );
 	$color-bg 		: nth( $color , 2 );
 	$color-font 	: "";
@@ -70,6 +71,7 @@
 
 // btn-size-params
 @mixin _btn-size-params( $size , $callback : "_btn-size" ){
+	@include _checkList( $size , "size" );
 	$size-name 		: nth( $size , 1 );
 	$size-height 	: nth( $size , 2 );
 	$size-font 		: "";

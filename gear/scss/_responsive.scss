@@ -1,12 +1,26 @@
-@mixin container( $fluid  : true , $breakpoints : 960px , $container_class : "container"){
+// * * * * * * * * * * * * * * * * * * * * *
+// YOU SHOULD NOT OVERRIDE THE MIXINS BELOW
+// * * * * * * * * * * * * * * * * * * * * *
+
+// container
+@mixin container( 
+		$max-width 			: $MAX-WIDTH , 
+		$fluid  			: true , 
+		$container_class 	: "container" , 
+		$breakpoints 		: "" 
+	){
 	.#{$PX + $container_class}{
 		margin: auto;
+		width: 100%;
 		@if( $fluid ){
-			width: 100%;
-			max-width: $breakpoints;
+			max-width: $max-width;
 		}@else{
+			@include _checkList( $breakpoints , "breakpoints" );
 			@each $breakpoint in $breakpoints {
-				
+				@include _checkList( $breakpoint , "breakpoint" );
+				@media (min-width: nth($breakpoint,2)){
+					max-width: min( $max-width , nth($breakpoint,2) );
+				}
 			}
 		}	
 	}

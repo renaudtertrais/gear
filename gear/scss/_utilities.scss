@@ -6,3 +6,9 @@
 		vertical-align : middle ;
 	}
 }
+
+@mixin _checkList( $list , $name ){
+	@if( length($list) < 2 ){
+    	@warn "#{$name} must be a list with a 2 elements minimum. Currently : #{length($list)}";
+  	}
+}
