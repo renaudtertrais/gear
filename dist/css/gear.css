@@ -1095,7 +1095,7 @@ h6 {
   color: white;
 }
 .navbar ul.nav > li > a:active, .navbar ul.nav > li > a.active {
-  background-color: #090909;
+  background-color: #3498db;
   color: white;
 }
 .navbar ul.nav > li > a.brand {
