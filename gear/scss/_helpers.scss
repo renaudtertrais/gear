@@ -1,0 +1,51 @@
+@mixin hp-float( $float-preffix : "float" , $clear-float_class : "clear-float"){
+	.#{ $PX + $float-preffix +"-right"}{
+		float: right !important;
+	}
+	.#{ $PX + $float-preffix +"-left"}{
+		float: left !important;
+	}
+	.#{ $PX + $clear-float_class}{
+		clear:both !important;
+	}
+}
+
+@mixin hp-radius( $radius , $full : true ){
+	@include _checkList( $radius , "radius" );
+	@each $r in $radius{
+		@include _checkList( $r , "radius" );
+		$r-name : $PX + nth($r,1) ;
+		$r-size : nth($r,2) ;
+		
+		@if( $full ){
+			.#{$r-name},
+			.#{$r-name +"-top"},
+			.#{$r-name +"-left"},
+			.#{$r-name +"-top-left"}{
+				@include border-top-left-radius($r-size);
+			}
+			.#{$r-name},
+			.#{$r-name +"-top"},
+			.#{$r-name +"-right"},
+			.#{$r-name +"-top-right"}{
+				@include border-top-right-radius($r-size);
+			}
+			.#{$r-name},
+			.#{$r-name +"-bottom"},
+			.#{$r-name +"-left"},
+			.#{$r-name +"-bottom-left"}{
+				@include border-bottom-left-radius($r-size);
+			}
+			.#{$r-name},
+			.#{$r-name +"-bottom"},
+			.#{$r-name +"-right"},
+			.#{$r-name +"-bottom-right"}{
+				@include border-bottom-right-radius($r-size);
+			}
+		}@else{
+			.#{$r-name}{
+				@include border-radius($r-size);
+			}
+		}
+	}
+}

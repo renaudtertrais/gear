@@ -25,18 +25,20 @@
 </head>
 <body ng-controller="mainController">
 	<header>
-		<div class="container">
-			<h1>gear framework</h1>
-			<h4>An awesome front-end framework is comming... stay tuned !</h4>
-		</div>
-		
-		<nav>
-			<ul id="main-menu" class="container">
-				<li><a href="#/getting-started">Geting started</a></li>
-				<li><a href="#/css">CSS</a></li>
-				<li><a href="#/js">JS</a></li>
-				<li><a href="#/doc">Doc</a></li>
-			</ul>
+		<nav class="navbar">
+			<div class="container">
+				<ul class="nav">
+					<li><a href="#/" class="brand">gear</a></li>
+					<li ng-repeat="item in menu">
+						<a href="#/{{item.url}}" ng-class="isCurrentPath('/{{item.url}}')">{{item.title}}</a>
+					</li>
+				</ul>
+
+				<div class="nav float-right">
+					<a href="#" class="btn btn-sign round"><i class="fa fa-github"></i></a>
+					<a href="#" class="btn btn-sign round"><i class="fa fa-twitter"></i></a>
+				</div>
+			</div>
 		</nav>
 	</header>
 
@@ -44,3 +46,4 @@
 
 </body>
 </html>
+

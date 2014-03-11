@@ -45,9 +45,12 @@ $PX 			: $PREFIX;
 @if $PX != "" { $PX  : $PX +"-" ; }
 
 // * * * IMPORTS * * *
+@import "functions";
 @import "utilities";
 @import "init";
 @import "responsive";
 @import "grid";
 @import "typographie";
 @import "button";
+@import "nav";
+@import "helpers";

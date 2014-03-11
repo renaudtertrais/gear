@@ -1,12 +1,7 @@
-@function name( $_elts , $separator : "-" , $pfx : $PREFIX ){
-	$out : $pfx;
-	$i : 0 ;
-	@each $elt in $elts{
-		@if $i > 0{
-			$out : $out + $separator ;
-		}
-		$out : $out + #{$elt} ;
-		$i : $i + 1 ;
+@function _getColorFrom( $color , $if-lighter : $FONT-COLOR , $if-darker : #FFF , $step : #BBB ){
+	@if lightness( $color ) > lightness( $step ){
+		@return $if-lighter;
+	}@else{
+		@return $if-darker;
 	}
-	@return $out;
 }

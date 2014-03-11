@@ -1,0 +1,118 @@
+@mixin _nav-menu-link(
+	$height ,
+	$bg-color ,
+	$bg-color-hover ,
+	$bg-color-active ,
+	$font-color ,
+	$font-color-hover ,
+	$font-color-active 	
+	){
+	display : block;
+	text-decoration : none;
+	color : $font-color;
+	padding:0 20px;
+	@include _line-height( $height );
+
+	&:hover{
+		background-color: $bg-color-hover;
+		color: $font-color-hover;
+	}
+	&:active,
+	&.active{
+		background-color: $bg-color-active;
+		color: $font-color-active;
+	}
+
+	&.brand{
+		font-size: 1.6em;
+		font-weight: 300;
+
+		&:hover{
+			background-color: transparent;
+			color: darken($font-color,10%);
+		}
+		&:active,
+		&.active{
+			background-color: transparent;
+			color: darken($font-color,20%);
+		}
+	}
+}
+
+// * * * * * * * * * * * * * * * * * * * * *
+// YOU SHOULD NOT OVERRIDE THE MIXINS BELOW
+// * * * * * * * * * * * * * * * * * * * * *
+
+
+// navbar
+@mixin navbar( 
+		$bg-colors 		: #F0F0F0, 
+		$font-colors 	: #555 , 
+		$height 		: 60px, 
+		$navbar_class 	: "navbar" 
+	){
+	$navbar_class : $PX + $navbar_class ;
+	
+	// * BG COLORS *
+	// default
+	$bg-color 			: nth( $bg-colors , 1 );
+	// active
+	$bg-color-active 	: darken( $bg-color ,10% );
+	@if length( $bg-colors ) > 1 {
+		$bg-colors-active 	: nth( $bg-colors , 2 );
+	}
+	// hover
+	$bg-color-hover 	: darken( $bg-color ,5% );
+	@if length( $bg-colors ) > 2 { 
+		$bg-color-hover 	: nth( $bg-colors , 3 );
+	}
+
+	// * FONT COLORS *
+	// default
+	$font-color : nth( $font-colors , 1 );
+	// active
+	$font-color-active 	: $font-color ; 
+	@if length( $font-colors ) > 1 { 
+		$font-color-active 	: nth( $font-colors , 2 ); 
+	}
+	// hover
+	$font-color-hover 	: $font-color ;
+	@if length( $font-colors ) > 2 { 
+		$font-color-hover 	: nth( $font-colors , 3 );
+	}
+
+
+	.#{ $navbar_class }{
+		height: $height;
+		@include _line-height( $height );
+		background-color: $bg-color;
+		color : $font-color;
+
+		*{
+			color : $font-color;
+		}
+
+		.nav{
+			height: 100%;
+			@include _line-height( $height );
+		}
+		ul.nav{
+			& > li {
+				float:left;
+				height: 100%;
+				& > a{
+					@include _nav-menu-link(
+						$height ,
+						$bg-color ,
+						$bg-color-hover ,
+						$bg-color-active ,
+						$font-color ,
+						$font-color-hover ,
+						$font-color-active 	
+					);
+				}
+			}
+		}
+
+	}
+}

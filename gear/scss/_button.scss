@@ -51,11 +51,7 @@
 	$color-border 	: "";
 	// font-color
 	@if length( $color ) < 3{
-		@if lightness( $color-bg ) > lightness( #BBB ){
-			$color-font : $FONT-COLOR;
-		}@else{
-			$color-font 	: #FFF;
-		}
+		$color-font 		: _getColorFrom( $color-bg );
 	}@else{
 		$color-font 		: nth( $color , 3 );
 	}
