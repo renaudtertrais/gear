@@ -1,0 +1,25 @@
+{
+	"name"		: "btn",
+	"desc"		: "Creates buttons with different colors and different sizes",
+	"params" 	: [
+		{
+			"name" : "$colors",
+			"type"		: "list"
+		},{
+			"name" 		: "$sizes",
+			"type"		: "list"
+		}, {
+			"name" 		: "$radius",
+			"type"		: "number",
+			"default" 	: "@const$RADIUS"
+		},{
+			"name" 		: "$btn_class",
+			"type"		: "string",
+			"default" 	: "btn"
+		},{
+			"name" 		: "$btn-sign_suffix",
+			"type"		: "string",
+			"default"	: "sign"
+		}
+	]
+}

@@ -12,7 +12,7 @@ app.config( function( $routeProvider ){
 });
 
 /* MAIN CONTROLLER */
-app.controller( 'mainController', function( $scope , $location ){
+app.controller( 'mainController', function($scope , $location ){
 	$scope.menu = [
 		{
 			title 	:'Getting started',
@@ -32,4 +32,30 @@ app.controller( 'mainController', function( $scope , $location ){
 	$scope.isCurrentPath = function ( path ){
        return $location.path().slice(0,path.length) == path ? 'active' : '' ;
     }
+});
+
+/* DOC CONTROLLER */
+app.controller( 'docController' , function ( $scope , $http , $q ) {
+	$scope.mixinsName = ['btn'];
+	$scope.mixins = [];
+
+	$scope.loadDoc = function( mixin ){
+		var deferred = $q.defer();
+		$http.get('gh-pages/data/doc-mixins/mixin.'+mixin+'.json')
+			.success(function( data , status ){
+				deferred.resolve(data);
+			}).error( function( data , status ){
+				deferred.reject("Documentation unavailable");
+			});
+		return deferred.promise;
+	}
+	
+	/* get doc */
+	angular.forEach( $scope.mixinsName , function( mixin ){
+		$scope.loadDoc( mixin ).then(function( doc ){
+			$scope.mixins.push( doc );
+		},function(msg){
+			alert(msg);
+		})
+	});
 });

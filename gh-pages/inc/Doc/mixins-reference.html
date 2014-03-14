@@ -1,0 +1,50 @@
+<h2>Mixins reference</h2>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="m in mixins">
+			<td><a href="#mixin-{{m.name}}">{{m.name}}(
+				<span ng-repeat="p in m.params">
+					<span ng-if="$index > 0"> , </span>
+					{{ p.name }}
+				</span>  
+			)</a></td>
+			<td>{{m.desc}}</td>
+		</tr>
+	</tbody>
+</table>
+
+<div ng-repeat="m in mixins" id="mixin-{{m.name}}">
+	<h3>
+		{{m.name}}
+			(
+				<span ng-repeat="p in m.params">
+					<span ng-if="$index > 0"> , </span>
+					{{ p.name }}
+				</span>  
+			)
+	</h3>
+	<p>{{m.desc}}</p>
+	<h4>Params</h4>
+	<table>
+		<tbody>
+			<tr>
+				<th>Name</th>
+				<th>Type</th>
+				<th>Description</th>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr ng-repeat="p in m.params">
+				<td><strong>{{ p.name }}</strong></td>
+				<td>{{ p.type | uppercase}}</td>
+				<td>{{ p.description}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
