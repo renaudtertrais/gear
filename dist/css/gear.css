@@ -1,4 +1,4 @@
-@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic");
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,700,300");
 /**
  * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
  * http://cssreset.com
@@ -66,6 +66,21 @@ body {
   color: #555555;
   line-height: 1.2;
   font-family: "Open Sans", "Helvetica", "courier", "sans-serif";
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid #DDD;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 30px 0;
 }
 
 .container {
@@ -811,6 +826,26 @@ h6 {
   line-height: 2;
 }
 
+.table {
+  width: 100%;
+}
+.table tr td,
+.table tr th {
+  border-bottom: 1px solid #DDD;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  text-align: left;
+}
+.table tr:last-child td {
+  border-bottom: none;
+}
+.table tr th {
+  font-weight: bold;
+}
+.table.table-striped tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
 /* default behavior */
 .btn,
 .btn-sign {
@@ -1106,4 +1141,88 @@ h6 {
 .navbar ul.nav > li > a.brand:active, .navbar ul.nav > li > a.brand.active {
   background-color: transparent;
   color: #cccccc;
+}
+
+.square,
+.square-top,
+.square-left,
+.square-top-left {
+  -moz-border-radius-topleft: 0px !important;
+  -webkit-border-top-left-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+}
+
+.square,
+.square-top,
+.square-right,
+.square-top-right {
+  -moz-border-radius-topright: 0px !important;
+  -webkit-border-top-right-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+}
+
+.square,
+.square-bottom,
+.square-left,
+.square-bottom-left {
+  -moz-border-radius-bottomleft: 0px !important;
+  -webkit-border-bottom-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+.square,
+.square-bottom,
+.square-right,
+.square-bottom-right {
+  -moz-border-radius-bottomright: 0px !important;
+  -webkit-border-bottom-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.round,
+.round-top,
+.round-left,
+.round-top-left {
+  -moz-border-radius-topleft: 3000px !important;
+  -webkit-border-top-left-radius: 3000px !important;
+  border-top-left-radius: 3000px !important;
+}
+
+.round,
+.round-top,
+.round-right,
+.round-top-right {
+  -moz-border-radius-topright: 3000px !important;
+  -webkit-border-top-right-radius: 3000px !important;
+  border-top-right-radius: 3000px !important;
+}
+
+.round,
+.round-bottom,
+.round-left,
+.round-bottom-left {
+  -moz-border-radius-bottomleft: 3000px !important;
+  -webkit-border-bottom-left-radius: 3000px !important;
+  border-bottom-left-radius: 3000px !important;
+}
+
+.round,
+.round-bottom,
+.round-right,
+.round-bottom-right {
+  -moz-border-radius-bottomright: 3000px !important;
+  -webkit-border-bottom-right-radius: 3000px !important;
+  border-bottom-right-radius: 3000px !important;
+}
+
+.float-right {
+  float: right !important;
+}
+
+.float-left {
+  float: left !important;
+}
+
+.clear-float {
+  clear: both !important;
 }

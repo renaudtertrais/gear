@@ -1,5 +1,5 @@
 <h2>Mixins reference</h2>
-<table class="table">
+<table class="table table-striped">
 	<thead>
 		<tr>
 			<th>Name</th>
@@ -20,6 +20,7 @@
 </table>
 
 <div ng-repeat="m in mixins" id="mixin-{{m.name}}">
+	<hr>
 	<h3>
 		{{m.name}}
 			(
@@ -31,11 +32,12 @@
 	</h3>
 	<p>{{m.desc}}</p>
 	<h4>Params</h4>
-	<table>
+	<table class="table table-striped">
 		<tbody>
 			<tr>
 				<th>Name</th>
 				<th>Type</th>
+				<th></th>
 				<th>Description</th>
 			</tr>
 		</tbody>
@@ -43,6 +45,10 @@
 			<tr ng-repeat="p in m.params">
 				<td><strong>{{ p.name }}</strong></td>
 				<td>{{ p.type | uppercase}}</td>
+				<td>
+					<span ng-if="p.default">Optionnal (default : {{ p.default }})</span>
+					<span ng-if="!p.default"><strong>Required</strong></span>
+				</td>
 				<td>{{ p.description}}</td>
 			</tr>
 		</tbody>

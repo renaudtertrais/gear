@@ -22,29 +22,29 @@
 			.#{$r-name +"-top"},
 			.#{$r-name +"-left"},
 			.#{$r-name +"-top-left"}{
-				@include border-top-left-radius($r-size);
+				@include border-top-left-radius($r-size !important);
 			}
 			.#{$r-name},
 			.#{$r-name +"-top"},
 			.#{$r-name +"-right"},
 			.#{$r-name +"-top-right"}{
-				@include border-top-right-radius($r-size);
+				@include border-top-right-radius($r-size !important);
 			}
 			.#{$r-name},
 			.#{$r-name +"-bottom"},
 			.#{$r-name +"-left"},
 			.#{$r-name +"-bottom-left"}{
-				@include border-bottom-left-radius($r-size);
+				@include border-bottom-left-radius($r-size !important);
 			}
 			.#{$r-name},
 			.#{$r-name +"-bottom"},
 			.#{$r-name +"-right"},
 			.#{$r-name +"-bottom-right"}{
-				@include border-bottom-right-radius($r-size);
+				@include border-bottom-right-radius($r-size !important);
 			}
 		}@else{
 			.#{$r-name}{
-				@include border-radius($r-size);
+				@include border-radius($r-size !important);
 			}
 		}
 	}

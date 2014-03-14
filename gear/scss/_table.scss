@@ -1,0 +1,36 @@
+// * * * * * * * * * * * * * * * * * * * * *
+// YOU SHOULD NOT OVERRIDE THE MIXINS BELOW
+// * * * * * * * * * * * * * * * * * * * * *
+
+@mixin table( $table_class : "table" , $table-striped_suffix : "striped" ){
+	$table_class 			: $PX + $table_class ;
+	$table-striped_class 	: $table_class +"-"+ $table-striped_suffix ;
+
+	.#{ $table_class }{
+		width: 100%;
+
+		tr{
+			td,
+			th{
+				border-bottom: 1px solid #DDD;
+				border-bottom: 1px solid rgba(0,0,0,.1);
+				padding:10px;
+				text-align: left;
+			}
+			&:last-child{
+				td{
+					border-bottom: none;
+				}
+			}
+			th{
+				font-weight: bold;
+			}
+		}
+
+		&.#{ $table-striped_class }{
+			tr:nth-child(even){
+				background-color: rgba(0,0,0,.05);
+			}
+		}
+	}
+}

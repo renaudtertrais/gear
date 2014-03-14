@@ -11,7 +11,7 @@
 		}, {
 			"name" 		: "$radius",
 			"type"		: "number",
-			"default" 	: "@const$RADIUS"
+			"default" 	: "$RADIUS"
 		},{
 			"name" 		: "$btn_class",
 			"type"		: "string",
