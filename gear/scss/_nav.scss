@@ -88,10 +88,6 @@
 		background-color: $bg-color;
 		color : $font-color;
 
-		*{
-			color : $font-color;
-		}
-
 		.nav{
 			height: 100%;
 			@include _line-height( $height );

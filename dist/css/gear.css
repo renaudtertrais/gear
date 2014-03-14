@@ -1066,9 +1066,6 @@ h6 {
 .navbar > * {
   line-height: initial;
 }
-.navbar * {
-  color: white;
-}
 .navbar .nav {
   height: 100%;
   line-height: 60px;
