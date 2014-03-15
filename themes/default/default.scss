@@ -4,7 +4,7 @@ $FONT-FAMILY :"Open Sans","Helvetica","courier","sans-serif";
 
 @import "compass";
 @import "../../gear/scss/gear.scss";
-@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic");
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,700,300");
 
 // Globals 
 
@@ -70,6 +70,9 @@ $breakpoints :
 // * * * typographie * * *
 @include headings();
 
+// * * * table * * *
+@include table();
+
 // * * * buttons * * * 
 // btn
 $btn-colors : $colors ;
@@ -79,3 +82,13 @@ $btn-sizes 	: $sizes ;
 // * * * Navbar * * *
 $navcolor : #222222 , #3498db ;
 @include navbar($navcolor, #FFF);
+
+
+// * * * HELPERS * * *
+// RADIUS
+$radius-square 	: "square", 0px;
+$radius-round 	: "round", 3000px;
+$radius : $radius-square , $radius-round ;
+@include hp-radius( $radius );
+// FLOAT
+@include hp-float();
