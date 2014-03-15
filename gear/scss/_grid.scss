@@ -4,16 +4,23 @@
 
 // grid
 @mixin grid( 
-		$breakpoints , 
-		$col-gap 			: $GRID_COL-GAP , 
-		$col-number 		: $GRID_COL-NUMBER , 
-		$grid_class 		: "grid" , 
-		$cell_class 		: "cell" , 
-		$grid-close_suffix 	: "close" 
+		$breakpoints ,
+		$options : ()
 	){
-	$grid_class 		: $PX + $grid_class ;
-	$grid-close_class 	: $grid_class +"-"+ $grid-close_suffix ;
-	$cell_class 		: $PX + $cell_class ;
+	$options : map-merge( (
+			"col-gap"			: $GRID_COL-GAP , 
+			"col-number" 		: $GRID_COL-NUMBER , 
+			"grid_class" 		: "grid" , 
+			"cell_class"		: "cell" , 
+			"grid-close_suffix" : "close" 
+		), $options );
+
+	$col-gap 			: map-get( $options , "col-gap" );
+	$col-number 		: map-get( $options , "col-number" );
+	$grid_class 		: $PX + map-get( $options , "grid_class" ) ;
+	$grid-close_class 	: $grid_class +"-"+ map-get( $options , "grid-close_suffix" ) ;
+	$cell_class 		: $PX + map-get( $options , "cell_class" ) ;
+
 	.#{$grid_class},
 	.#{$grid-close_class}{
 		&:after{

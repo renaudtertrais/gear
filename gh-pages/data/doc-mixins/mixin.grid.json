@@ -1,0 +1,31 @@
+{
+	"name"	: "grid",
+	"desc"	: "Create a grid class, a grid-close class (no column gap) and cells classes",
+	"params": [
+		{
+			"name"	: "$breakpoints",
+			"type"	: "list",
+			"desc"	: "a list of breakpoint (list) : name (string) , max-width (number)"
+		},{
+			"name"		: "$col-gap",
+			"type"		: "number",
+			"default"	: "$GRID_COL-GAP"
+		},{
+			"name"		: "$col-number",
+			"type"		: "number",
+			"default"	: "$GRID_COL-NUMBER"
+		},{
+			"name"		: "$grid_class ",
+			"type"		: "string",
+			"default"	: "grid"
+		},{
+			"name"		: "$cell_class",
+			"type"		: "string",
+			"default"	: "cell"
+		},{
+			"name"		: "$grid-close_suffix",
+			"type"		: "string",
+			"default"	: "close"
+		}
+	]
+}
