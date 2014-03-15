@@ -1,7 +1,85 @@
 <h1>Getting started</h1>
-<h2>Download</h2>
+<h2>How to use and setup Gear, compatibility and stuff.</h2>
+
+<hr>
+
+<h2>1/ Download</h2>
+<p>For a simple use of Gear, just download the precompiled version (min). You can use the minified version (gear.min.css) or the clear css.</p>
+
+<p>If you plan to modify the theme (which is our goal !) we recommend to use the production version of Gear. You will find  the Sass files, where you can modify the variables, parameters, all following the online documentation. You will also need a Sass compiler to save and use your changes. We recommand using Prepros or Grunt.js.</p>
+<p>For example, you can easily change :</p>
+	<ul>
+    <li>the color scheme (primary, hover,...)</li>
+    <li>buttons size, borders..</li>
+    <li>the font</li>
+    <li>responsive settings (grid, max sizes…)</li>
+    <li>class prefix...</li>
+</ul>
+<p>thus creating a unique theme, while keeping all the advantages of Gear, and whithout having to change the html/css classes.</p>
+
+<h2>2/ Installation</h2>
+
+<h3>minified / precompiled version</h3>
+<p>just drop the 'Gear' folder in your project ; you can use the css classes right away :</p>
+<code>
+	<pre>
+		html template using gear classes
+	</pre>
+</code>
+<p>Or use one of our template : -examples-<br>
+that's it !</p>
+
+<h3>production</h3>
+<p>
+Open the .scss files in your favorite editor and start editing parameters following the documentation.
+The files are located in the 'gear/scss' folder. Then you can compile your .scss into working css, and edit your html.
+No big deal !
+</p>
+
+<h2>3/ What's inside ?</h2>
+
+<h3>Minified Gear</h3>
+<p>
+[arborescence]
+You will find the css, both minified and compiled, as well as the default theme (again minified and full versions).
+The other folders contain the javascript files, and the fonts used.
+This is the basic Gear, you can use it to quickly prototype or produce your website. If you want to have more control switch to the production version !
+</p>
+
+<h3>Production Gear</h3>
+<p>
+[arborescence]
+Here you go ! All the Sass files, a dist folder containing compiled files, the default theme (and the one you'll create ;) ), and the docs to make it complete.
+Following the docs you will be able to tweak Gear to suit your needs and your design.
+</p>
+
+<h2>Things you can change !</h2>
+<p>Because it's the main feature of Gear, here is a (little) list of things you can easily customize.
+Basically, the Sass functions of Gear have default parameters, and/or default values.
+By changing these values you take control of the css output. </p>
+
 <ul>
-	<li>User dist</li>
-	<li>Dev dist</li>
-	<li>What dist</li>
+<li> Prefix<br>
+You can prefix your gear classes. That mean, you can use it along another framework without conflicts. Gear will automatically prefix everything without you noticing. Yeah, that's cool.
+</li>
+<li> Buttons
+Buttons are a big part of a flat webdesign. If you don't like the default buttons, here is what you can do :
+	<ul>
+	    <li> colors </li>
+	    <li> border radius</li>
+	    <li> border color</li>
+	    <li> sizes</li>
+	    <li> padding</li>
+	    <li> hover </li>
+	    <li> …</li>
+	</ul>
+</li>
+<li> Css reset<br>
+Included by default, you can choose between 3 different resets.</li>
+
+<li> Fonts<br>
+Include all your favorite fonts like you would in a classic css file.
+</li>
+
+<li>...And much more, swith to the doc to discover all Gear capabilities.</li>
 </ul>
