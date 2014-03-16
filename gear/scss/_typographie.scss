@@ -4,7 +4,7 @@
 
 		h#{$_i}{
 			font-size: 2em - ($_i - 1) * .2;
-			line-height: 2;
+			margin: 40px - ($_i - 1) * 5 0;
 		}
 	}
 }

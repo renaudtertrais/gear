@@ -20,6 +20,8 @@
     "angular-route": "~1.2.13",
     "jquery": "~2.1.0",
     "font-awesome": "~4.0.3",
-    "angular-sanitize": "~1.2.14"
+    "angular-sanitize": "~1.2.14",
+    "highlightjs": "~8.0.0",
+    "angular-highlightjs": "~0.2.5"
   }
 }

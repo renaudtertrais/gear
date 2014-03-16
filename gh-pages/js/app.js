@@ -1,4 +1,4 @@
-var app = angular.module( 'gear-gh-pages' , ['ngRoute'] );
+var app = angular.module( 'gear-gh-pages' , ['ngRoute','ngSanitize','hljs'] );
 
 /* ROUTING */
 app.config( function( $routeProvider ){
@@ -79,8 +79,10 @@ app.directive( 'demo' , function(){
 				var elt = angular.element("<div/>").append(clone);
 				$scope.preview =  $sce.trustAsHtml(elt.html());
 				elt.find('*').removeClass('ng-scope ng-model ng-binding ng-isolate-scope');
+				console.log(elt.html())
 				$scope.code = elt.html().replace(/ class=""/g,'');
-			})
+			});
 		}
+
 	};
-})
+});

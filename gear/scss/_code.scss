@@ -1,0 +1,20 @@
+@mixin code( $options : () ){
+	$options : map-merge((
+			"radius"		: $RADIUS,
+			"font-family"	: $FONT-FAMILY_MONO,
+			"font-size"		: 15px
+		), $options );
+
+	code{
+		font-family: map-get( $options , "font-family" );
+	}
+	pre{
+		background-color: rgba(0,0,0,0.2);
+		white-space: pre-wrap;
+		code{
+			padding:20px;
+			@include border-radius( map-get($options , "radius") );
+			font-size: map-get( $options , "font-size" );
+		}
+	}
+}
