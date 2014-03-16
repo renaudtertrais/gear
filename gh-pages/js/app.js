@@ -58,4 +58,10 @@ app.controller( 'docController' , function ( $scope , $http , $q ) {
 			alert(msg);
 		})
 	});
+
+	$scope.getLevelIndicator = function(p){
+		var out = "";
+		for (var i = 0; i < p.level; i++) out += "--";
+		return out;
+	}
 });

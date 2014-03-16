@@ -3,23 +3,33 @@
 	"desc"		: "Creates buttons with different colors and different sizes",
 	"params" 	: [
 		{
-			"name" : "$colors",
-			"type"		: "list"
+			"name" 		: "$colors",
+			"type"		: "list",
+			"desc"		: "a list of color (list) : name(string) ...",
+			"required"	: true
 		},{
 			"name" 		: "$sizes",
-			"type"		: "list"
-		}, {
-			"name" 		: "$radius",
+			"type"		: "list",
+			"required"	: true
+		},{
+			"name"		: "$options",
+			"type"		: "map"
+		},{
+			"name" 		: "radius",
+			"level"		: "2",
 			"type"		: "number",
 			"default" 	: "$RADIUS"
 		},{
-			"name" 		: "$btn_class",
+			"name" 		: "btn_class",
+			"level"		: "2",
 			"type"		: "string",
 			"default" 	: "btn"
 		},{
-			"name" 		: "$btn-sign_suffix",
+			"name" 		: "btn-sign_suffix",
+			"level"		: "2",
 			"type"		: "string",
 			"default"	: "sign"
 		}
+
 	]
 }

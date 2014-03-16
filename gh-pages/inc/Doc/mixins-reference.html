@@ -7,13 +7,16 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="m in mixins">
-			<td><a href="#mixin-{{m.name}}">{{m.name}}(
-				<span ng-repeat="p in m.params">
-					<span ng-if="$index > 0"> , </span>
-					{{ p.name }}
-				</span>  
-			)</a></td>
+		<tr ng-repeat="m in mixins | orderBy:'name'">
+			<td><a href="#mixin-{{m.name}}">
+				<strong>
+					{{m.name}}(
+					<span ng-repeat="p in m.params" ng-if="!p.level">
+						<span ng-if="$index > 0"> , </span>
+						{{ p.name }}
+					</span> )
+				</strong>
+				</a></td>
 			<td>{{m.desc}}</td>
 		</tr>
 	</tbody>
@@ -43,13 +46,16 @@
 		</tbody>
 		<tbody>
 			<tr ng-repeat="p in m.params">
-				<td><strong>{{ p.name }}</strong></td>
+				<td>
+					{{ getLevelIndicator(p) }}
+					<strong>{{ p.name }}</strong>
+				</td>
 				<td>{{ p.type | uppercase}}</td>
 				<td>
-					<span ng-if="p.default">Optionnal (default : {{ p.default }})</span>
-					<span ng-if="!p.default"><strong>Required</strong></span>
+					<em ng-if="!p.required">Optional <span ng-if="p.default">(default : {{ p.default }})</span></em>
+					<strong ng-if="p.required">Required</strong>
 				</td>
-				<td>{{ p.description}}</td>
+				<td>{{ p.desc}}</td>
 			</tr>
 		</tbody>
 	</table>

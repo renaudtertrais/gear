@@ -102,9 +102,17 @@
 
 
 // btn main mixin
-@mixin btn( $colors , $sizes , $radius : $RADIUS , $btn_class : "btn" , $btn-sign_suffix : "sign" ){
-	$btn_class 		: $PX + $btn_class;	
-	$btn-sign_class : $btn_class + '-' + $btn-sign_suffix ;
+@mixin btn( $colors , $sizes ,  $options : () ){
+
+	$options : map-merge( (
+			"radius"			: $RADIUS , 
+			"btn_class" 		: "btn" , 
+			"btn-sign_suffix" 	: "sign" 
+		), $options );
+
+	$radius 		: map-get( $options , "radius" );
+	$btn_class 		: $PX + map-get( $options , "btn_class");	
+	$btn-sign_class : $btn_class + '-' + map-get( $options , "btn-sign_suffix") ;
 	
 	/* default behavior */
 	.#{$btn_class},
