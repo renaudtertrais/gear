@@ -57,7 +57,7 @@ $breakpoints :
 
 
 // * * * init * * *
-@include init( ( "background" : #FFF ) );
+@include init( ( "background" : #F0F0F0 ) );
 
 // * * * responsive * * *
 @include container(960px);

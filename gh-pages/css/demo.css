@@ -1,9 +1,9 @@
 .demo-grid-cell {
-  background-color: #EEE;
+  background-color: #FFF;
   min-height: 50px;
   line-height: 50px;
   text-align: center;
-  border: 1px solid #DDD;
+  border: 1px solid rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
 }
 

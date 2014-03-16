@@ -65,3 +65,22 @@ app.controller( 'docController' , function ( $scope , $http , $q ) {
 		return out;
 	}
 });
+
+/* Code directive */
+app.directive( 'demo' , function(){
+	return {
+		restrict : "E",
+		replace : true,
+		transclude : true,
+		templateUrl : "gh-pages/inc/CSS/tpl.demo.html",
+		scope : {},
+		controller : function($scope , $transclude , $sce){
+			$transclude(function(clone){
+				var elt = angular.element("<div/>").append(clone);
+				$scope.preview =  $sce.trustAsHtml(elt.html());
+				elt.find('*').removeClass('ng-scope ng-model ng-binding ng-isolate-scope');
+				$scope.code = elt.html().replace(/ class=""/g,'');
+			})
+		}
+	};
+})
