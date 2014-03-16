@@ -36,6 +36,48 @@
 			"level"		: 2,
 			"type"		: "string",
 			"desc"		: "Available values : \"Eric Meyer\", \"HTML5 Doctor\", \"minimal\""
+		},{
+			"name"		: "p_margin" ,
+			"default"	: "10px 0",
+			"level"		: 2,
+			"type"		: "MIXED",
+			"desc"		: "margin of <p> tag"
+		},{
+			"name"		: "hr_border-color" ,
+			"default"	: "rgba(0,0,0,.1)",
+			"level"		: 2,
+			"type"		: "color",
+			"desc"		: "Border bottom color of <hr> tag"
+		},{
+			"name"		: "hr_margin" ,
+			"default"	: "30px 0",
+			"level"		: 2,
+			"type"		: "MIXED",
+			"desc"		: "margin of <hr> tag"
+		},{
+			"name"		: "light_class" ,
+			"default"	:"light",
+			"level"		: 2,
+			"type"		: "string",
+			"desc"		: ""
+		},{
+			"name"		: "light_weight",
+			"default"	: 300,
+			"level"		: 2,
+			"type"		: "MIXED",
+			"desc"		: "Available values : values for font-weight (bold, 400...)"
+		},{
+			"name"		: "em_style",
+			"default"	: "italic",
+			"level"		: 2,
+			"type"		: "string",
+			"desc"		: "Available values : values for font-style"
+		},{
+			"name"		: "strong_weight",
+			"default"	: "bold",
+			"level"		: 2,
+			"type"		: "Mixed",
+			"desc"		: "Available values : values for font-weight (bold, 400...)"
 		}
 	]
 }

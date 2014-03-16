@@ -24,7 +24,7 @@
 	// FONT-FAMILY
 	@each $family in sans , serif , mono {
 		.#{ $text_class +"-"+ map-get( $options , "text-"+$family+"_suffix" ) }{
-			font-family: $family;
+			font-family: map-get( $options , "text-"+$family ) ;
 		}
 	}
 
@@ -53,7 +53,7 @@
 			@if map-has-key( $options , "color_hover") {
 				color : map-get( $options , "color_hover" );
 			}@else{
-				color : darken( $color , 5% );
+				color : darken( $color , 10% );
 			}
 		}
 		&:active,
@@ -61,14 +61,14 @@
 			@if map-has-key( $options , "color_active") {
 				color : map-get( $options , "color_active" );
 			}@else{
-				color : darken( $color , 10% );
+				color : darken( $color , 20% );
 			}
 		}
 		&:visited{
 			@if map-has-key( $options , "color_visited") {
 				color : map-get( $options , "color_visited" );
 			}@else{
-				color : darken( $color , 10% );
+				color : $color;
 			}
 			@if map-get( $options , "underline_normal" ) {
 				text-decoration: underline;

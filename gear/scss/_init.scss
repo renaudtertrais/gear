@@ -1,12 +1,19 @@
 @mixin init( $options : () ){
 	
 	$options : map-merge( (
-			"background" 	: transparent ,
-			"font-family" 	: $FONT-FAMILY ,
-			"font-size" 	: $FONT-SIZE ,
-			"color" 		: $FONT-COLOR ,
-			"line-height" 	: $LINE-HEIGHT ,
-			"reset" 		: "Eric Meyer"
+			"background" 		: transparent ,
+			"font-family" 		: $FONT-FAMILY ,
+			"font-size" 		: $FONT-SIZE ,
+			"color" 			: $FONT-COLOR ,
+			"line-height" 		: $LINE-HEIGHT ,
+			"reset" 			: "Eric Meyer",
+			"p_margin"			: 10px 0,
+			"hr_border-color"	: rgba(0,0,0,.1),
+			"hr_margin"			: 30px 0,
+			"light_class"		: "light",
+			"light_weight"		: 300,
+			"em_style"			: "italic",
+			"strong_weight"		: "bold",
 		) , $options );
 
 	$background 	: map-get( $options , "background" 	);
@@ -168,5 +175,28 @@
 		color 				: $color ;
 		line-height 		: $line-height ;
 		font-family 		: $font-family ; 
+	}
+
+	p{
+		margin : map-get( $options , "p_margin" );
+	}
+
+	strong,
+	.#{$PX + "strong"}{
+		font-weight: unquote( map-get( $options , "strong_weight") );
+	}
+	em,
+	.#{$PX + "em"}{
+		font-style: unquote( map-get( $options , "em_style" ) );
+	}
+
+	.#{ map-get( $options, "light_class" ) }{
+		font-weight : map-get( $options , "light_weight")
+	}
+
+	hr{
+		border:none;
+		border-bottom: 1px solid map-get( $options , "hr_border-color");
+		margin: map-get( $options , "hr_margin" );
 	}
 }
