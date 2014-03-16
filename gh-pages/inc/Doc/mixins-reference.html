@@ -27,7 +27,7 @@
 	<h3>
 		{{m.name}}
 			(
-				<span ng-repeat="p in m.params">
+				<span ng-repeat="p in m.params" ng-if="!p.level">
 					<span ng-if="$index > 0"> , </span>
 					{{ p.name }}
 				</span>  
