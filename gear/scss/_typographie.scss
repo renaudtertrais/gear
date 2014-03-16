@@ -1,4 +1,5 @@
-@mixin headings( $headings : "" ){
+@mixin headings( $headings : () ){
+
 	@for $_i from 1 through 6{
 
 		h#{$_i}{
@@ -6,4 +7,83 @@
 			line-height: 2;
 		}
 	}
+}
+
+@mixin text( $options : () ){
+	$options : map-merge((
+			"text-sans"			: $FONT-FAMILY_SANS ,
+			"text-serif"		: $FONT-FAMILY_SERIF ,
+			"text-mono"			: $FONT-FAMILY_MONO ,
+			"text_class" 		: "text",
+			"text-sans_suffix" 	: "sans",
+			"text-serif_suffix" : "serif",
+			"text-mono_suffix" 	: "mono"
+		) , $options );
+
+	$text_class : $PX + map-get( $options , "text_class" );
+	// FONT-FAMILY
+	@each $family in sans , serif , mono {
+		.#{ $text_class +"-"+ map-get( $options , "text-"+$family+"_suffix" ) }{
+			font-family: $family;
+		}
+	}
+
+	// TEXT-ALIGN
+	@each $style in left , right , center , justify{
+		.#{ $text_class +"-"+ $style }{
+			text-align: $style;
+		}
+	}
+}
+
+@mixin link( $color , $options : () ){
+	$options : map-merge((
+		"underline_normal"  : false,
+		"underline_hover"	: true
+		), $options );
+
+	a{
+		color : $color ;
+		@if map-get( $options , "underline_normal" ) {
+			text-decoration: underline;
+		}@else{
+			text-decoration: none;
+		}
+		&:hover{
+			@if map-has-key( $options , "color_hover") {
+				color : map-get( $options , "color_hover" );
+			}@else{
+				color : darken( $color , 5% );
+			}
+		}
+		&:active,
+		&.active{
+			@if map-has-key( $options , "color_active") {
+				color : map-get( $options , "color_active" );
+			}@else{
+				color : darken( $color , 10% );
+			}
+		}
+		&:visited{
+			@if map-has-key( $options , "color_visited") {
+				color : map-get( $options , "color_visited" );
+			}@else{
+				color : darken( $color , 10% );
+			}
+			@if map-get( $options , "underline_normal" ) {
+				text-decoration: underline;
+			}@else{
+				text-decoration: none;
+			}
+		}
+		&:hover,
+		&:active,
+		&.active{
+			@if map-get( $options , "underline_hover" ) {
+				text-decoration: underline;
+			}@else{
+				text-decoration: none;
+			}
+		}
+	}		
 }

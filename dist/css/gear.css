@@ -68,21 +68,6 @@ body {
   font-family: "Open Sans", "Helvetica", "courier", "sans-serif";
 }
 
-strong {
-  font-weight: bold;
-}
-
-em {
-  font-style: italic;
-}
-
-hr {
-  border: none;
-  border-bottom: 1px solid #DDD;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  margin: 30px 0;
-}
-
 .container {
   margin: auto;
   width: 100%;
@@ -824,6 +809,52 @@ h5 {
 h6 {
   font-size: 1em;
   line-height: 2;
+}
+
+.text-sans {
+  font-family: sans;
+}
+
+.text-serif {
+  font-family: serif;
+}
+
+.text-mono {
+  font-family: mono;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+a {
+  color: #3498db;
+  text-decoration: none;
+}
+a:hover {
+  color: #258cd1;
+}
+a:active, a.active {
+  color: #217dbb;
+}
+a:visited {
+  color: #217dbb;
+  text-decoration: none;
+}
+a:hover, a:active, a.active {
+  text-decoration: underline;
 }
 
 .table {

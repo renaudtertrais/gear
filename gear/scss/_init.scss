@@ -1,4 +1,4 @@
-@mixin init( $option : () ){
+@mixin init( $options : () ){
 	
 	$options : map-merge( (
 			"background" 	: transparent ,
@@ -168,17 +168,5 @@
 		color 				: $color ;
 		line-height 		: $line-height ;
 		font-family 		: $font-family ; 
-	}
-	strong{
-		font-weight: bold;
-	}
-	em{
-		font-style: italic;
-	}
-	hr{
-		border:none;
-		border-bottom: 1px solid #DDD;
-		border-bottom: 1px solid rgba(0,0,0,.1);
-		margin: 30px 0;
 	}
 }

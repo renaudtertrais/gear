@@ -69,6 +69,8 @@ $breakpoints :
 
 // * * * typographie * * *
 @include headings();
+@include text();
+@include link( #3498db );
 
 // * * * table * * *
 @include table();
