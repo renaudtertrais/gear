@@ -1,0 +1,41 @@
+{
+	"name"	: "init",
+	"desc"	: "Initialize a project : body, reset css...",
+	"params": [
+		{
+			"name" : "$options",
+			"type" : "map"
+		},{
+			"name"		: "background" ,
+			"default"	: "transparent" ,
+			"level"		: 2,
+			"type"		: "MIXED"
+		},{
+			"name"		: "font-family" ,
+			"default"	: "$FONT-FAMILY" ,
+			"level"		: 2,
+			"type"		: "MIXED"
+		},{
+			"name"		: "font-size" ,
+			"default"	: "$FONT-SIZE" ,
+			"level"		: 2,
+			"type"		: "number"
+		},{
+			"name"		: "color",
+			"default"	: "$FONT-COLOR" ,
+			"level"		: 2,
+			"type"		: "color"
+		},{
+			"name"		: "line-height" ,
+			"default"	: "$LINE-HEIGHT" ,
+			"level"		: 2,
+			"type"		: "number"
+		},{
+			"name"		: "reset" 	,
+			"default"	: "Eric Meyer",
+			"level"		: 2,
+			"type"		: "string",
+			"desc"		: "Available values : \"Eric Meyer\", \"HTML5 Doctor\", \"minimal\""
+		}
+	]
+}

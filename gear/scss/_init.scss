@@ -1,10 +1,20 @@
-@mixin init(
-		$background 	: transparent ,
-		$font-family 	: $FONT-FAMILY ,
-		$font-size 		: $FONT-SIZE ,
-		$color 			: $FONT-COLOR ,
-		$line-height 	: $LINE-HEIGHT ,
-		$reset 			: "Eric Meyer" ){
+@mixin init( $option : () ){
+	
+	$options : map-merge( (
+			"background" 	: transparent ,
+			"font-family" 	: $FONT-FAMILY ,
+			"font-size" 	: $FONT-SIZE ,
+			"color" 		: $FONT-COLOR ,
+			"line-height" 	: $LINE-HEIGHT ,
+			"reset" 		: "Eric Meyer"
+		) , $options );
+
+	$background 	: map-get( $options , "background" 	);
+	$font-family 	: map-get( $options , "font-family" );
+	$font-size 		: map-get( $options , "font-size" 	);
+	$color 			: map-get( $options , "color" 		);
+	$line-height 	: map-get( $options , "line-height" );
+	$reset 			: map-get( $options , "reset" 		);
 
 	@if( $reset == "Eric Meyer" ){
 		/**

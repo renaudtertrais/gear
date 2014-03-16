@@ -22,7 +22,7 @@
 	</tbody>
 </table>
 
-<div ng-repeat="m in mixins" id="mixin-{{m.name}}">
+<div ng-repeat="m in mixins | orderBy:'name'" id="mixin-{{m.name}}">
 	<hr>
 	<h3>
 		{{m.name}}

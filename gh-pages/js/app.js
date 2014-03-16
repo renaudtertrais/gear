@@ -36,7 +36,7 @@ app.controller( 'mainController', function($scope , $location ){
 
 /* DOC CONTROLLER */
 app.controller( 'docController' , function ( $scope , $http , $q ) {
-	$scope.mixinsName = ['grid','btn'];
+	$scope.mixinsName = ['init','grid','btn'];
 	$scope.mixins = [];
 
 	$scope.loadDoc = function( mixin ){
@@ -45,7 +45,7 @@ app.controller( 'docController' , function ( $scope , $http , $q ) {
 			.success(function( data , status ){
 				deferred.resolve(data);
 			}).error( function( data , status ){
-				deferred.reject("Documentation unavailable");
+				deferred.reject("Documentation for -"+mixin+"- unavailable");
 			});
 		return deferred.promise;
 	}
@@ -55,7 +55,7 @@ app.controller( 'docController' , function ( $scope , $http , $q ) {
 		$scope.loadDoc( mixin ).then(function( doc ){
 			$scope.mixins.push( doc );
 		},function(msg){
-			alert(msg);
+			console.log(msg);
 		})
 	});
 

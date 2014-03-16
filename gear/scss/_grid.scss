@@ -3,10 +3,7 @@
 // * * * * * * * * * * * * * * * * * * * * *
 
 // grid
-@mixin grid( 
-		$breakpoints ,
-		$options : ()
-	){
+@mixin grid( $breakpoints , $options : () ){
 	$options : map-merge( (
 			"col-gap"			: $GRID_COL-GAP , 
 			"col-number" 		: $GRID_COL-NUMBER , 
