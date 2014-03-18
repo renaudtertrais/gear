@@ -890,6 +890,96 @@ ol.list-inline > li {
   float: left;
 }
 
+ol.list-check li,
+ul.list-check li, ol.list-check-circle li,
+ul.list-check-circle li, ol.list-arrow-circle li,
+ul.list-arrow-circle li, ol.list-caret li,
+ul.list-caret li, ol.list-circle li,
+ul.list-circle li, ol.list-chevron li,
+ul.list-chevron li, ol.list-star li,
+ul.list-star li, ol.list-plus li,
+ul.list-plus li, ol.list-check-square-o li,
+ul.list-check-square-o li, ol.list-chevron-circle li,
+ul.list-chevron-circle li, ol.list-check-square li,
+ul.list-check-square li {
+  list-style: none;
+  position: relative;
+}
+ol.list-check li:before,
+ul.list-check li:before, ol.list-check-circle li:before,
+ul.list-check-circle li:before, ol.list-arrow-circle li:before,
+ul.list-arrow-circle li:before, ol.list-caret li:before,
+ul.list-caret li:before, ol.list-circle li:before,
+ul.list-circle li:before, ol.list-chevron li:before,
+ul.list-chevron li:before, ol.list-star li:before,
+ul.list-star li:before, ol.list-plus li:before,
+ul.list-plus li:before, ol.list-check-square-o li:before,
+ul.list-check-square-o li:before, ol.list-chevron-circle li:before,
+ul.list-chevron-circle li:before, ol.list-check-square li:before,
+ul.list-check-square li:before {
+  font-family: "Fontawesome";
+  font-size: .8em;
+  display: inline-block;
+  position: absolute;
+  margin-top: .2em;
+  margin-left: -1.5em;
+}
+
+ol.list-check li:before,
+ul.list-check li:before {
+  content: "\f00c";
+}
+
+ol.list-check-circle li:before,
+ul.list-check-circle li:before {
+  content: "\f058";
+}
+
+ol.list-arrow-circle li:before,
+ul.list-arrow-circle li:before {
+  content: "\f0a9";
+}
+
+ol.list-caret li:before,
+ul.list-caret li:before {
+  content: "\f0da";
+}
+
+ol.list-circle li:before,
+ul.list-circle li:before {
+  content: "\f10c";
+}
+
+ol.list-chevron li:before,
+ul.list-chevron li:before {
+  content: "\f054";
+}
+
+ol.list-star li:before,
+ul.list-star li:before {
+  content: "\f005";
+}
+
+ol.list-plus li:before,
+ul.list-plus li:before {
+  content: "\f055";
+}
+
+ol.list-check-square-o li:before,
+ul.list-check-square-o li:before {
+  content: "\f046";
+}
+
+ol.list-chevron-circle li:before,
+ul.list-chevron-circle li:before {
+  content: "\f138";
+}
+
+ol.list-check-square li:before,
+ul.list-check-square li:before {
+  content: "\f14a";
+}
+
 .table {
   width: 100%;
 }

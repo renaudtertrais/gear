@@ -22,6 +22,19 @@
 @include text();
 @include link( #3498db );
 @include list();
+@include list-icon( "Fontawesome", (
+		"check" 			: "\f00c",
+		"check-circle"		: "\f058",
+		"arrow-circle"		: "\f0a9",
+		"caret"				: "\f0da",
+		"circle"			: "\f10c",
+		"chevron"			: "\f054",
+		"star"				: "\f005",
+		"plus"				: "\f055",
+		"check-square-o"	: "\f046",
+		"chevron-circle"	: "\f138",
+		"check-square"		: "\f14a"
+	));
 
 // * * * table * * *
 @include table();
