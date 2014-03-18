@@ -36,7 +36,7 @@ app.controller( 'mainController', function($scope , $location ){
 
 /* DOC CONTROLLER */
 app.controller( 'docController' , function ( $scope , $http , $q ) {
-	$scope.mixinsName = ['init','grid','btn'];
+	$scope.mixinsName = ['init','grid','btn' ,'list'];
 	$scope.mixins = [];
 
 	$scope.loadDoc = function( mixin ){
@@ -85,4 +85,9 @@ app.directive( 'demo' , function(){
 		}
 
 	};
+});
+app.config(function (hljsServiceProvider) {
+  hljsServiceProvider.setOptions({
+  	tabReplace: '    '
+  });
 });

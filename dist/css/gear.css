@@ -1,51 +1,16 @@
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,700,300");
-/**
- * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
- * http://cssreset.com
- */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none;
   margin: 0;
   padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
 }
 
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-
-body {
-  line-height: 1;
-}
-
-ol, ul {
+ul,
+ol {
   list-style: none;
-}
-
-blockquote, q {
-  quotes: none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
 }
 
 table {
@@ -53,18 +18,11 @@ table {
   border-spacing: 0;
 }
 
-* {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  outline: none;
-}
-
 body {
   background: #f0f0f0;
   font-size: 16px;
-  color: #555555;
-  line-height: 1.2;
+  color: #2c3e50;
+  line-height: 1.5;
   font-family: "Open Sans", "Helvetica", "courier", "sans-serif";
 }
 
@@ -808,31 +766,37 @@ hr {
 h1 {
   font-size: 2em;
   margin: 40px 0;
+  font-weight: 400;
 }
 
 h2 {
   font-size: 1.8em;
   margin: 35px 0;
+  font-weight: 400;
 }
 
 h3 {
   font-size: 1.6em;
   margin: 30px 0;
+  font-weight: 400;
 }
 
 h4 {
   font-size: 1.4em;
   margin: 25px 0;
+  font-weight: 400;
 }
 
 h5 {
   font-size: 1.2em;
   margin: 20px 0;
+  font-weight: 400;
 }
 
 h6 {
   font-size: 1em;
   margin: 15px 0;
+  font-weight: 400;
 }
 
 .text-sans {
@@ -879,6 +843,51 @@ a:visited {
 }
 a:hover, a:active, a.active {
   text-decoration: underline;
+}
+
+ul {
+  list-style: disc;
+}
+ul ul {
+  list-style: circle;
+}
+ul ul ul {
+  list-style: square;
+}
+
+ol {
+  list-style: decimal;
+}
+ol ol {
+  list-style: lower-latin;
+}
+ol ol ol {
+  list-style: lower-roman;
+}
+
+ul,
+ol {
+  padding-left: 20px;
+}
+ul.list-unstyled,
+ol.list-unstyled {
+  list-style: none;
+  padding: 0;
+}
+ul.list-all, ul.list-all ul,
+ol.list-all,
+ol.list-all ul {
+  list-style: none;
+  padding: 0;
+}
+ul.list-inline,
+ol.list-inline {
+  list-style: none;
+  padding: 0;
+}
+ul.list-inline > li,
+ol.list-inline > li {
+  float: left;
 }
 
 .table {
@@ -1009,6 +1018,23 @@ a:hover, a:active, a.active {
 .btn-sign.btn-alert.active {
   background-color: #d62c1a;
   border-color: #d62c1a;
+}
+.btn.btn-negative,
+.btn-sign.btn-negative {
+  background-color: #2c3e50;
+  color: white;
+  border-color: #2c3e50;
+}
+.btn.btn-negative:hover,
+.btn-sign.btn-negative:hover {
+  background-color: #233140;
+  border-color: #233140;
+}
+.btn.btn-negative:active, .btn.btn-negative.active,
+.btn-sign.btn-negative:active,
+.btn-sign.btn-negative.active {
+  background-color: #1a242f;
+  border-color: #1a242f;
 }
 
 .btn {
@@ -1148,7 +1174,7 @@ a:hover, a:active, a.active {
 .navbar {
   height: 60px;
   line-height: 60px;
-  background-color: #222222;
+  background-color: #2c3e50;
   color: white;
 }
 .navbar > * {
@@ -1160,6 +1186,10 @@ a:hover, a:active, a.active {
 }
 .navbar .nav > * {
   line-height: initial;
+}
+.navbar ul.nav,
+.navbar ul.nav ul {
+  list-style: none;
 }
 .navbar ul.nav > li {
   float: left;
@@ -1176,7 +1206,7 @@ a:hover, a:active, a.active {
   line-height: initial;
 }
 .navbar ul.nav > li > a:hover {
-  background-color: #151515;
+  background-color: #233140;
   color: white;
 }
 .navbar ul.nav > li > a:active, .navbar ul.nav > li > a.active {

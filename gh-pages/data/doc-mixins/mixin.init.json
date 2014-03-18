@@ -21,7 +21,7 @@
 			"level"		: 2,
 			"type"		: "number"
 		},{
-			"name"		: "color",
+			"name"		: "font-color",
 			"default"	: "$FONT-COLOR" ,
 			"level"		: 2,
 			"type"		: "color"
@@ -31,19 +31,13 @@
 			"level"		: 2,
 			"type"		: "number"
 		},{
-			"name"		: "reset" 	,
-			"default"	: "Eric Meyer",
-			"level"		: 2,
-			"type"		: "string",
-			"desc"		: "Available values : \"Eric Meyer\", \"HTML5 Doctor\", \"minimal\""
-		},{
 			"name"		: "p_margin" ,
 			"default"	: "10px 0",
 			"level"		: 2,
 			"type"		: "MIXED",
-			"desc"		: "margin of <p> tag"
+			"desc"		: "Margins of <p> tag"
 		},{
-			"name"		: "hr_border-color" ,
+			"name"		: "hr_color" ,
 			"default"	: "rgba(0,0,0,.1)",
 			"level"		: 2,
 			"type"		: "color",
@@ -56,7 +50,7 @@
 			"desc"		: "margin of <hr> tag"
 		},{
 			"name"		: "light_class" ,
-			"default"	:"light",
+			"default"	: "light",
 			"level"		: 2,
 			"type"		: "string",
 			"desc"		: ""

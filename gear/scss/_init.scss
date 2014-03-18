@@ -4,11 +4,10 @@
 			"background" 		: transparent ,
 			"font-family" 		: $FONT-FAMILY ,
 			"font-size" 		: $FONT-SIZE ,
-			"color" 			: $FONT-COLOR ,
+			"font-color" 		: $FONT-COLOR ,
 			"line-height" 		: $LINE-HEIGHT ,
-			"reset" 			: "Eric Meyer",
 			"p_margin"			: 10px 0,
-			"hr_border-color"	: rgba(0,0,0,.1),
+			"hr_color"			: rgba(0,0,0,.1),
 			"hr_margin"			: 30px 0,
 			"light_class"		: "light",
 			"light_weight"		: 300,
@@ -19,154 +18,55 @@
 	$background 	: map-get( $options , "background" 	);
 	$font-family 	: map-get( $options , "font-family" );
 	$font-size 		: map-get( $options , "font-size" 	);
-	$color 			: map-get( $options , "color" 		);
+	$color 			: map-get( $options , "font-color" 		);
 	$line-height 	: map-get( $options , "line-height" );
-	$reset 			: map-get( $options , "reset" 		);
 
-	@if( $reset == "Eric Meyer" ){
-		/**
-		 * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
-		 * http://cssreset.com
-		 */
-		html, body, div, span, applet, object, iframe,
-		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-		a, abbr, acronym, address, big, cite, code,
-		del, dfn, em, img, ins, kbd, q, s, samp,
-		small, strike, strong, sub, sup, tt, var,
-		b, u, i, center,
-		dl, dt, dd, ol, ul, li,
-		fieldset, form, label, legend,
-		table, caption, tbody, tfoot, thead, tr, th, td,
-		article, aside, canvas, details, embed, 
-		figure, figcaption, footer, header, hgroup, 
-		menu, nav, output, ruby, section, summary,
-		time, mark, audio, video {
-			margin: 0;
-			padding: 0;
-			border: 0;
-			font-size: 100%;
-			font: inherit;
-			vertical-align: baseline;
-		}
-		/* HTML5 display-role reset for older browsers */
-		article, aside, details, figcaption, figure, 
-		footer, header, hgroup, menu, nav, section {
-			display: block;
-		}
-		body {
-			line-height: 1;
-		}
-		ol, ul {
-			list-style: none;
-		}
-		blockquote, q {
-			quotes: none;
-		}
-		blockquote:before, blockquote:after,
-		q:before, q:after {
-			content: '';
-			content: none;
-		}
-		table {
-			border-collapse: collapse;
-			border-spacing: 0;
-		}
-	}@else if( $reset == "HTML5 Doctor" ){
-		/**
-		 * html5doctor.com Reset Stylesheet v1.6.1 (http://html5doctor.com/html-5-reset-stylesheet/)
-		 * Richard Clark (http://richclarkdesign.com)
-		 * http://cssreset.com
-		 */
-		html, body, div, span, object, iframe,
-		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-		abbr, address, cite, code,
-		del, dfn, em, img, ins, kbd, q, samp,
-		small, strong, sub, sup, var,
-		b, i,
-		dl, dt, dd, ol, ul, li,
-		fieldset, form, label, legend,
-		table, caption, tbody, tfoot, thead, tr, th, td,
-		article, aside, canvas, details, figcaption, figure,
-		footer, header, hgroup, menu, nav, section, summary,
-		time, mark, audio, video {
-		    margin:0;
-		    padding:0;
-		    border:0;
-		    outline:0;
-		    font-size:100%;
-		    vertical-align:baseline;
-		    background:transparent;
-		}
-		body {
-		    line-height:1;
-		}
-		article,aside,details,figcaption,figure,
-		footer,header,hgroup,menu,nav,section {
-		    display:block;
-		}
-		nav ul {
-		    list-style:none;
-		}
-		blockquote, q {
-		    quotes:none;
-		}
-		blockquote:before, blockquote:after,
-		q:before, q:after {
-		    content:'';
-		    content:none;
-		}
-		a {
-		    margin:0;
-		    padding:0;
-		    font-size:100%;
-		    vertical-align:baseline;
-		    background:transparent;
-		}
-		/* change colours to suit your needs */
-		ins {
-		    background-color:#ff9;
-		    color:#000;
-		    text-decoration:none;
-		}
-		/* change colours to suit your needs */
-		mark {
-		    background-color:#ff9;
-		    color:#000;
-		    font-style:italic;
-		    font-weight:bold;
-		}
-		del {
-		    text-decoration: line-through;
-		}
-		abbr[title], dfn[title] {
-		    border-bottom:1px dotted;
-		    cursor:help;
-		}
-		table {
-		    border-collapse:collapse;
-		    border-spacing:0;
-		}
-		/* change border colour to suit your needs */
-		hr {
-		    display:block;
-		    height:1px;
-		    border:0;
-		    border-top:1px solid #cccccc;
-		    margin:1em 0;
-		    padding:0;
-		}
-		input, select {
-		    vertical-align:middle;
-		}
-	}@else if( $reset == "minimal" ){
-		*{
-			margin: 0;
-			padding: 0;
-		}
-	}
+		 
+		// html, body, div, span, applet, object, iframe,
+		// h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+		// a, abbr, acronym, address, big, cite, code,
+		// del, dfn, em, img, ins, kbd, q, s, samp,
+		// small, strike, strong, sub, sup, tt, var,
+		// b, u, i, center,
+		// dl, dt, dd, ol, ul, li,
+		// fieldset, form, label, legend,
+		// table, caption, tbody, tfoot, thead, tr, th, td,
+		// article, aside, canvas, details, embed, 
+		// figure, figcaption, footer, header, hgroup, 
+		// menu, nav, output, ruby, section, summary,
+		// time, mark, audio, video {
+		// 	margin: 0;
+		// 	padding: 0;
+		// 	border: 0;
+		// 	font-size: 100%;
+		// 	font: inherit;
+		// 	vertical-align: baseline;
+		// }
+
+		// blockquote, q {
+		// 	quotes: none;
+		// }
+		// blockquote:before, blockquote:after,
+		// q:before, q:after {
+		// 	content: '';
+		// 	content: none;
+		// }
+		
 	*{
 		@include box-sizing( border-box );
 		outline:none;
+		margin: 0;
+		padding: 0;
+	}
+
+	ul,
+	ol{
+		list-style: none;
+	}
+
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
 	}
 
 	body{
@@ -196,7 +96,7 @@
 
 	hr{
 		border:none;
-		border-bottom: 1px solid map-get( $options , "hr_border-color");
+		border-bottom: 1px solid map-get( $options , "hr_color");
 		margin: map-get( $options , "hr_margin" );
 	}
 }

@@ -1,59 +1,9 @@
-//$PREFIX : "gear";
-
-$FONT-FAMILY :"Open Sans","Helvetica","courier","sans-serif";
-
 @import "compass";
 @import "../../gear/scss/gear.scss";
-@import url("http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,700,300");
 
-// Globals 
+// import variables
+@import "variables";
 
-// * * * VARS * * *
-
-	
-$color-default 	: "default"		, #FFF, #555, #CCC ;
-$color-primary 	: "primary"		, #3498db ;
-$color-success 	: "success"		, #36b34c ; //2ecc71
-$color-warning 	: "warning"		, #f58134 ;
-$color-alert 	: "alert" 		, #e74c3c ;
-
-$colors : 
-	$color-default ,
-	$color-primary ,
-	$color-success ,
-	$color-warning ,
-	$color-alert ;
-
-// * * * SIZES 
-
-$size-micro 	: "micro" 		, 22px , 12px ;
-$size-min 		: "min" 		, 30px , 14px ;
-$size-default 	: "medium" 		, 40px ;
-$size-max 		: "max" 		, 50px ;
-$size-fat 		: "fat" 		, 60px ;
-
-$sizes : 
-	$size-default 	, 
-	$size-micro 	, 
-	$size-min 		, 
-	$size-max 		, 
-	$size-fat 		;
-
-// * * * BREAKPOINTS
-
-
-$breakpoint-xs 	: "xs"	, 320px ;
-$breakpoint-s 	: "s"	, 480px ;
-$breakpoint-m 	: "m"	, 768px ;
-$breakpoint-l  : "l"	, 1024px ;
-$breakpoint-xl  : "xl"	, 1200px ;
-
-$breakpoints :
-	$breakpoint-xs,
-	$breakpoint-s ,
-	$breakpoint-m ,
-	$breakpoint-l,
-	$breakpoint-xl;
 
 
 // * * * init * * *
@@ -71,18 +21,34 @@ $breakpoints :
 @include headings();
 @include text();
 @include link( #3498db );
+@include list();
 
 // * * * table * * *
 @include table();
 
 // * * * buttons * * * 
 // btn
-$btn-colors : $colors ;
+$btn-default 	: "default"		, $color-default 	, #555, #CCC ;
+$btn-primary 	: "primary"		, $color-primary  ;
+$btn-success 	: "success"		, $color-success  ; 
+$btn-warning 	: "warning"		, $color-warning  ;
+$btn-alert 		: "alert" 		, $color-alert 		; 
+$btn-negative 	: "negative" 	, $color-negative 	; 
+
+$btn-colors : 
+	$btn-default 	,
+	$btn-primary 	,
+	$btn-success 	,
+	$btn-warning 	,
+	$btn-alert 		,
+	$btn-negative 		;
+
 $btn-sizes 	: $sizes ;
+
 @include btn( $btn-colors , $btn-sizes );
 
 // * * * Navbar * * *
-$navcolor : #222222 , #3498db ;
+$navcolor : $color-negative , #3498db ;
 @include navbar($navcolor, #FFF);
 
 // * * * OTHER * * *

@@ -1,0 +1,60 @@
+
+
+
+// Globals 
+
+// * * * VARS * * *
+
+	
+$color-default 	:  #FFF 	;
+$color-primary 	:  #3498db 	;
+$color-success 	:  #36b34c 	; //2ecc71
+$color-warning 	:  #f58134 	;
+$color-alert 	:  #e74c3c 	;
+$color-negative :  #2c3e50 	;
+
+$colors : 
+	$color-default ,
+	$color-primary ,
+	$color-success ,
+	$color-warning ,
+	$color-alert ;
+
+// * * * SIZES 
+
+$size-micro 	: "micro" 		, 22px , 12px ;
+$size-min 		: "min" 		, 30px , 14px ;
+$size-default 	: "medium" 		, 40px ;
+$size-max 		: "max" 		, 50px ;
+$size-fat 		: "fat" 		, 60px ;
+
+$sizes : 
+	$size-default 	, 
+	$size-micro 	, 
+	$size-min 		, 
+	$size-max 		, 
+	$size-fat 		;
+
+// * * * BREAKPOINTS
+
+
+$breakpoint-xs 	: "xs"	, 320px ;
+$breakpoint-s 	: "s"	, 480px ;
+$breakpoint-m 	: "m"	, 768px ;
+$breakpoint-l  : "l"	, 1024px ;
+$breakpoint-xl  : "xl"	, 1200px ;
+
+$breakpoints :
+	$breakpoint-xs,
+	$breakpoint-s ,
+	$breakpoint-m ,
+	$breakpoint-l,
+	$breakpoint-xl;
+
+
+// * * * CONSTANTS * * *
+//$PREFIX : "gear";
+// import font
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,700,300");
+$FONT-FAMILY 	: "Open Sans","Helvetica","courier","sans-serif";
+$FONT-COLOR 	: $color-negative ;

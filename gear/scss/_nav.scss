@@ -92,6 +92,11 @@
 			height: 100%;
 			@include _line-height( $height );
 		}
+		ul.nav,
+		ul.nav ul{
+			list-style: none;
+		}
+
 		ul.nav{
 			& > li {
 				float:left;

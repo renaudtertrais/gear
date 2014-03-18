@@ -5,6 +5,7 @@
 		h#{$_i}{
 			font-size: 2em - ($_i - 1) * .2;
 			margin: 40px - ($_i - 1) * 5 0;
+			font-weight: 400;
 		}
 	}
 }
@@ -86,4 +87,75 @@
 			}
 		}
 	}		
+}
+
+@mixin list( $options : () ){
+	$options : map-merge( (
+			"padding-left"				: 20px,
+			"ul_styles"					: disc circle square,
+			"ol_styles"					: decimal lower-latin lower-roman,
+			"list_class"				: "list",
+			"list-unstyled_suffix"		: "unstyled",
+			"list-unstyled-all_suffix"	: "all",
+			"list-inline_suffix"		: "inline"
+		), $options );
+
+	$ul-styles : map-get( $options , "ul_styles" );
+	$ol-styles : map-get( $options , "ol_styles" );
+	$list_class : $PX + map-get( $options , "list_class") ;
+	$list-unstyled_class		: $list_class +"-"+ map-get( $options , "list-unstyled_suffix");
+	$list-unstyled-all_class	: $list_class +"-"+ map-get( $options , "list-unstyled-all_suffix");
+	$list-inline_class			: $list_class +"-"+ map-get( $options , "list-inline_suffix");
+	
+
+	ul{
+		list-style : nth( $ul-styles , 1 );
+		@if length($ul-styles) > 1 {
+			ul {
+				list-style : nth( $ul-styles , 2 );
+				@if length($ul-styles) > 2 {
+					ul {
+						list-style : nth( $ul-styles , 3 )
+					}
+				}
+			}
+		}
+	}
+
+	ol{
+		list-style : nth( $ol-styles , 1 );
+		@if length($ol-styles) > 1 {
+			ol {
+				list-style : nth( $ol-styles , 2 );
+				@if length($ol-styles) > 2 {
+					ol {
+						list-style : nth( $ol-styles , 3 )
+					}
+				}
+			}
+		}
+	}
+
+	ul,
+	ol{
+		padding-left: map-get( $options , "padding-left" );
+		&.#{$list-unstyled_class}{
+			list-style: none;
+			padding:0;
+		}
+		&.#{$list-unstyled-all_class},
+		&.#{$list-unstyled-all_class} ul,{
+			list-style: none;
+			padding:0;
+		}
+		&.#{$list-inline_class}{
+			list-style: none;
+			padding:0;
+			& > li{
+				float: left;
+			}
+		}
+
+	}
+
 }

@@ -1,0 +1,52 @@
+{
+	"name"	: "list",
+	"desc"	: "Init the default behavior of <ul> and <ol> tag",
+	"params":[
+		{
+			"name"	: "$options",
+			"type"	: "map"
+		},{
+			"name"		: "padding-left",
+			"default"	: "20px",
+			"type"		: "number",
+			"desc"		: "padding-let of each <ol> and <ul>",
+			"level"		: 2
+		},{
+			"name"		: "ul_styles",
+			"default"	: "disc circle square",
+			"type"		: "list",
+			"desc"		: "can contain between 1 and 3 styles for <ul> : first for parent, then child...",
+			"level"		: 2
+		},{
+			"name"		: "ol_styles",
+			"default"	: "decimal lower-latin lower-roman",
+			"type"		: "list",
+			"desc"		: "can contain between 1 and 3 styles for <ol> : first for parent, then child...",
+			"level"		: 2
+		},{
+			"name"		: "list_class",
+			"default"	: "list",
+			"type"		: "string",
+			"desc"		: "",
+			"level"		: 2
+		},{
+			"name"		: "list-unstyled_suffix",
+			"default"	: "unstyled",
+			"type"		: "string",
+			"desc"		: "",
+			"level"		: 2
+		},{
+			"name"		: "list-unstyled-all_suffix",
+			"default"	: "all",
+			"type"		: "string",
+			"desc"		: "",
+			"level"		: 2
+		},{
+			"name"		: "list-inline_suffix",
+			"default"	: "inline",
+			"type"		: "string",
+			"desc"		: "",
+			"level"		: 2
+		}
+	]
+}
