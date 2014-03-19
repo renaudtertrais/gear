@@ -20,8 +20,8 @@ $FONT-SIZE 			: 16px 	!default;
 $LINE-HEIGHT 		: 1.5 	!default;
 // FONT-FAMILY
 $FONT-FAMILY_SANS 	: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$FONT-FAMILY_SERIF 	: Georgia Times serif !default;
-$FONT-FAMILY_MONO	: "Lucida Console" Monaco monospace !default;
+$FONT-FAMILY_SERIF 	: Georgia, Times serif, !default;
+$FONT-FAMILY_MONO	: monospace !default;
 $FONT-FAMILY 		: $FONT-FAMILY_SANS !default;
 
 // * DIMMENSIONS *
