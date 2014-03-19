@@ -106,9 +106,14 @@ app.directive( 'demo' , function(){
 		controller : function($scope , $transclude , $sce){
 			$transclude(function(clone){
 				var elt = angular.element("<div/>").append(clone);
+				var code = elt ;
+				if( elt.find("code-demo").length > 0 ){
+					code = elt.find("code-demo").clone();
+					elt.find("code-demo").remove();
+				}
 				$scope.preview =  $sce.trustAsHtml(elt.html());
-				elt.find('*').removeClass('ng-scope ng-model ng-binding ng-isolate-scope');
-				$scope.code = elt.html().replace(/ class=""/g,'');
+				code.find('*').removeClass('ng-scope ng-model ng-binding ng-isolate-scope');
+				$scope.code = code.html().replace(/ class=""/g,'');
 			});
 		}
 

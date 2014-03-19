@@ -2,9 +2,16 @@
 // YOU SHOULD NOT OVERRIDE THE MIXINS BELOW
 // * * * * * * * * * * * * * * * * * * * * *
 
-@mixin table( $table_class : "table" , $table-striped_suffix : "striped" ){
-	$table_class 			: $PX + $table_class ;
-	$table-striped_class 	: $table_class +"-"+ $table-striped_suffix ;
+@mixin table( $options : () ){
+	$options : map-merge((
+			"table_class" 			: "table" , 
+			"table_border-color" 	: rgba(0,0,0,.06), 
+			"table-striped_suffix" 	: "striped",
+			"table-striped_color" 	: rgba(0,0,0,.03)
+		), $options);
+
+	$table_class 			: $PX + map-get( $options , "table_class" ) ;
+	$table-striped_class 	: $table_class +"-"+ map-get( $options , "table-striped_suffix" );
 
 	.#{ $table_class }{
 		width: 100%;
@@ -13,7 +20,7 @@
 			td,
 			th{
 				border-bottom: 1px solid #DDD;
-				border-bottom: 1px solid rgba(0,0,0,.1);
+				border-bottom: 1px solid map-get( $options , "table_border-color" );
 				padding:10px;
 				text-align: left;
 			}
@@ -29,7 +36,7 @@
 
 		&.#{ $table-striped_class }{
 			tr:nth-child(even){
-				background-color: rgba(0,0,0,.05);
+				background-color: map-get( $options , "table-striped_color" );
 			}
 		}
 	}

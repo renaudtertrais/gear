@@ -986,7 +986,7 @@ ul.list-check-square li:before {
 .table tr td,
 .table tr th {
   border-bottom: 1px solid #DDD;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   padding: 10px;
   text-align: left;
 }
@@ -997,7 +997,7 @@ ul.list-check-square li:before {
   font-weight: bold;
 }
 .table.table-striped tr:nth-child(even) {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.03);
 }
 
 /* default behavior */
