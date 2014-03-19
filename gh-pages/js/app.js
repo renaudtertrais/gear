@@ -66,6 +66,29 @@ app.controller( 'docController' , function ( $scope , $http , $q ) {
 	}
 });
 
+/* cssController */
+app.controller( 'cssController' , function( $scope ){
+	$scope.optionsListIcon = [
+		"list-check" 		,
+		"list-check-circle"	,
+		"list-arrow-circle"	,
+		"list-caret"			,
+		"list-circle"		,
+		"list-chevron"		,
+		"list-star"			,
+		"list-plus"			,
+		"list-check-square-o",
+		"list-chevron-circle",
+		"list-check-square"	
+	];
+	$scope.changeListIcon = function(){
+		$("#listIcon ul").attr("class",$("#selectListIcon").val());
+		$("#listIcon .hljs > .hljs-tag:first-child .hljs-value").html($("#selectListIcon").val());
+	}
+	//$("#listIcon ul").attr("class",$scope.optionsListIcon[0]);
+	//$("#listIcon .hljs > .hljs-tag:first-child .hljs-value").html($scope.optionsListIcon[0]);
+});
+
 /* Code directive */
 app.directive( 'demo' , function(){
 	return {
@@ -79,7 +102,6 @@ app.directive( 'demo' , function(){
 				var elt = angular.element("<div/>").append(clone);
 				$scope.preview =  $sce.trustAsHtml(elt.html());
 				elt.find('*').removeClass('ng-scope ng-model ng-binding ng-isolate-scope');
-				console.log(elt.html())
 				$scope.code = elt.html().replace(/ class=""/g,'');
 			});
 		}
