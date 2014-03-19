@@ -36,7 +36,13 @@ app.controller( 'mainController', function($scope , $location ){
 
 /* DOC CONTROLLER */
 app.controller( 'docController' , function ( $scope , $http , $q ) {
-	$scope.mixinsName = ['init','grid','btn' ,'list'];
+	$scope.mixinsName = [
+		'init',
+		'grid',
+		'btn' ,
+		'list',
+		'list-icon'
+	];
 	$scope.mixins = [];
 
 	$scope.loadDoc = function( mixin ){

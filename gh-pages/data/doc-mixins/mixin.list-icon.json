@@ -1,0 +1,26 @@
+{
+	"name"	: "list-icon",
+	"desc"	: "Create as many .list-[icon] as you want",
+	"params" : [
+		{
+			"name"		: "$font-family",
+			"desc"		: "The icon font-family, \"Fontawesome\" for example",
+			"type"		: "string",
+			"required"	: true
+		},{
+			"name"		: "$lists",
+			"desc"		: "List of keys (suffix of the list-icon class) and values (charactere to insert, \"\\f056\" for example)",
+			"type"		: "map",
+			"required"	: true
+		},{
+			"name"	: "$options",
+			"type"	: "map"
+		},
+		{
+			"name"		: "list_class",
+			"level" 	: 2,
+			"type"		: "string",
+			"default"	: "list"
+		}
+	]
+}
