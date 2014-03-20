@@ -16,11 +16,38 @@
 		@include border-radius(4px 4px 0 0);
 		padding:20px;
 		border-bottom: none;
+		&:before{
+			content : "DEMO";
+		}
 	}
 	.code pre code{
 		@include border-radius(0 0 4px 4px);
 		padding:20px;
 		border:1px solid rgba(0,0,0,.2);
+	}
+
+	.code{
+		&:before{
+			content : "CODE";
+		}
+	}
+
+	.code,
+	.preview{
+		position: relative;
+		overflow: hidden;
+		&:before{
+			@include border-radius(0 0 4px 0);
+			background-color: rgba(0,0,0,.03);
+			top: 0;
+			left: 0;
+			padding:0 4px;
+			font-size: 12px;
+			position: absolute;
+			color:rgba(0,0,0,.5);
+			border-right:1px solid rgba(0,0,0,.15);
+			border-bottom:1px solid rgba(0,0,0,.15);
+		}
 	}
 }
 

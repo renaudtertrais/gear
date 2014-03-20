@@ -16,12 +16,38 @@
   padding: 20px;
   border-bottom: none;
 }
+.demo .preview:before {
+  content: "DEMO";
+}
 .demo .code pre code {
   -moz-border-radius: 0 0 4px 4px;
   -webkit-border-radius: 0;
   border-radius: 0 0 4px 4px;
   padding: 20px;
   border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.demo .code:before {
+  content: "CODE";
+}
+.demo .code,
+.demo .preview {
+  position: relative;
+  overflow: hidden;
+}
+.demo .code:before,
+.demo .preview:before {
+  -moz-border-radius: 0 0 4px 0;
+  -webkit-border-radius: 0;
+  border-radius: 0 0 4px 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  top: 0;
+  left: 0;
+  padding: 0 4px;
+  font-size: 12px;
+  position: absolute;
+  color: rgba(0, 0, 0, 0.5);
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 #doc .table {
