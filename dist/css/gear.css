@@ -996,7 +996,7 @@ ul.list-check-square li:before {
 .table tr th {
   font-weight: bold;
 }
-.table.table-striped tr:nth-child(even) {
+.table.table-striped tr:nth-child(odd) > td {
   background-color: rgba(0, 0, 0, 0.03);
 }
 

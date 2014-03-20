@@ -35,7 +35,7 @@
 		}
 
 		&.#{ $table-striped_class }{
-			tr:nth-child(even){
+			tr:nth-child(odd) > td{
 				background-color: map-get( $options , "table-striped_color" );
 			}
 		}
