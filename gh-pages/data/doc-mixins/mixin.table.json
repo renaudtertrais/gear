@@ -1,0 +1,82 @@
+{
+	"name" 	: "table",
+	"desc"	: "Add all the table classes",
+	"params": [
+		{
+			"name" : "$options",
+			"type" : "map"
+		},{
+			"name"		: "table_class",
+			"type"		: "string",
+			"level"		: 2,
+			"desc"		: "",
+			"default"	: "table"
+		},{
+			"name"		: "radius",
+			"type"		: "number(s)",
+			"level"		: 2,
+			"desc"		: "",
+			"default"	: "$RADIUS"
+		},{
+			"name"		: "border-width",
+			"type"		: "number",
+			"level"		: 2,
+			"desc"		: "",
+			"default"	: "1px"
+		},{
+			"name"		: "border-color", 
+			"type"		: "color",
+			"level"		: 2,
+			"desc"		: "A color with alpha could be useful with a colored background",
+			"default"	: "rgba(0,0,0,.1)"
+		},{
+			"name"		: "padding",
+			"type"		: "number(s)",
+			"level"		: 2,
+			"desc"		: "",
+			"default"	: "10px"
+		},{
+			"name"		: "table-bordered_suffix", 
+			"type"		: "string",
+			"level"		: 2,
+			"desc"		: "",
+			"default"	: "bordered"
+		},{
+			"name"		: "table-striped_suffix",
+			"type"		: "string",
+			"level"		: 2,
+			"desc"		: "",
+			"default"	: "striped"
+		},{
+			"name"		: "table-striped_color",
+			"type"		: "color",
+			"level"		: 2,
+			"desc"		: "A color with alpha could be useful with a colored background",
+			"default"	: "rgba(0,0,0,.04)"
+		},{
+			"name"		: "table-compact_suffix",
+			"type"		: "string",
+			"level"		: 2,
+			"desc"		: "",
+			"default"	: "compact"
+		},{
+			"name"		: "table-compact_padding",
+			"type"		: "number(s)",
+			"level"		: 2,
+			"desc"		: "",
+			"default"	: "5px 10px"
+		},{
+			"name"		: "table-wide_suffix",
+			"type"		: "string",
+			"level"		: 2,
+			"desc"		: "",
+			"default"	: "wide"
+		},{
+			"name"		: "table-wide_padding",
+			"type"		: "number(s)",
+			"level"		: 2,
+			"desc"		: "",
+			"default"	: "15px 10px"
+		}
+	] 
+}

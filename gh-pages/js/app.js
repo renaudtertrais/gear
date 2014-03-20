@@ -41,7 +41,8 @@ app.controller( 'docController' , function ( $scope , $http , $q ) {
 		'grid',
 		'btn' ,
 		'list',
-		'list-icon'
+		'list-icon',
+		'table'
 	];
 	$scope.mixins = [];
 

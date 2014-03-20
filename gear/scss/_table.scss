@@ -4,29 +4,45 @@
 
 @mixin table( $options : () ){
 	$options : map-merge((
-			"table_class" 			: "table" , 
-			"table_border-color" 	: rgba(0,0,0,.06), 
+			"table_class" 			: "table" ,
+			"radius"				: $RADIUS,
+			"border-width"			: 1px,
+			"border-color" 			: rgba(0,0,0,.1), 
+			"padding"				: 10px,
+			"table-bordered_suffix" : "bordered", 
 			"table-striped_suffix" 	: "striped",
-			"table-striped_color" 	: rgba(0,0,0,.03)
+			"table-striped_color" 	: rgba(0,0,0,.04),
+			"table-compact_suffix"	: "compact",
+			"table-compact_padding"	: 5px 10px,
+			"table-wide_suffix"		: "wide",
+			"table-wide_padding"	: 15px 10px
 		), $options);
 
 	$table_class 			: $PX + map-get( $options , "table_class" ) ;
 	$table-striped_class 	: $table_class +"-"+ map-get( $options , "table-striped_suffix" );
+	$table-bordered_class 	: $table_class +"-"+ map-get( $options , "table-bordered_suffix" );
+	$table-compact_class 	: $table_class +"-"+ map-get( $options , "table-compact_suffix" );
+	$table-wide_class 		: $table_class +"-"+ map-get( $options , "table-wide_suffix" );
+	
+	$border-color 			: map-get( $options , "border-color" );
+	$border-width 			: map-get( $options , "border-width" );
+	$radius 				: map-get( $options , "radius" );
 
 	.#{ $table_class }{
+		border:none;
 		width: 100%;
 
 		tr{
 			td,
 			th{
-				border-bottom: 1px solid #DDD;
-				border-bottom: 1px solid map-get( $options , "table_border-color" );
-				padding:10px;
+				border:none;
+				border-bottom: $border-width solid $border-color ;
+				padding: map-get( $options , "padding" ) ;
 				text-align: left;
 			}
 			&:last-child{
 				td{
-					border-bottom: none;
+					border-bottom: none ;
 				}
 			}
 			th{
@@ -37,6 +53,45 @@
 		&.#{ $table-striped_class }{
 			tr:nth-child(odd) > td{
 				background-color: map-get( $options , "table-striped_color" );
+			}
+		}
+		&.#{ $table-bordered_class }{
+			border : 1px solid $border-color;
+			@include border-radius($radius);
+			td,
+			th{
+				border-right: 1px solid $border-color ;
+				&:last-child{
+					border-right:none;
+				}
+			}
+			> *:first-child{
+				> th,
+				> td,
+				> tr:first-child > th,
+				> tr:first-child > td{
+					&:first-child{@include border-radius($radius 0 0 0);}
+					&:last-child{@include border-radius(0 $radius 0 0);}
+				}
+			}
+			> *:last-child{
+				> th,
+				> td,
+				> tr:last-child > th,
+				> tr:last-child > td{
+					&:first-child{@include border-radius(0 0 0 $radius );}
+					&:last-child{@include border-radius(0 0 $radius 0);}
+				}
+			}
+		}
+		&.#{ $table-compact_class }{
+			td,th{
+				padding : map-get( $options , "table-compact_padding" );
+			}
+		}
+		&.#{ $table-wide_class }{
+			td,th{
+				padding : map-get( $options , "table-wide_padding" );
 			}
 		}
 	}
