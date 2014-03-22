@@ -11,15 +11,20 @@
 			"name"		: "$options",
 			"type"		: "map"
 		},{
-			"name"		: "col-gap",
+			"name"		: "cell_gap",
 			"level" 	: 2,
 			"type"		: "number",
 			"default"	: "$GRID_COL-GAP"
 		},{
-			"name"		: "col-number",
+			"name"		: "cell_number",
 			"level" 	: 2,
 			"type"		: "number",
 			"default"	: "$GRID_COL-NUMBER"
+		},{
+			"name"		: "cell_margin-bottom",
+			"level" 	: 2,
+			"type"		: "number",
+			"default"	: "$GRID_COL-GAP"
 		},{
 			"name"		: "grid_class ",
 			"level" 	: 2,

@@ -45,7 +45,8 @@ app.controller( 'docController' , function ( $scope , $http , $q ) {
 		'table',
 		'text',
 		'headings',
-		'link'
+		'link',
+		'code'
 	];
 	$scope.mixins = [];
 

@@ -1,0 +1,64 @@
+{
+	"name"		: "code",
+	"desc"		: "Add style to <code></code> (inline) and <pre><code></code></pre> (block).",
+	"params"	: [
+		{
+			"name"	: "$options",
+			"type"	: "map"
+		},{
+			"name"		: "radius",	
+			"default"	: "$RADIUS",
+			"type"		: "number",
+			"level"		: 2,
+			"desc"		: ""
+		},{
+			"name"		: "font-family"	,	
+			"default"	: "$FONT-FAMILY_MONO",
+			"type"		: "list",
+			"level"		: 2,
+			"desc"		: ""
+		},{
+			"name"		: "inline_font-color",	
+			"default"	: "$FONT-COLOR",
+			"type"		: "color",
+			"level"		: 2,
+			"desc"		: "inline : without <pre></pre>"
+		},{
+			"name"		: "inline_padding",	
+			"default"	: "0 10px",
+			"type"		: "number(s)",
+			"level"		: 2,
+			"desc"		: "inline : without <pre></pre>"
+		},{
+			"name"		: "block_font-color",	
+			"default"	: "$FONT-COLOR",
+			"type"		: "color",
+			"level"		: 2,
+			"desc"		: ""
+		},{
+			"name"		: "block_padding",	
+			"default"	: "20px",
+			"type"		: "number(s)",
+			"level"		: 2,
+			"desc"		: ""
+		},{
+			"name"		: "background-color",	
+			"default"	: "rgba(0,0,0,.04)",
+			"type"		: "color",
+			"level"		: 2,
+			"desc"		: ""
+		},{
+			"name"		: "border-color",	
+			"default"	: "rgba(0,0,0,.2)",
+			"type"		: "color",
+			"level"		: 2,
+			"desc"		: ""
+		},{
+			"name"		: "font-size",	
+			"default"	: "14px",
+			"type"		: "number",
+			"level"		: 2,
+			"desc"		: ""
+		}
+	]
+}

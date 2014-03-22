@@ -18,12 +18,13 @@
 .demo .preview:before {
   content: "DEMO";
 }
-.demo .code pre code {
+.demo .code pre {
   -moz-border-radius: 0 0 4px 4px;
   -webkit-border-radius: 0;
   border-radius: 0 0 4px 4px;
+}
+.demo .code pre code {
   padding: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 .demo .code:before {
   content: "CODE";

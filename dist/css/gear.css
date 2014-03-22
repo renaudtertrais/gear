@@ -1467,18 +1467,63 @@ ul.list-check-square li:before {
 
 code {
   font-family: monospace;
+  background-color: rgba(0, 0, 0, 0.04);
+  color: #e74c3c;
+  display: inline-block;
+  padding: 0 10px;
 }
 
 pre {
-  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.04);
   white-space: pre-wrap;
-}
-pre code {
-  padding: 20px;
+  overflow: auto;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
-  font-size: 15px;
+}
+pre code {
+  display: block;
+  padding: 20px;
+  color: #2c3e50;
+  background: transparent;
+  font-size: 14px;
+}
+
+.round-min,
+.round-min-top,
+.round-min-left,
+.round-min-top-left {
+  -moz-border-radius-topleft: 4px !important;
+  -webkit-border-top-left-radius: 4px !important;
+  border-top-left-radius: 4px !important;
+}
+
+.round-min,
+.round-min-top,
+.round-min-right,
+.round-min-top-right {
+  -moz-border-radius-topright: 4px !important;
+  -webkit-border-top-right-radius: 4px !important;
+  border-top-right-radius: 4px !important;
+}
+
+.round-min,
+.round-min-bottom,
+.round-min-left,
+.round-min-bottom-left {
+  -moz-border-radius-bottomleft: 4px !important;
+  -webkit-border-bottom-left-radius: 4px !important;
+  border-bottom-left-radius: 4px !important;
+}
+
+.round-min,
+.round-min-bottom,
+.round-min-right,
+.round-min-bottom-right {
+  -moz-border-radius-bottomright: 4px !important;
+  -webkit-border-bottom-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
 }
 
 .square,

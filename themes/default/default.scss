@@ -74,13 +74,14 @@ $navcolor : $color-negative , #3498db ;
 @include navbar($navcolor, #FFF);
 
 // * * * OTHER * * *
-@include code();
+@include code(( "inline_font-color" : $color-alert ));
 
 // * * * HELPERS * * *
 // RADIUS
-$radius-square 	: "square", 0px;
-$radius-round 	: "round", 3000px;
-$radius : $radius-square , $radius-round ;
+$radius-square 		: "square", 0px;
+$radius-round 		: "round", 3000px;
+$radius-round-min 	: "round-min", $RADIUS;
+$radius : $radius-round-min , $radius-square , $radius-round ;
 @include hp-radius( $radius );
 // FLOAT
 @include hp-float();

@@ -19,10 +19,11 @@
 			content : "DEMO";
 		}
 	}
-	.code pre code{
+	.code pre{
 		@include border-radius(0 0 4px 4px);
-		padding:20px;
-		border:1px solid rgba(0,0,0,.2);
+		code{
+			padding: 20px;
+		}
 	}
 
 	.code{
