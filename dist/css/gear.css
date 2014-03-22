@@ -1083,7 +1083,7 @@ ul.list-check-square li:before {
 .table tr td,
 .table tr th {
   border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding: 10px;
   text-align: left;
 }
@@ -1097,14 +1097,14 @@ ul.list-check-square li:before {
   background-color: rgba(0, 0, 0, 0.04);
 }
 .table.table-bordered {
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
 .table.table-bordered td,
 .table.table-bordered th {
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
 .table.table-bordered td:last-child,
 .table.table-bordered th:last-child {
@@ -1471,6 +1471,7 @@ code {
   color: #e74c3c;
   display: inline-block;
   padding: 0 10px;
+  font-size: 14px;
 }
 
 pre {
@@ -1487,7 +1488,6 @@ pre code {
   padding: 20px;
   color: #2c3e50;
   background: transparent;
-  font-size: 14px;
 }
 
 .round-min,

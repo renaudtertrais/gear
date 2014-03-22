@@ -28,7 +28,7 @@
 			"type"		: "color",
 			"level"		: 2,
 			"desc"		: "A color with alpha could be useful with a colored background",
-			"default"	: "rgba(0,0,0,.1)"
+			"default"	: "rgba(0,0,0,.2)"
 		},{
 			"name"		: "padding",
 			"type"		: "number(s)",

@@ -19,6 +19,7 @@
 		color:map-get( $options , "inline_font-color" );
 		display: inline-block;
 		padding: map-get( $options , "inline_padding" );
+		font-size: map-get( $options , "font-size" );
 	}
 	pre{
 		border:1px solid rgba(0,0,0,.2);
@@ -32,7 +33,6 @@
 			padding: map-get( $options , "block_padding" );
 			color: map-get( $options , "block_font-color" );;
 			background:transparent;
-			font-size: map-get( $options , "font-size" );
 		}
 	}
 }
