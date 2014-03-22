@@ -1,0 +1,33 @@
+{
+	"name"	: "headings",
+	"desc"	: "Add Styles to <h1>...<h6> tags",
+	"params":[
+		{
+			"name"	: "$options",
+			"type"	: "map"
+		},{
+			"name"		: "font-weight",
+			"default"	: "400",
+			"level"		: 2,
+			"type"		: "number"
+		},{
+			"name"		: "h1_size",
+			"default"	: "2.5em",
+			"level"		: 2,
+			"desc"		: "The sizes of h2 to h5 will be calculate with the ones of h1 and h6",
+			"type"		: "number"
+		},{
+			"name"		: "h6_size",
+			"default"	: "1em",
+			"level"		: 2,
+			"desc"		: "The sizes of h2 to h5 will be calculate with the ones of h1 and h6",
+			"type"		: "number"
+		},{
+			"name"		: "margin",
+			"default"	: "1em 0",
+			"level"		: 2,
+			"type"		: "number(s)"
+		}
+
+	]
+}

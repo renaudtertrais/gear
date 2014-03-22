@@ -7,6 +7,7 @@
 	$options : map-merge( (
 			"col-gap"			: $GRID_COL-GAP , 
 			"col-number" 		: $GRID_COL-NUMBER , 
+			"cell_margin-bottom": $GRID_COL-GAP , 
 			"grid_class" 		: "grid" , 
 			"cell_class"		: "cell" , 
 			"grid-close_suffix" : "close" 
@@ -49,6 +50,7 @@
 					& > .#{$cell_class +"-"+ nth($breakpoint,1) +"-"+ $i }{
 						padding-left  : $col-gap / 2 ;
 						padding-right : $col-gap / 2 ;
+						margin-bottom : $col-gap;
 					}
 				}
 			}

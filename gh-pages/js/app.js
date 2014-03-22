@@ -42,7 +42,10 @@ app.controller( 'docController' , function ( $scope , $http , $q ) {
 		'btn' ,
 		'list',
 		'list-icon',
-		'table'
+		'table',
+		'text',
+		'headings',
+		'link'
 	];
 	$scope.mixins = [];
 
@@ -68,7 +71,7 @@ app.controller( 'docController' , function ( $scope , $http , $q ) {
 
 	$scope.getLevelIndicator = function(p){
 		var out = "";
-		for (var i = 0; i < p.level; i++) out += "--";
+		for (var i = 1; i < p.level; i++) out += "--- ";
 		return out;
 	}
 });

@@ -19,7 +19,16 @@
 
 // * * * typographie * * *
 @include headings();
-@include text();
+@include text((
+	"colors"	: (
+		"negative"		: $color-default ,
+		"primary"		: $color-primary ,
+		"success"		: $color-success ,
+		"warning"		: $color-warning ,
+		"alert" 		: $color-alert ,
+		"default" 		: $color-negative 
+	)
+));
 @include link( #3498db );
 @include list();
 @include list-icon( "Fontawesome", (

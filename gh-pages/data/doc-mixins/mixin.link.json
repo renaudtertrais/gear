@@ -1,0 +1,42 @@
+{
+	"name"	: "link",
+	"desc"	: "Add style to <a> tag",
+	"params": [
+		{
+			"name" 		: "$color",
+			"type" 		: "color",
+			"required" 	: true,
+			"desc"		: "color of the text"
+		},{
+			"name" 		: "$options",
+			"type" 		: "map"
+		},{
+			"name" 		: "underline_normal",
+			"default" 	: "false",
+			"desc"		: "",
+			"level"		: 2,
+			"type"		: "boolean"
+		},{
+			"name" 		: "underline_hover", 
+			"default" 	: "true",
+			"desc"		: "",
+			"level"		: 2,
+			"type"		: "boolean"
+		},{
+			"name" 		: "color_hover",
+			"desc"		: "By default (if the key is not defined)  = darken( $color , 10% ) ",
+			"level"		: 2,
+			"type"		: "color"
+		},{
+			"name" 		: "color_active",
+			"desc" 		: "By default (if the key is not defined)  = darken( $color , 20% ) ",
+			"level"		: 2,
+			"type"		: "color"
+		},{
+			"name" 		: "color_visited",
+			"desc"		: "By default (if the key is not defined)  = $color ",
+			"level"		: 2,
+			"type"		: "color"
+		}
+	]
+}

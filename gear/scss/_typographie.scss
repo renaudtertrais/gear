@@ -1,40 +1,76 @@
-@mixin headings( $headings : () ){
+@mixin headings( $options : () ){
+	$options : map-merge((
+			"font-weight"	: 400,
+			"h1_size"		: 2.5em,
+			"h6_size"		: 1em,
+			"margin"		: 1em 0
+		) , $options );
+	$h1_size : map-get( $options , "h1_size" );
+	$h6_size : map-get( $options , "h6_size" );
+	$_coef   : ($h1_size - $h6_size ) / 5 ;
+	$_font-weight : map-get( $options , "font-weight" );
+	$_margin : map-get( $options , "margin" );
 
 	@for $_i from 1 through 6{
+		$_size : $h1_size - ($_i - 1) * $_coef;
 
 		h#{$_i}{
-			font-size: 2em - ($_i - 1) * .2;
-			margin: 40px - ($_i - 1) * 5 0;
-			font-weight: 400;
+			font-size: $_size ;
+			margin: $_margin;
+			font-weight: $_font-weight;
 		}
 	}
 }
 
 @mixin text( $options : () ){
 	$options : map-merge((
-			"text-sans"			: $FONT-FAMILY_SANS ,
-			"text-serif"		: $FONT-FAMILY_SERIF ,
-			"text-mono"			: $FONT-FAMILY_MONO ,
-			"text_class" 		: "text",
-			"text-sans_suffix" 	: "sans",
-			"text-serif_suffix" : "serif",
-			"text-mono_suffix" 	: "mono"
+			"families"	: (
+					"sans"	: $FONT-FAMILY_SANS ,
+					"serif"	: $FONT-FAMILY_SERIF ,
+					"mono"	: $FONT-FAMILY_MONO 
+				),
+			"colors"	: (),
+			"sizes"		: (
+					"small"	: .7em,
+					"big"	: 1.5em,
+					"fat"	: 4em
+				),
+			"text-align": true,
+			"text_class": "text"
 		) , $options );
 
 	$text_class : $PX + map-get( $options , "text_class" );
-	// FONT-FAMILY
-	@each $family in sans , serif , mono {
-		.#{ $text_class +"-"+ map-get( $options , "text-"+$family+"_suffix" ) }{
-			font-family: map-get( $options , "text-"+$family ) ;
+	// TEXT-ALIGN
+	@if map-get( $options , "text-align" ) == true {
+		@each $style in left , right , center , justify{
+			.#{ $text_class +"-"+ $style }{
+				text-align: $style;
+			}
 		}
 	}
 
-	// TEXT-ALIGN
-	@each $style in left , right , center , justify{
-		.#{ $text_class +"-"+ $style }{
-			text-align: $style;
+	// TEXT-FAMILY
+	$_families : map-get( $options , "families" );
+	@each $name , $family in $_families {
+		.#{ $text_class +"-"+ $name }{
+			font-family: $family ;
 		}
 	}
+	// TEXT-COLOR
+	$_colors : map-get( $options , "colors" );
+	@each $name , $color in $_colors {
+		.#{ $text_class +"-"+ $name }{
+			color: $color ;
+		}
+	}
+	// TEXT-SIZE
+	$_sizes : map-get( $options , "sizes" );
+	@each $name , $size in $_sizes {
+		.#{ $text_class +"-"+ $name }{
+			font-size: $size ;
+		}
+	}
+	
 }
 
 @mixin link( $color , $options : () ){
@@ -87,104 +123,4 @@
 			}
 		}
 	}		
-}
-
-@mixin list( $options : () ){
-	$options : map-merge( (
-			"padding-left"				: 20px,
-			"ul_styles"					: disc circle square,
-			"ol_styles"					: decimal lower-latin lower-roman,
-			"list_class"				: "list",
-			"list-unstyled_suffix"		: "unstyled",
-			"list-unstyled-all_suffix"	: "all",
-			"list-inline_suffix"		: "inline"
-		), $options );
-
-	$ul-styles : map-get( $options , "ul_styles" );
-	$ol-styles : map-get( $options , "ol_styles" );
-	$list_class : $PX + map-get( $options , "list_class") ;
-	$list-unstyled_class		: $list_class +"-"+ map-get( $options , "list-unstyled_suffix");
-	$list-unstyled-all_class	: $list_class +"-"+ map-get( $options , "list-unstyled-all_suffix");
-	$list-inline_class			: $list_class +"-"+ map-get( $options , "list-inline_suffix");
-	
-	ul{
-		list-style : nth( $ul-styles , 1 );
-		@if length($ul-styles) > 1 {
-			ul {
-				list-style : nth( $ul-styles , 2 );
-				@if length($ul-styles) > 2 {
-					ul {
-						list-style : nth( $ul-styles , 3 )
-					}
-				}
-			}
-		}
-	}
-
-	ol{
-		list-style : nth( $ol-styles , 1 );
-		@if length($ol-styles) > 1 {
-			ol {
-				list-style : nth( $ol-styles , 2 );
-				@if length($ol-styles) > 2 {
-					ol {
-						list-style : nth( $ol-styles , 3 )
-					}
-				}
-			}
-		}
-	}
-
-	ul,
-	ol{
-		padding-left: map-get( $options , "padding-left" );
-		&.#{$list-unstyled_class}{
-			list-style: none;
-			padding:0;
-		}
-		&.#{$list-unstyled-all_class},
-		&.#{$list-unstyled-all_class} ul,{
-			list-style: none;
-			padding:0;
-		}
-		&.#{$list-inline_class}{
-			list-style: none;
-			padding:0;
-			& > li{
-				float: left;
-			}
-		}
-	}
-}
-
-@mixin list-icon( $font-family, $lists , $options : ()){
-	$options : map-merge((
-			"list_class" : "list"
-		), $options );
-
-	$list_class : $PX + map-get( $options , "list_class" );
-
-	%list-icon{
-		list-style:none;
-		position: relative;
-			&:before{
-				font-family: $font-family ;
-				font-size: .8em;
-				display: inline-block;
-				position: absolute;
-				margin-top: .2em;
-				margin-left: -1.5em;
-			}
-	}
-
-	@each $name , $icon in $lists {
-		$name : $list_class +"-"+ $name;
-		ol.#{$name} li,
-		ul.#{$name} li{
-			@extend %list-icon;
-			&:before{
-				content: $icon ;
-			}
-		}
-	}
 }

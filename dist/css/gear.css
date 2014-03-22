@@ -108,6 +108,7 @@ hr {
   .grid > .cell-xs-1 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-xs-2,
@@ -119,6 +120,7 @@ hr {
   .grid > .cell-xs-2 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-xs-3,
@@ -130,6 +132,7 @@ hr {
   .grid > .cell-xs-3 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-xs-4,
@@ -141,6 +144,7 @@ hr {
   .grid > .cell-xs-4 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-xs-5,
@@ -152,6 +156,7 @@ hr {
   .grid > .cell-xs-5 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-xs-6,
@@ -163,6 +168,7 @@ hr {
   .grid > .cell-xs-6 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-xs-7,
@@ -174,6 +180,7 @@ hr {
   .grid > .cell-xs-7 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-xs-8,
@@ -185,6 +192,7 @@ hr {
   .grid > .cell-xs-8 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-xs-9,
@@ -196,6 +204,7 @@ hr {
   .grid > .cell-xs-9 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-xs-10,
@@ -207,6 +216,7 @@ hr {
   .grid > .cell-xs-10 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-xs-11,
@@ -218,6 +228,7 @@ hr {
   .grid > .cell-xs-11 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-xs-12,
@@ -229,6 +240,7 @@ hr {
   .grid > .cell-xs-12 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 }
 @media (min-width: 480px) {
@@ -241,6 +253,7 @@ hr {
   .grid > .cell-s-1 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-s-2,
@@ -252,6 +265,7 @@ hr {
   .grid > .cell-s-2 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-s-3,
@@ -263,6 +277,7 @@ hr {
   .grid > .cell-s-3 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-s-4,
@@ -274,6 +289,7 @@ hr {
   .grid > .cell-s-4 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-s-5,
@@ -285,6 +301,7 @@ hr {
   .grid > .cell-s-5 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-s-6,
@@ -296,6 +313,7 @@ hr {
   .grid > .cell-s-6 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-s-7,
@@ -307,6 +325,7 @@ hr {
   .grid > .cell-s-7 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-s-8,
@@ -318,6 +337,7 @@ hr {
   .grid > .cell-s-8 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-s-9,
@@ -329,6 +349,7 @@ hr {
   .grid > .cell-s-9 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-s-10,
@@ -340,6 +361,7 @@ hr {
   .grid > .cell-s-10 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-s-11,
@@ -351,6 +373,7 @@ hr {
   .grid > .cell-s-11 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-s-12,
@@ -362,6 +385,7 @@ hr {
   .grid > .cell-s-12 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 }
 @media (min-width: 768px) {
@@ -374,6 +398,7 @@ hr {
   .grid > .cell-m-1 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-m-2,
@@ -385,6 +410,7 @@ hr {
   .grid > .cell-m-2 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-m-3,
@@ -396,6 +422,7 @@ hr {
   .grid > .cell-m-3 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-m-4,
@@ -407,6 +434,7 @@ hr {
   .grid > .cell-m-4 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-m-5,
@@ -418,6 +446,7 @@ hr {
   .grid > .cell-m-5 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-m-6,
@@ -429,6 +458,7 @@ hr {
   .grid > .cell-m-6 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-m-7,
@@ -440,6 +470,7 @@ hr {
   .grid > .cell-m-7 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-m-8,
@@ -451,6 +482,7 @@ hr {
   .grid > .cell-m-8 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-m-9,
@@ -462,6 +494,7 @@ hr {
   .grid > .cell-m-9 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-m-10,
@@ -473,6 +506,7 @@ hr {
   .grid > .cell-m-10 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-m-11,
@@ -484,6 +518,7 @@ hr {
   .grid > .cell-m-11 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-m-12,
@@ -495,6 +530,7 @@ hr {
   .grid > .cell-m-12 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 }
 @media (min-width: 1024px) {
@@ -507,6 +543,7 @@ hr {
   .grid > .cell-l-1 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-l-2,
@@ -518,6 +555,7 @@ hr {
   .grid > .cell-l-2 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-l-3,
@@ -529,6 +567,7 @@ hr {
   .grid > .cell-l-3 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-l-4,
@@ -540,6 +579,7 @@ hr {
   .grid > .cell-l-4 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-l-5,
@@ -551,6 +591,7 @@ hr {
   .grid > .cell-l-5 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-l-6,
@@ -562,6 +603,7 @@ hr {
   .grid > .cell-l-6 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-l-7,
@@ -573,6 +615,7 @@ hr {
   .grid > .cell-l-7 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-l-8,
@@ -584,6 +627,7 @@ hr {
   .grid > .cell-l-8 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-l-9,
@@ -595,6 +639,7 @@ hr {
   .grid > .cell-l-9 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-l-10,
@@ -606,6 +651,7 @@ hr {
   .grid > .cell-l-10 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-l-11,
@@ -617,6 +663,7 @@ hr {
   .grid > .cell-l-11 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-l-12,
@@ -628,6 +675,7 @@ hr {
   .grid > .cell-l-12 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 }
 @media (min-width: 1200px) {
@@ -640,6 +688,7 @@ hr {
   .grid > .cell-xl-1 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-xl-2,
@@ -651,6 +700,7 @@ hr {
   .grid > .cell-xl-2 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-xl-3,
@@ -662,6 +712,7 @@ hr {
   .grid > .cell-xl-3 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-xl-4,
@@ -673,6 +724,7 @@ hr {
   .grid > .cell-xl-4 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-xl-5,
@@ -684,6 +736,7 @@ hr {
   .grid > .cell-xl-5 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-xl-6,
@@ -695,6 +748,7 @@ hr {
   .grid > .cell-xl-6 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-xl-7,
@@ -706,6 +760,7 @@ hr {
   .grid > .cell-xl-7 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-xl-8,
@@ -717,6 +772,7 @@ hr {
   .grid > .cell-xl-8 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-xl-9,
@@ -728,6 +784,7 @@ hr {
   .grid > .cell-xl-9 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-xl-10,
@@ -739,6 +796,7 @@ hr {
   .grid > .cell-xl-10 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-xl-11,
@@ -750,6 +808,7 @@ hr {
   .grid > .cell-xl-11 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 
   .grid > .cell-xl-12,
@@ -761,54 +820,43 @@ hr {
   .grid > .cell-xl-12 {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
   }
 }
 h1 {
-  font-size: 2em;
-  margin: 40px 0;
+  font-size: 2.5em;
+  margin: 1em 0;
   font-weight: 400;
 }
 
 h2 {
-  font-size: 1.8em;
-  margin: 35px 0;
+  font-size: 2.2em;
+  margin: 1em 0;
   font-weight: 400;
 }
 
 h3 {
-  font-size: 1.6em;
-  margin: 30px 0;
+  font-size: 1.9em;
+  margin: 1em 0;
   font-weight: 400;
 }
 
 h4 {
-  font-size: 1.4em;
-  margin: 25px 0;
+  font-size: 1.6em;
+  margin: 1em 0;
   font-weight: 400;
 }
 
 h5 {
-  font-size: 1.2em;
-  margin: 20px 0;
+  font-size: 1.3em;
+  margin: 1em 0;
   font-weight: 400;
 }
 
 h6 {
   font-size: 1em;
-  margin: 15px 0;
+  margin: 1em 0;
   font-weight: 400;
-}
-
-.text-sans {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.text-serif {
-  font-family: Georgia, Times serif;
-}
-
-.text-mono {
-  font-family: monospace;
 }
 
 .text-left {
@@ -825,6 +873,54 @@ h6 {
 
 .text-justify {
   text-align: justify;
+}
+
+.text-sans {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.text-serif {
+  font-family: Georgia, Times serif;
+}
+
+.text-mono {
+  font-family: monospace;
+}
+
+.text-negative {
+  color: white;
+}
+
+.text-primary {
+  color: #3498db;
+}
+
+.text-success {
+  color: #57ad68;
+}
+
+.text-warning {
+  color: #f58134;
+}
+
+.text-alert {
+  color: #e74c3c;
+}
+
+.text-default {
+  color: #2c3e50;
+}
+
+.text-small {
+  font-size: 0.7em;
+}
+
+.text-big {
+  font-size: 1.5em;
+}
+
+.text-fat {
+  font-size: 4em;
 }
 
 a {
@@ -874,9 +970,9 @@ ol.list-unstyled {
   list-style: none;
   padding: 0;
 }
-ul.list-all, ul.list-all ul,
-ol.list-all,
-ol.list-all ul {
+ul.list-unstyled-all, ul.list-unstyled-all ul,
+ol.list-unstyled-all,
+ol.list-unstyled-all ul {
   list-style: none;
   padding: 0;
 }
@@ -1113,20 +1209,20 @@ ul.list-check-square li:before {
 }
 .btn.btn-success,
 .btn-sign.btn-success {
-  background-color: #36b34c;
+  background-color: #57ad68;
   color: white;
-  border-color: #36b34c;
+  border-color: #57ad68;
 }
 .btn.btn-success:hover,
 .btn-sign.btn-success:hover {
-  background-color: #309f44;
-  border-color: #309f44;
+  background-color: #4d9e5d;
+  border-color: #4d9e5d;
 }
 .btn.btn-success:active, .btn.btn-success.active,
 .btn-sign.btn-success:active,
 .btn-sign.btn-success.active {
-  background-color: #2a8c3b;
-  border-color: #2a8c3b;
+  background-color: #458c53;
+  border-color: #458c53;
 }
 .btn.btn-warning,
 .btn-sign.btn-warning {

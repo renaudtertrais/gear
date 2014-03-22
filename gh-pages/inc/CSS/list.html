@@ -1,0 +1,95 @@
+<h1>List</h1>
+<h2>Default behavior</h2>
+
+<h3>Unordered list</h3>
+<demo><ul>
+	<li>Lorem ipsum dolor sit amet.
+		<ul>
+			<li>Lorem ipsum dolor sit amet.</li>
+			<li>Sint, dignissimos recusandae debitis labore.</li>
+			<li>Fugit, rerum qui maiores. Qui.
+				<ul>
+					<li>Lorem ipsum dolor sit amet.</li>
+					<li>Laborum, sint beatae dolorum odit!</li>
+					<li>Incidunt iste architecto porro quos!</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>Eveniet quidem vitae totam alias.</li>
+	<li>Totam, deserunt minus perferendis recusandae.</li>
+</ul>
+</demo>
+
+<h3>Ordered list</h3>
+<demo><ol>
+	<li>Lorem ipsum dolor sit amet.
+		<ol>
+			<li>Lorem ipsum dolor sit amet.</li>
+			<li>Sint, dignissimos recusandae debitis labore.</li>
+			<li>Fugit, rerum qui maiores. Qui.
+				<ol>
+					<li>Lorem ipsum dolor sit amet.</li>
+					<li>Laborum, sint beatae dolorum odit!</li>
+					<li>Incidunt iste architecto porro quos!</li>
+				</ol>
+			</li>
+		</ol>
+	</li>
+	<li>Eveniet quidem vitae totam alias.</li>
+	<li>Totam, deserunt minus perferendis recusandae.</li>
+</ol>
+</demo>
+
+<h2>List icon</h2>
+<p>Need font-awesome. Available classes : 
+<select id="selectListIcon" ng-model="selectListIconModel" ng-change="changeListIcon()">
+	<option ng-repeat="o in optionsListIcon" value="{{o}}" ng-selected="$index==0">{{o}}</option>
+</select>
+</p>
+<div id="listIcon">
+<demo><ul class="-">
+	<li>Lorem ipsum dolor sit amet.</li>
+	<li>Nisi, magnam cumque ex minima.</li>
+	<li>Animi corporis atque officia qui.</li>
+	<li>Expedita dolorum commodi nostrum culpa.</li>
+</ul>
+</demo>
+</div>
+
+<h2>Unstyled / inline</h2>
+<h3>unstyled</h3>
+<demo><ul class="list-unstyled">
+	<li>Lorem ipsum dolor sit amet.
+		<ul>
+			<li>Lorem ipsum dolor sit amet.</li>
+			<li>Sint, dignissimos recusandae debitis labore.</li>
+			<li>Fugit, rerum qui maiores. Qui.</li>
+		</ul>
+	</li>
+	<li>Eveniet quidem vitae totam alias.</li>
+	<li>Totam, deserunt minus perferendis recusandae.</li>
+</ul>
+</demo>
+<h3>unstyled-all</h3>
+<demo><ul class="list-unstyled-all">
+	<li>Lorem ipsum dolor sit amet.
+		<ul>
+			<li>Lorem ipsum dolor sit amet.</li>
+			<li>Sint, dignissimos recusandae debitis labore.</li>
+			<li>Fugit, rerum qui maiores. Qui.</li>
+		</ul>
+	</li>
+	<li>Eveniet quidem vitae totam alias.</li>
+	<li>Totam, deserunt minus perferendis recusandae.</li>
+</ul>
+</demo>
+<h3>inline</h3>
+Useful for a menu :
+<demo><ul class="list-inline">
+	<li>Lorem.</li>
+	<li>Consectetur.</li>
+	<li>Repudiandae.</li>
+	<li>Nesciunt?</li>
+</ul>
+</demo>

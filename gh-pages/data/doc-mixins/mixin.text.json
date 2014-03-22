@@ -1,0 +1,69 @@
+{
+	"name" : "text",
+	"desc" : "Generate all the text-X classes",
+	"params" : [
+		{
+			"name" : "$options",
+			"desc" : "",
+			"type" : "map"
+		},{
+			"name"	: "families",
+			"type"	: "map",
+			"level"	: 2,
+			"desc"	: "Map of names (suffix) and font-families (list)"
+		},{
+			"name"	: "sans",
+			"type"	: "list",
+			"level"	: 3,
+			"desc"	: "value : $FONT-FAMILY_SANS"
+		},{
+			"name"	: "serif",
+			"type"	: "list",
+			"level"	: 3,
+			"desc"	: "value : $FONT-FAMILY_SERIF"
+		},{
+			"name"	: "mono", 
+			"type"	: "list",
+			"level"	: 3,
+			"desc"	: "value : $FONT-FAMILY_MONO"
+		},{
+			"name"	: "colors",
+			"type"	: "map",
+			"level"	: 2,
+			"default" : "empty",
+			"desc"	: "Map of names (suffix) and colors (color)"
+		},{
+			"name"	: "sizes",
+			"type"	: "map",
+			"level"	: 2,
+			"desc"	: "Map of names (suffix) and colors (color)"
+		},{
+			"name"	: "small",
+			"type"	: "number",
+			"level"	: 3,
+			"desc"	: "value : 0.7em"
+		},{
+			"name"	: "big",
+			"type"	: "number",
+			"level"	: 3,
+			"desc"	: "value : 1.5em"
+		},{
+			"name"	: "fat",
+			"type"	: "number",
+			"level"	: 3,
+			"desc"	: "value : 4em"
+		},{
+			"name"	: "text-align",
+			"type"	: "boolean",
+			"level"	: 2,
+			"default" : "true",
+			"desc"	: "Create or not text-align classes : text-left, text-center..."
+		},{
+			"name"	: "text_class",
+			"type"	: "string",
+			"level"	: 2,
+			"default" : "text",
+			"desc"	: "Prefix of all those classes"
+		}
+	]
+}
