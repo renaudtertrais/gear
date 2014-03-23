@@ -49,3 +49,35 @@
 		}
 	}
 }
+
+@mixin hp-position(){
+	.fit{
+		max-width: 100%;
+	}
+}
+@mixin hp-margin( $min , $max , $step , $unit : px){
+	$i : $min ;
+	@while $i <= $max{
+		.#{"m" + $i},
+		.#{"mv"+ $i},
+		.#{"mt"+ $i},{
+			margin-top: $i+$unit;
+		}
+		.#{"m" + $i},
+		.#{"mv"+ $i},
+		.#{"mb"+ $i},{
+			margin-bottom: $i+$unit;
+		}
+		.#{"m" + $i},
+		.#{"mh"+ $i},
+		.#{"ml"+ $i},{
+			margin-left: $i+$unit;
+		}
+		.#{"m" + $i},
+		.#{"mh"+ $i},
+		.#{"mr"+ $i},{
+			margin-right: $i+$unit;
+		}
+		$i : $i + $step;
+	}
+}

@@ -1659,3 +1659,127 @@ pre code {
 .clear-float {
   clear: both !important;
 }
+
+.fit {
+  max-width: 100%;
+}
+
+.m10,
+.mv10,
+.mt10 {
+  margin-top: 10px;
+}
+
+.m10,
+.mv10,
+.mb10 {
+  margin-bottom: 10px;
+}
+
+.m10,
+.mh10,
+.ml10 {
+  margin-left: 10px;
+}
+
+.m10,
+.mh10,
+.mr10 {
+  margin-right: 10px;
+}
+
+.m20,
+.mv20,
+.mt20 {
+  margin-top: 20px;
+}
+
+.m20,
+.mv20,
+.mb20 {
+  margin-bottom: 20px;
+}
+
+.m20,
+.mh20,
+.ml20 {
+  margin-left: 20px;
+}
+
+.m20,
+.mh20,
+.mr20 {
+  margin-right: 20px;
+}
+
+.m30,
+.mv30,
+.mt30 {
+  margin-top: 30px;
+}
+
+.m30,
+.mv30,
+.mb30 {
+  margin-bottom: 30px;
+}
+
+.m30,
+.mh30,
+.ml30 {
+  margin-left: 30px;
+}
+
+.m30,
+.mh30,
+.mr30 {
+  margin-right: 30px;
+}
+
+.m40,
+.mv40,
+.mt40 {
+  margin-top: 40px;
+}
+
+.m40,
+.mv40,
+.mb40 {
+  margin-bottom: 40px;
+}
+
+.m40,
+.mh40,
+.ml40 {
+  margin-left: 40px;
+}
+
+.m40,
+.mh40,
+.mr40 {
+  margin-right: 40px;
+}
+
+.m50,
+.mv50,
+.mt50 {
+  margin-top: 50px;
+}
+
+.m50,
+.mv50,
+.mb50 {
+  margin-bottom: 50px;
+}
+
+.m50,
+.mh50,
+.ml50 {
+  margin-left: 50px;
+}
+
+.m50,
+.mh50,
+.mr50 {
+  margin-right: 50px;
+}

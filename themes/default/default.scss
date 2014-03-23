@@ -86,3 +86,7 @@ $radius : $radius-round-min , $radius-square , $radius-round ;
 @include hp-radius( $radius );
 // FLOAT
 @include hp-float();
+
+@include hp-position();
+
+@include hp-margin(10,50,10);
