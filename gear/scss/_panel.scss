@@ -1,0 +1,71 @@
+@mixin panel( $options : () ){
+	$options : map-merge((
+			"radius" 				: $RADIUS,
+			"border-color" 			: rgba(0,0,0,.2),
+			"panel_class" 			: "panel",
+			"panel-header_suffix" 	: "header",
+			"panel-section_suffix" 	: "section",
+			"panel-footer_suffix" 	: "footer",
+			"panel-bordered_suffix" : "bordered",
+			"padding"				: 20px
+		), $options );
+	$radius  				: map-get( $options , "radius" );
+	$panel_class  			: $PX + map-get( $options , "panel_class" );
+	$panel-header_class  	: $panel_class +"-"+ map-get( $options , "panel-header_suffix" );
+	$panel-section_class  		: $panel_class +"-"+ map-get( $options , "panel-section_suffix" );
+	$panel-footer_class  	: $panel_class +"-"+ map-get( $options , "panel-footer_suffix" );
+	$padding_horizontal  	: map-get( $options , "padding_horizontal" );
+	$padding_vertical  		: map-get( $options , "padding_vertical" );
+	$padding  				: map-get( $options , "padding" );
+	$border-color  			: map-get( $options , "border-color" );
+
+
+	.#{$panel_class}{
+		display : block ;
+		border : 1px solid $border-color ;
+		padding: $padding ;
+		background-color: #FFF;
+		@include border-radius($radius);
+
+		h1,h2,h3,h4,h5,h6{
+			margin: 0;
+			line-height: 1;
+		}
+
+		.#{$panel-section_class},
+		.#{$panel-header_class},
+		.#{$panel-footer_class}{
+			padding: $padding ;
+			margin : $padding  * -1 ;
+		}
+
+		.#{$panel-footer_class}{
+			text-align: right;
+		}
+
+		.#{$panel-header_class}{
+			font-size: 1.5em;
+			line-height: 1;
+		}
+
+		&.panel-bordered{
+			border:none;
+			> * {
+				margin-top: 0;
+				margin-bottom: 0;
+				border-top: 1px solid $border-color;
+				border-left: 1px solid $border-color;
+				border-right: 1px solid $border-color;
+				&:first-child{
+					@include border-radius($radius $radius 0 0);
+					margin-top : $padding  * -1 ;
+				}
+				&:last-child{
+					@include border-radius(0 0 $radius $radius);
+					border-bottom: 1px solid $border-color;
+					margin-bottom : $padding  * -1 ;
+				}
+			}
+		}
+	}
+}

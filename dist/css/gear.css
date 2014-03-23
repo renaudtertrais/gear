@@ -1465,6 +1465,56 @@ ul.list-check-square li:before {
   color: #cccccc;
 }
 
+.panel {
+  display: block;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  background-color: #FFF;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+.panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6 {
+  margin: 0;
+  line-height: 1;
+}
+.panel .panel-section,
+.panel .panel-header,
+.panel .panel-footer {
+  padding: 20px;
+  margin: -20px;
+}
+.panel .panel-footer {
+  text-align: right;
+}
+.panel .panel-header {
+  font-size: 1.5em;
+  line-height: 1;
+}
+.panel.panel-bordered {
+  border: none;
+}
+.panel.panel-bordered > * {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+.panel.panel-bordered > *:first-child {
+  -moz-border-radius: 4px 4px 0 0;
+  -webkit-border-radius: 4px;
+  border-radius: 4px 4px 0 0;
+  margin-top: -20px;
+}
+.panel.panel-bordered > *:last-child {
+  -moz-border-radius: 0 0 4px 4px;
+  -webkit-border-radius: 0;
+  border-radius: 0 0 4px 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: -20px;
+}
+
 code {
   font-family: monospace;
   background-color: rgba(0, 0, 0, 0.04);

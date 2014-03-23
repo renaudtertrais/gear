@@ -74,6 +74,7 @@ $navcolor : $color-negative , #3498db ;
 @include navbar($navcolor, #FFF);
 
 // * * * OTHER * * *
+@include panel();
 @include code(( "inline_font-color" : $color-alert ));
 
 // * * * HELPERS * * *
