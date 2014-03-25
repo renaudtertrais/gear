@@ -86,7 +86,7 @@ $radius : $radius-round-min , $radius-square , $radius-round ;
 @include hp-radius( $radius );
 // FLOAT
 @include hp-float();
-
+// POSITION (.fit)
 @include hp-position();
-
+// MARGIN : m10 -> m50 (mv10, mh20, mt40...)
 @include hp-margin(10,50,10);
