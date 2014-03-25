@@ -10,6 +10,7 @@ gear comes in two versions :
 * A production version, to set up and work with in a minute,
 * A development version, containing all source files for total control.
 Just [visit the download page](http://emaj-fr.github.io/gear/#/getting-started), or clone/download this repository !
+
 ## Installation
 Dead simple : drop the gear folder content inside your project, and insert these two lines :
 ```
@@ -31,6 +32,7 @@ You can use [Prepros](http://alphapixels.com/prepros/) or [Grunt.js](http://grun
 ### Renaud Tertrais
 * http://emaj.fr
 * http://github.com/eMaj-Fr
+
 ### Loïc Mermilliod
 * http://loicmermilliod.com
 * http://github.com/loac-fr
