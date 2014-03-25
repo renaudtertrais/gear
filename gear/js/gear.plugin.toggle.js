@@ -1,56 +1,56 @@
-gear.plugin.push({
-    slug : "toggle",
+gear.plugin.toggle = {
+    name : "tog",
+    slug : "tog",
     plugin : function( o , arg ){
-    // * * * plugin toggle * * *
-    var self = gear.plugin.toggle ;s
+        // * * * plugin toggle * * *
+        var self = gear.plugin.toggle.plugin ;
 
-    $(this).each(function(){
+        $(this).each(function(){
 
+            var $this = $(this);
+            var options = $this.data("grToggleOptions");
 
-        var $this = $(this);
-        var options = $this.data("grToggleOptions");
+            if(options){
+                if(options.init){
+                    if(!o){
+                        return self.transition.call(this);
+                    }
 
-
-        if(options){
-            if(options.init){
-                if(!o){
-                    return self.transition.call(this);
+                    return $this;
                 }
-
-                return $this;
             }
+
+            o = $.extend({
+                tog             : false,
+                target        : false,
+                event         : "click",
+                transitionIn  : false,
+                transitionOut : false,
+                transition    : "toggle",
+                time          : 300,
+                init          : true
+            },o, o.grToggleOptions);
+
+            if(!o.target) o.target = o.tog ;
+
+            $this.data("togOptions",o);
+            $this.on(o.event,function(){
+                self.transition.call(this);
+            });
+
+            console.log(o.target);
+
+            return $this;
+
+        });
+
+        self.transition = function(){
+
+            var $this = $(this);
+            var o = $this.data("togOptions");
+            $(o.target)[o.transition]();
+            
+            return $this; 
         }
-
-        o = $.extend({
-            grToggle      : false,
-            target        : false,
-            event         : "click",
-            transitionIn  : false,
-            transitionOut : false,
-            transition    : false,
-            time          : 300,
-            init          : true
-        },o, o.grToggleOptions);
-
-        if(!o.target) o.target = o.grToggle ;
-
-        $this.data("grToggleOptions",o);
-        $this.on(o.event,self.transition);
-
-        return $this;
-
-    });
-
-    self.transition = function(){
-        var $this = $(this);
-        var o = $this.data("grToggleOptions");
-        $(o.target)[o.transition]();
-
-        return $this; 
     }
 };
-
-
-
-
-
