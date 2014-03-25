@@ -20,5 +20,8 @@
     "grunt": "~0.4.2",
     "grunt-contrib-sass": "~0.7.2",
     "grunt-contrib-watch": "~0.5.3"
+  },
+  "dependencies": {
+    "grunt-contrib-concat": "^0.3.0"
   }
 }

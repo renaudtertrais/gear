@@ -38,6 +38,12 @@ module.exports = function(grunt){
 			    }
 			}
 		},
+		concat: {
+			dist_exp : {
+				src: ['gear/js/gear.js','gear/js/gear.plugin.*.js','gear/js/init.js'],
+				dest: 'dist/js/gear.js',
+			}
+		},
 		watch: {
 			livereload: {
 				files: ['*.html,gh-pages/**'],
@@ -52,7 +58,15 @@ module.exports = function(grunt){
 				options: {
 					spawn: false,
 					livereload: true
-				},
+				}
+			},
+			js: {
+				files: ['gear/js/**'],
+				tasks: ['dist-js'],
+				options: {
+					spawn: false,
+					livereload: true
+				}
 			}
 		}
 	});
@@ -60,8 +74,11 @@ module.exports = function(grunt){
 	// * * * Custom tasks * * *
 	// dist-css (sass->css)
 	grunt.task.registerTask("dist-css", ["sass"]);
+	// dist-js
+	grunt.task.registerTask("dist-js", ["concat"]);
 
 	// * * * Grunt Plugins * * *
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-contrib-concat');
 }
