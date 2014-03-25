@@ -15,6 +15,11 @@ var gear = {
             return match[1].toUpperCase();
         });
     },
+    unCamelCase : function(str){
+        return str.replace(/[a-z]([A-Z])/g,function(match) {
+            return "-"+match[0].toUpperCase();
+        });
+    },
     unPrefix : function(pre,obj){
 
     },
@@ -38,6 +43,12 @@ var gear = {
                     $this[plugin.name]($this.data());
                 });
             });
+        }
+    },
+    factory : function( name ){
+        name = gear.camelCase(name);
+        gear.plugin[name] = {
+            
         }
     }
 };

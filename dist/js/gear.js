@@ -15,6 +15,11 @@ var gear = {
             return match[1].toUpperCase();
         });
     },
+    unCamelCase : function(str){
+        return str.replace(/[a-z]([A-Z])/g,function(match) {
+            return "-"+match[0].toUpperCase();
+        });
+    },
     unPrefix : function(pre,obj){
 
     },
@@ -39,6 +44,12 @@ var gear = {
                 });
             });
         }
+    },
+    factory : function( name ){
+        name = gear.camelCase(name);
+        gear.plugin[name] = {
+            
+        }
     }
 };
 
@@ -50,7 +61,7 @@ gear.plugin.toggle = {
         var self = gear.plugin.toggle.plugin ;
 
         $(this).each(function(){
-
+            
             var $this = $(this);
             var options = $this.data("grToggleOptions");
 
@@ -93,7 +104,7 @@ gear.plugin.toggle = {
             var $this = $(this);
             var o = $this.data("togOptions");
             $(o.target)[o.transition]();
-            
+
             return $this; 
         }
     }

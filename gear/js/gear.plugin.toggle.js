@@ -6,7 +6,7 @@ gear.plugin.toggle = {
         var self = gear.plugin.toggle.plugin ;
 
         $(this).each(function(){
-
+            
             var $this = $(this);
             var options = $this.data("grToggleOptions");
 
@@ -49,7 +49,7 @@ gear.plugin.toggle = {
             var $this = $(this);
             var o = $this.data("togOptions");
             $(o.target)[o.transition]();
-            
+
             return $this; 
         }
     }
