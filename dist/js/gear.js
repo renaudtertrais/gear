@@ -48,8 +48,13 @@ var gear = {
     factory : function( name ){
         name = gear.camelCase(name);
         gear.plugin[name] = {
-            
+            name : name,
+            slug : camelCase,
+            plugin : function(){
+                
+            }
         }
+        return gear.plugin[name] ;
     }
 };
 
