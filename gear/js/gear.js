@@ -51,9 +51,58 @@ var gear = {
             name : name,
             slug : camelCase,
             plugin : function(){
+                var self = gear.plugin[name].plugin ;
                 
+                var returnValue;
+
+                var params = arguments;
+
+                $this.each(function(){
+
+                    var $this = $(this);
+
+                    var options = $this.data(name+"Options");
+
+                    // options ?
+                    if(options){
+                        // already init ?
+                        if(options.init){
+                            // is there a list one params ?
+                            if(params){
+                                return self.transition.call(this);
+
+                            // no params
+                            }else{
+                                // is there a main methods
+                                if( self.main ){
+                                    // ok so lunch the main methods with params
+                                    returnValue = self.main.apply(this);
+                                    return false;
+                                }
+                            }
+                        // options but no init so init()
+                        }else{
+                            o = $.extend()
+                        }
+                    // no options so init()
+                    }else{
+                        o = $.extend({
+                            tog           : false,
+                            target        : false,
+                            event         : "click",
+                            transitionIn  : false,
+                            transitionOut : false,
+                            transition    : "toggle",
+                            time          : 300,
+                            init          : true
+                        },o, o.grToggleOptions);
+                    }
+
+                    
+                    return $this;
+                });
             }
         }
-        return gear.plugin[name] ;
+        return gear.plugin[name].plugin; ;
     }
 };

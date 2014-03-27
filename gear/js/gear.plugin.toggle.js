@@ -1,3 +1,35 @@
+(function(g){
+
+    var self = gear.factory("tog",{
+        tog           : false,
+        target        : false,
+        event         : "click",
+        transitionIn  : false,
+        transitionOut : false,
+        transition    : "toggle",
+        time          : 300,
+        init          : true
+    });
+
+    self.init = function( o ){
+        var $this = $(this);
+        $this.on(o.event,function(){
+            self.transition.call(this);
+        });
+
+        return $this; 
+    }
+
+    self.transition = function(){
+        var $this = $(this);
+        var o = $this.data("togOptions");
+        $(o.target)[o.transition]();
+
+        return $this; 
+    }
+
+})(gear);
+
 gear.plugin.toggle = {
     name : "tog",
     slug : "tog",
@@ -6,7 +38,7 @@ gear.plugin.toggle = {
         var self = gear.plugin.toggle.plugin ;
 
         $(this).each(function(){
-            
+
             var $this = $(this);
             var options = $this.data("grToggleOptions");
 

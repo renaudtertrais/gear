@@ -51,12 +51,93 @@ var gear = {
             name : name,
             slug : camelCase,
             plugin : function(){
+                var self = gear.plugin[name].plugin ;
                 
+                var returnValue;
+
+                var params = arguments;
+
+                $this.each(function(){
+
+                    var $this = $(this);
+
+                    var options = $this.data(name+"Options");
+
+                    // options ?
+                    if(options){
+                        // already init ?
+                        if(options.init){
+                            // is there a list one params ?
+                            if(params){
+                                return self.transition.call(this);
+
+                            // no params
+                            }else{
+                                // is there a main methods
+                                if( self.main ){
+                                    // ok so lunch the main methods with params
+                                    returnValue = self.main.apply(this);
+                                    return false;
+                                }
+                            }
+                        // options but no init so init()
+                        }else{
+                            o = $.extend()
+                        }
+                    // no options so init()
+                    }else{
+                        o = $.extend({
+                            tog           : false,
+                            target        : false,
+                            event         : "click",
+                            transitionIn  : false,
+                            transitionOut : false,
+                            transition    : "toggle",
+                            time          : 300,
+                            init          : true
+                        },o, o.grToggleOptions);
+                    }
+
+                    
+                    return $this;
+                });
             }
         }
-        return gear.plugin[name] ;
+        return gear.plugin[name].plugin; ;
     }
 };
+
+(function(g){
+
+    var self = gear.factory("tog",{
+        tog           : false,
+        target        : false,
+        event         : "click",
+        transitionIn  : false,
+        transitionOut : false,
+        transition    : "toggle",
+        time          : 300,
+        init          : true
+    });
+
+    self.init = function( o ){
+        var $this = $(this);
+        $this.on(o.event,function(){
+            self.transition.call(this);
+        });
+
+        return $this; 
+    }
+
+    self.transition = function(){
+        var $this = $(this);
+        var o = $this.data("togOptions");
+        $(o.target)[o.transition]();
+
+        return $this; 
+    }
+
+})(gear);
 
 gear.plugin.toggle = {
     name : "tog",
@@ -66,7 +147,7 @@ gear.plugin.toggle = {
         var self = gear.plugin.toggle.plugin ;
 
         $(this).each(function(){
-            
+
             var $this = $(this);
             var options = $this.data("grToggleOptions");
 
