@@ -86,7 +86,7 @@ var gear = {
                         if( typeof(gear.plugin[name].defaults) === "object" ){
                             // if params is an object, overwrite defaults
                             if( typeof(params[0]) === "object" ){
-                                options = $.extend( gear.plugin[name].defaults , params[0] );
+                                options = $.extend( {}, gear.plugin[name].defaults , params[0] );
                             }else{
                                 // no defaults to overwrite
                                 options = gear.plugin[name].defaults
