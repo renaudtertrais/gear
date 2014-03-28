@@ -1,88 +1,34 @@
 (function(g){
 
-    var self = gear.factory("tog",{
-        tog           : false,
-        target        : false,
-        event         : "click",
-        transitionIn  : false,
-        transitionOut : false,
-        transition    : "toggle",
-        time          : 300,
-        init          : true
-    });
+    var self = g.factory("tog",{
+            tog           : false,
+            target        : false,
+            event         : "click",
+            transitionIn  : false,
+            transitionOut : false,
+            transition    : "toggle",
+            time          : 300,
+            init          : true
+        });
 
-    self.init = function( o ){
+    self.init = function(){
+        // Make a ref to the jQuery object
         var $this = $(this);
+        // Get its options
+        var o = $this.data("togOptions");
         $this.on(o.event,function(){
             self.transition.call(this);
         });
-
-        return $this; 
+        return $this;
     }
 
     self.transition = function(){
+        // Make a ref to the jQuery object
         var $this = $(this);
+        // Get its options
         var o = $this.data("togOptions");
-        $(o.target)[o.transition]();
-
+        $(o.tog)[o.transition]();
         return $this; 
     }
 
 })(gear);
-
-gear.plugin.toggle = {
-    name : "tog",
-    slug : "tog",
-    plugin : function( o , arg ){
-        // * * * plugin toggle * * *
-        var self = gear.plugin.toggle.plugin ;
-
-        $(this).each(function(){
-
-            var $this = $(this);
-            var options = $this.data("grToggleOptions");
-
-            if(options){
-                if(options.init){
-                    if(!o){
-                        return self.transition.call(this);
-                    }
-
-                    return $this;
-                }
-            }
-
-            o = $.extend({
-                tog             : false,
-                target        : false,
-                event         : "click",
-                transitionIn  : false,
-                transitionOut : false,
-                transition    : "toggle",
-                time          : 300,
-                init          : true
-            },o, o.grToggleOptions);
-
-            if(!o.target) o.target = o.tog ;
-
-            $this.data("togOptions",o);
-            $this.on(o.event,function(){
-                self.transition.call(this);
-            });
-
-            console.log(o.target);
-
-            return $this;
-
-        });
-
-        self.transition = function(){
-
-            var $this = $(this);
-            var o = $this.data("togOptions");
-            $(o.target)[o.transition]();
-
-            return $this; 
-        }
-    }
-};
