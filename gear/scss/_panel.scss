@@ -1,4 +1,4 @@
-@mixin panel( $options : () ){
+@mixin panel( $colors , $options : () ){
 	$options : map-merge((
 			"radius" 				: $RADIUS,
 			"border-color" 			: rgba(0,0,0,.2),
@@ -11,8 +11,9 @@
 		), $options );
 	$radius  				: map-get( $options , "radius" );
 	$panel_class  			: $PX + map-get( $options , "panel_class" );
+	$panel-bordered_class  	: $panel_class +"-"+ map-get( $options , "panel-bordered_suffix" );
 	$panel-header_class  	: $panel_class +"-"+ map-get( $options , "panel-header_suffix" );
-	$panel-section_class  		: $panel_class +"-"+ map-get( $options , "panel-section_suffix" );
+	$panel-section_class  	: $panel_class +"-"+ map-get( $options , "panel-section_suffix" );
 	$panel-footer_class  	: $panel_class +"-"+ map-get( $options , "panel-footer_suffix" );
 	$padding_horizontal  	: map-get( $options , "padding_horizontal" );
 	$padding_vertical  		: map-get( $options , "padding_vertical" );
@@ -47,8 +48,8 @@
 			font-size: 1.5em;
 			line-height: 1;
 		}
-
-		&.panel-bordered{
+		// bordered
+		&.#{$panel-bordered_class}{
 			border:none;
 			> * {
 				margin-top: 0;
@@ -64,6 +65,43 @@
 					@include border-radius(0 0 $radius $radius);
 					border-bottom: 1px solid $border-color;
 					margin-bottom : $padding  * -1 ;
+				}
+			}
+		}
+		// colors
+		@each $name,$color in $colors{
+			&.#{$panel_class+"-"+$name}{
+				border : 1px solid $color ;
+
+				> * {
+					margin-top: 0;
+					margin-bottom: 0;
+					&:first-child{
+						@include border-radius($radius $radius 0 0);
+						margin-top : $padding  * -1 ;
+					}
+					&:last-child{
+						@include border-radius(0 0 $radius $radius);
+						margin-bottom : $padding  * -1 ;
+					}
+				}
+
+
+				.#{$panel-header_class}{
+					background-color: $color;
+					color : _getColorFrom( $color );
+				}
+
+				// bordered
+				&.#{$panel-bordered_class}{
+					border:none;
+					> * {
+						border-color:$color;
+						
+						&:last-child{
+							border-color: $color;
+						}
+					}
 				}
 			}
 		}
