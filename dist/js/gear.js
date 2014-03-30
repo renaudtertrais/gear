@@ -1,46 +1,50 @@
-var gear = {
-	// vars
-    prefix : "",
-    plugin : {},
-    dataAPI : true,
+(function(w){
+// - - - - - - - - 
+    w.gear = {
+        // vars
+        prefix : "",
+        plugin : {},
+        dataAPI : true
+    }
+    var g = w.gear;
     // methods
-    camelCaseObj : function(obj){
+    g.camelCaseObj = function(obj){
         $.each(obj,function(key,val){
             obj[gear.camelCase(key)] = val ;
         });
         return obj;
-    },
-    camelCase : function(str){
+    };
+    g.camelCase = function(str){
         return str.toLowerCase().replace(/(-| )([a-zA-Z0-9])/g,function(match) {
             return match[1].toUpperCase();
         });
-    },
-    unCamelCase : function(str){
+    };
+    g.unCamelCase = function(str){
         return str.replace(/[a-z]([A-Z])/g,function(match) {
             return "-"+match[0].toUpperCase();
         });
-    },
-    unPrefix : function(pre,obj){
+    };
+    g.unPrefix = function(pre,obj){
         var rgx = new RegExp("^"+pre+"(.+)$");
         var o = {};
         $.each(obj,function(key,val){
             o[gear.camelCase(key.replace(rgx,"$1"))] = val;
         })
         return o;
-    },
-    setPlugin : function(){
-    	$.each( gear.plugin , function( name , plugin ){
+    };
+    g.setPlugin = function(){
+        $.each( gear.plugin , function( name , plugin ){
 
-    		if( gear.prefix != ""){
-    			plugin.slug = gear.prefix+'-'+plugin.slug;
+            if( gear.prefix != ""){
+                plugin.slug = gear.prefix+'-'+plugin.slug;
                 plugin.name = gear.camelCase( plugin.slug );
             }
 
-    		$.fn[ plugin.name ] = plugin.plugin;
+            $.fn[ plugin.name ] = plugin.plugin;
     
-    	});
-    },
-    setDataAPI : function(){
+        });
+    };
+    g.setDataAPI = function(){
         if( gear.dataAPI ){
             $.each( gear.plugin , function(name,plugin){
                 $('[data-'+plugin.slug+']').each(function(){
@@ -49,11 +53,11 @@ var gear = {
                 });
             });
         }
-    },
-    factory : function(name,defaults){
+    };
+    g.factory = function(name,defaults){
         // look for the name
         if(!name){
-            console.error("gear.factory() must need at a name as first argument");
+            throw new Error("gear.factory() must need at a name as first argument");
             return false;
         }
         // Camelcase the name
@@ -145,7 +149,32 @@ var gear = {
         }
         return gear.plugin[name].plugin; ;
     }
+    // - - - 
+    // alert();
+    g.alert = function(){
+
+    };
+    g.alert.prototype.options = {
+
+    };
+    // confirm()
+    g.confirm = fucntion(){
+
+    };
+    g.confirm.prototype.options = {
+        
+    };
+    // prompt()
+    g.prompt = function(){
+
+    };
+    g.prompt.prototype.options = {
+
+    };
+
 };
+// - - - - - - -
+})(window);
 
 (function(g){
 

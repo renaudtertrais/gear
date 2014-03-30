@@ -1,0 +1,45 @@
+<h1>Form</h1>
+<demo><form class="form">
+	<!-- TEXT -->
+	<label for="input-1">Pseudo</label>
+	<input id="input-1" type="text" placeholder="pseudo">
+	<!-- PASSWORD -->
+	<label for="input-2">Password</label>
+	<input id="input-2" type="password" placeholder="password">
+	<!-- TEXT DISABLED -->
+	<label for="input-3">Disabled</label>
+	<input id="input-3" type="text" placeholder="disabled" disabled="disabled">
+	<!-- SELECT -->
+	<label for="select_1">Favorite language</label>
+	<select name="select_1" id="select_1">
+		<optgroup label="front">
+			<option value="html">HTML</option>
+			<option value="css">CSS</option>
+			<option value="js">Javascript</option>
+		<optgroup label="back">
+			<option value="php">Php</option>
+			<option value="python">Python</option>
+			<option value="ruby">Ruby</option>>
+	</select>
+	<!-- TEXTAREA -->
+	<label for="textarea_1">Bio</label>
+	<textarea id="textarea_1">Some text...</textarea>
+	<!-- CHECKBOX -->
+	<label>Mail notifications</label>
+	<input type="checkbox" id="checkbox_1" checked="checked">
+	<label for="checkbox_1">Messages</label><br>
+	<input type="checkbox" id="checkbox_2">
+	<label for="checkbox_2">News</label><br>
+	<input type="checkbox" id="checkbox_3" disabled="disabled">
+	<label for="checkbox_3">Premium offers</label><br>
+	<br>
+	<!-- RADIO -->
+	<label>Visibility</label>
+	<input type="radio" name="radio_1" id="radio_1" checked="checked"><label for="radio_1">Public</label><br>
+	<input type="radio" name="radio_1" id="radio_2"><label for="radio_2">Protected</label><br>
+	<input type="radio" name="radio_1" id="radio_3" disabled="disabled"><label for="radio_1">Private</label><br>
+	<hr>
+	<button class="btn">Cancel</button>
+	<input type="submit" class="btn btn-primary" value="save">
+</form>
+</demo>

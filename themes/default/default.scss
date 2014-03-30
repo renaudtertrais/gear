@@ -69,6 +69,15 @@ $btn-sizes 	: $sizes ;
 
 @include btn( $btn-colors , $btn-sizes );
 
+// * * * FORM * * *
+$input-sizes 	: (
+	"micro" 	: ( 22px , 12px ),
+	"min" 		: ( 30px , 14px ),
+	"default" 	: ( 40px ),
+	"max" 		: ( 50px ),
+	"fat" 		: ( 60px )
+);
+@include form( ("border_focus" : $color-primary ) , $input-sizes );
 // * * * Navbar * * *
 $navcolor : $color-negative , #3498db ;
 @include navbar($navcolor, #FFF);

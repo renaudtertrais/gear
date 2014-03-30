@@ -1,0 +1,132 @@
+@mixin _input-size( $size-height , $size-font , $size-padding , $size-border ){
+	font-size: $size-font;
+	padding:$size-padding;
+	border-width:$size-border;
+}
+
+// btn-size-params
+@mixin _input-size-params( $size ){
+	$size-height 	: nth( $size , 1 );
+	$size-font 		: "";
+	$size-padding 	: "";
+	$size-border 	: "";
+
+	// font-size
+	@if length( $size ) < 2{
+		$size-font 	: $size-height / 2.5 ;
+	}@else{
+		$size-font 	: nth( $size , 2 );
+	}
+	// padding
+	@if length( $size ) < 3{
+		$size-padding 		: $size-height / 4 ;
+	}@else{
+		$size-padding 		: nth( $size , 3 );
+	}
+	// border-width
+	@if length( $size ) < 4{
+		$size-border 		: 1px ;
+	}@else{
+		$size-border 		: nth( $size , 4 );
+	}
+
+	@include _input-size( $size-height , $size-font , $size-padding , $size-border );
+}
+
+@mixin form($input_colors : () , $input_sizes : () , $options : ()){
+	$input_colors : map-merge((
+			"border"		: rgba(0,0,0,.2),
+			"border_focus"	: rgba(0,0,0,.4)
+		),$input_colors);
+
+	$options : map-merge((
+			"form_class" 	: "form",
+			"radius"		: $RADIUS,
+			"font-size"		: $FONT-SIZE,
+			"padding"		: 10px,
+			"height"		: 40px,
+			"margin-bottom"	: 20px,
+			"font-color"	: $FONT-COLOR,
+			"label_margin"	: 5px
+		),$options);
+
+	$form_class 	: $PX + map-get( $options , "form_class" );
+	$_radius 		: map-get( $options , "radius" );
+	$_font-size 	: map-get( $options , "font-size" );
+	$_margin-bottom : map-get( $options , "margin-bottom" );
+	$_label_margin 	: map-get( $options , "label_margin" );
+	$_height 		: map-get( $options , "height" );
+	$_padding 		: map-get( $options , "padding" );
+	$_font-color 	: map-get( $options , "font-color" );
+
+	$inputs :" 
+		input[type=datetime],
+		input[type=datetime-local],
+		input[type=email],
+		input[type=month],
+		input[type=number],
+		input[type=password],
+		input[type=tel],
+		input[type=text],
+		input[type=time],
+		input[type=url],
+		input[type=week]";
+
+	$checks : "
+		input[type=checkbox],
+		input[type=radio],
+		";
+
+	.#{$form_class}{
+		#{unquote($inputs)},
+		select,
+		textarea{
+			display: block;
+			border-color: map-get( $input_colors , "border");
+			@include border-radius($_radius);
+			@include _input-size-params( map-get( $input_sizes , "default" ) );
+			margin-bottom: $_margin-bottom;
+			color:$_font-color;
+			width:100%;
+			&:focus{
+				border-color: map-get( $input_colors , "border_focus");
+			}
+		}
+		label{
+			display: block;
+			font-weight: bold;
+			margin-bottom: $_label_margin;
+			font-size: $_font-size;
+			color:$_font-color;
+		}
+		#{unquote($inputs)}{
+			@each $name , $_size in $input_sizes{
+				&.input-#{$name}{
+					@include _input-size-params( $_size );
+				}
+			}
+		}
+	}
+	[disabled=disabled]{
+		cursor:not-allowed;
+	}select{
+		height: 40px;
+	}
+	textarea{
+		line-height: 1.2;
+		min-height: 3*$_font-size*1.2 + $_padding*2;
+	}
+	#{$checks}{
+		margin-bottom: $_label_margin;
+		+ label{
+			display: inline-block;
+			margin-left: $_label_margin;
+			font-weight: normal;
+		}
+		&[disabled=disabled] + label{
+			opacity:.5;
+			cursor:not-allowed;
+		}
+	}
+		
+}
