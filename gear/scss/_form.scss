@@ -111,6 +111,10 @@
 		cursor:not-allowed;
 	}select{
 		height: 40px;
+		optgroup{
+			font-size: .8em;
+			text-transform: uppercase;
+		}
 	}
 	textarea{
 		line-height: 1.2;

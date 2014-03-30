@@ -1540,6 +1540,10 @@ ul.list-check-square li:before {
 select {
   height: 40px;
 }
+select optgroup {
+  font-size: .8em;
+  text-transform: uppercase;
+}
 
 textarea {
   line-height: 1.2;
