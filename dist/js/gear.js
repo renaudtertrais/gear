@@ -4,10 +4,25 @@
         // vars
         prefix : "",
         plugin : {},
-        dataAPI : true
+        dataAPI : true,
     }
     var g = w.gear;
+    // objects
+    g.Object = function(){};
+    g.Object.prototype.parent = Object.prototype;
+    g.Object.prototype.extend = function( construct ){
+        construct.prototype = new parent();
+        construct.prototype.constructor = construct;
+        construct.prototype.parent = parent.prototype;
+        return construct;
+    }
     // methods
+    g.getArgs = function(){
+        var args = [];
+        Array.prototype.push.apply( args, arguments );
+        return args;
+    }
+  
     g.camelCaseObj = function(obj){
         $.each(obj,function(key,val){
             obj[gear.camelCase(key)] = val ;
@@ -151,30 +166,57 @@
     }
     // - - - 
     // alert();
-    g.alert = function(){
+    g.Alert = g.Object.extend(function(){
+        var self    = g.Alert.prototype;
+        var parent  = self.parent;
+        // options
+        var args = g.getArgs(arguments);
+        this.options = {};
+        if(typeof(args[args.length-1]) === "object" ){
+            this.options = args[args.length-1];
+            args.shift();
+        }
+        this.options = $.extend({},
+            self.options,
+            this.options,
+        );
+        // content
+        if( typeof(args[0]) !== "string" ){
+            throw new Error("g.alert() must need a string as first argument, currently : " + typeof(args[0]) );
+            return false;
+        }
+        this.content = args[0];
+        // title
+        if( typeof(args[1]) !== "string" ){
+            throw new Error("g.alert() must need a string as second argument, currently : " + typeof(args[0]) );
+            return false;
+        }
+        this.title = args[1];
 
-    };
-    g.alert.prototype.options = {
+        // * * * METHODS * * *
+        // open
+        self.open = function(){
 
-    };
+        }
+        // close
+        self.close = function(){
+
+        }
+    });
     // confirm()
-    g.confirm = fucntion(){
+    g.confirm = g.inherit( g.alert , function(){
 
-    };
-    g.confirm.prototype.options = {
-        
-    };
+    });
     // prompt()
-    g.prompt = function(){
+    g.prompt = g.inherit( g.alert , function(){
 
-    };
-    g.prompt.prototype.options = {
-
-    };
+    });
 
 };
 // - - - - - - -
 })(window);
+
+
 
 (function(g){
 
@@ -185,7 +227,7 @@
             transitionIn  : false,
             transitionOut : false,
             transition    : "toggle",
-            time          : 300,
+            time          : 0,
             init          : true
         });
 
@@ -209,7 +251,24 @@
         return $this; 
     }
 
+    self.open = function(){
+
+    }
+
+    self.close = function(){
+
+    }
+
+    self.toggle = function(){
+
+    }
+
 })(gear);
+
+// data-open
+// data-close
+// data-alert
+// data-toggle
 $(function(){
 	gear.setPlugin();
 	gear.setDataAPI();

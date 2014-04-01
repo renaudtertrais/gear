@@ -7,7 +7,7 @@
             transitionIn  : false,
             transitionOut : false,
             transition    : "toggle",
-            time          : 300,
+            time          : 0,
             init          : true
         });
 
@@ -31,4 +31,21 @@
         return $this; 
     }
 
+    self.open = function(){
+
+    }
+
+    self.close = function(){
+
+    }
+
+    self.toggle = function(){
+
+    }
+
 })(gear);
+
+// data-open
+// data-close
+// data-alert
+// data-toggle
