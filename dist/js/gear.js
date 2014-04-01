@@ -2,20 +2,22 @@
 // - - - - - - - - 
     w.gear = {
         // vars
-        prefix : "",
-        plugin : {},
-        dataAPI : true,
-    }
+        prefix          : "",
+        plugin          : {},
+        dataAPI         : {},
+        enableDataAPI   : true
+    };
     var g = w.gear;
     // objects
+    /*
     g.Object = function(){};
     g.Object.prototype.parent = Object.prototype;
-    g.Object.prototype.extend = function( construct ){
-        construct.prototype = new parent();
+    g.Object.extend = function( construct ){
+        construct.prototype = new this.prototype.parent.constructor();
         construct.prototype.constructor = construct;
         construct.prototype.parent = parent.prototype;
         return construct;
-    }
+    }*/
     // methods
     g.getArgs = function(){
         var args = [];
@@ -60,11 +62,12 @@
         });
     };
     g.setDataAPI = function(){
-        if( gear.dataAPI ){
-            $.each( gear.plugin , function(name,plugin){
-                $('[data-'+plugin.slug+']').each(function(){
-                    var $this = $(this);
-                    $this[plugin.name](gear.unPrefix(plugin.name,$this.data()));
+        if( gear.enableDataAPI ){
+            $.each( gear.dataAPI , function(name,f){
+                if(g.prefix != "")
+                    name = g.prefix+"-"+name;
+                $('[data-'+name+']').each(function(){
+                    f.call(this,$(this).data(name));
                 });
             });
         }
@@ -116,10 +119,17 @@
                         }
                         // then put options on the element
                         $this.data(name+"Options",options);
-
                         // is there an init function ?
                         if(typeof(self.init) === "function" ){
-                            returnValue = self.init.apply(this,params);
+
+                            if( typeof(self[params[0]]) === "function" ){
+                                self.init.apply(this);
+                                var f = params[0];
+                                params.shift();
+                                returnValue = self[f].apply(this,params);
+                            }else{
+                                returnValue = self.init.apply(this,params);
+                            }
                             return false;
                         }
                     }
@@ -129,9 +139,10 @@
                         // yes, does the first is a function's name
                         if( typeof(self[params[0]]) === "function" ){
                             // yes. First, remove that function from params
+                            var f = params[0];
                             params.shift();
                             // then call it with its params
-                            returnValue = self[params[0]].apply(this,params);
+                            returnValue = self[f].apply(this,params);
                             return false;
                         }else{
                             // no. perhaps a param for a main function. Does it exist ?
@@ -166,8 +177,9 @@
     }
     // - - - 
     // alert();
+    /*
     g.Alert = g.Object.extend(function(){
-        var self    = g.Alert.prototype;
+        var self    = g.Alert.prototype;                 
         var parent  = self.parent;
         // options
         var args = g.getArgs(arguments);
@@ -178,7 +190,7 @@
         }
         this.options = $.extend({},
             self.options,
-            this.options,
+            this.options
         );
         // content
         if( typeof(args[0]) !== "string" ){
@@ -204,15 +216,15 @@
         }
     });
     // confirm()
-    g.confirm = g.inherit( g.alert , function(){
+    g.confirm = g.Alert.extend(function(){
 
     });
     // prompt()
-    g.prompt = g.inherit( g.alert , function(){
+    g.prompt = g.Alert.extend(function(){
 
-    });
+    });*/
 
-};
+
 // - - - - - - -
 })(window);
 
@@ -220,55 +232,104 @@
 
 (function(g){
 
-    var self = g.factory("tog",{
-            tog           : false,
-            target        : false,
-            event         : "click",
-            transitionIn  : false,
-            transitionOut : false,
+	var self = g.factory("alert",$.extend({
+			triggers		: false,
+			show 			: false,
+			overlay			: true,
+			overlay_color	: "rgba(0,0,0,.1)"
+		},g.plugin.tog.defaults)
+	);
+
+	self.init = function(){
+		var $this 	= this;
+		var o 		= $this.data("alertOptions");
+		
+		if(o.triggers){
+			
+		}
+	}
+
+
+});
+(function(g){
+    var name = "switchable";
+    var self = g.factory(name,{
+            transitionIn  : "show",
+            transitionOut : "hide",
             transition    : "toggle",
-            time          : 0,
+            time          : "",
             init          : true
         });
 
     self.init = function(){
-        // Make a ref to the jQuery object
         var $this = $(this);
-        // Get its options
-        var o = $this.data("togOptions");
-        $this.on(o.event,function(){
-            self.transition.call(this);
-        });
+        var o = $this.data(name+"Options");
+        // set the transition
+        if(o.transition == "fade" ){
+            o.transitionIn = "fadeIn";
+            o.transitionOut = "fadeOut";
+        }else if(o.transition == "slide" ){
+            o.transitionIn = "slideIn";
+            o.transitionOut = "slideOut";
+        }
         return $this;
-    }
+    };
 
-    self.transition = function(){
-        // Make a ref to the jQuery object
+    self.show = function(){
         var $this = $(this);
-        // Get its options
-        var o = $this.data("togOptions");
-        $(o.tog)[o.transition]();
+        var o = $this.data(name+"Options");
+
+        if($this.css("display")=="none")
+            $this[o.transitionIn](o.time);
+
         return $this; 
-    }
+    };
 
-    self.open = function(){
+    self.hide = function(){
+        var $this = $(this);
+        var o = $this.data(name+"Options");
 
-    }
+        if($this.css("display")!="none")
+            $this[o.transitionOut](o.time);
 
-    self.close = function(){
-
-    }
+        return $this;
+    };
 
     self.toggle = function(){
+        var $this = $(this);
+        var o = $this.data(name+"Options");
 
-    }
+        if($this.css("display")=="none")
+            $this.switchable('show');
+        else
+           $this.switchable('hide'); 
+    };
+
+    // * * * data API * * *
+    // plugin
+    g.dataAPI.switchable = function( trs ){
+        $(this).switchable({transition:trs});
+    };
+    // triggers
+    g.dataAPI.toggle = function( target ){
+        $(this).on("click",function(){
+            $(target).switchable('toggle');
+        });
+    };
+    
+    g.dataAPI.show = function( target ){
+        $(this).on("click",function(){
+            $(target).switchable('show');
+        });
+    };
+    g.dataAPI.hide = function( target ){
+        $(this).on("click",function(){
+            $(target).switchable('hide');
+        });
+    };
 
 })(gear);
 
-// data-open
-// data-close
-// data-alert
-// data-toggle
 $(function(){
 	gear.setPlugin();
 	gear.setDataAPI();
