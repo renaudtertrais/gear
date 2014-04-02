@@ -37,8 +37,8 @@
         });
     };
     g.unCamelCase = function(str){
-        return str.replace(/[a-z]([A-Z])/g,function(match) {
-            return "-"+match[0].toUpperCase();
+        return str.replace(/([a-z])([A-Z])/g,function(match,m1,m2) {
+            return m1+"-"+m2.toLowerCase();
         });
     };
     g.unPrefix = function(pre,obj){
@@ -51,12 +51,7 @@
     };
     g.setPlugin = function(){
         $.each( gear.plugin , function( name , plugin ){
-
-            if( gear.prefix != ""){
-                plugin.slug = gear.prefix+'-'+plugin.slug;
-                plugin.name = gear.camelCase( plugin.slug );
-            }
-
+            plugin.name = gear.camelCase(  g.prefix+plugin.slug );
             $.fn[ plugin.name ] = plugin.plugin;
     
         });
@@ -64,8 +59,7 @@
     g.setDataAPI = function(){
         if( gear.enableDataAPI ){
             $.each( gear.dataAPI , function(name,f){
-                if(g.prefix != "")
-                    name = g.prefix+"-"+name;
+                name = g.prefix+g.unCamelCase(name);
                 $('[data-'+name+']').each(function(){
                     f.call(this,$(this).data(name));
                 });
@@ -90,11 +84,11 @@
                 var self = gear.plugin[name].plugin ;
                 // value to return at the end
                 var returnValue;
-                // convert arguments into an array
-                var params = [];
+               
                 var args = arguments; 
                 // let's go for a loop !
                 this.each(function(){
+                    // convert arguments into an array
                     var params = [];
                     Array.prototype.push.apply( params, args );
 
@@ -104,9 +98,7 @@
                     // options so already init ?
                     var options = $this.data(name+"Options");
                     // need an init ?
-         
                     if( options === undefined ){
-                        
                         // if there are some defaults properties
                         if( typeof(gear.plugin[name].defaults) === "object" ){
                             // if params is an object, overwrite defaults
@@ -240,7 +232,7 @@
 
 	var self = g.factory(name,{
 			show 			: false,
-			overlay_color	: "rgba(0,0,0,.1)",
+			overlay_color	: "rgba(0,0,0,.7)",
 			switchable		: {},
 			zIndex 			: 5000,
 			width 			: "400px",
@@ -265,8 +257,12 @@
 		})
 		// add switchable beahvior to the overlay
 		o.overlay.switchable(o.switchable);
+		// add class to overlay
+		o.overlay.addClass("alert-overlay");
+		// Insert overlay in the DOM
+		o.overlay = o.overlay.insertAfter($this);
 		// put this inside the overlay
-		$this.wrap(o.overlay);
+		o.overlay.append($this);
 		// add style to this
 		$this.css({
 			display 		: "inline-block",
@@ -274,6 +270,8 @@
 			maxWidth 		: "90%",
 			width 			: o.width
 		})
+		// add class to this
+		$this.addClass("alert-content");
 
 		// Create the align helper
 		var align = $("<div/>");
@@ -286,7 +284,7 @@
 		});
 		// Add align to overlay
 		o.overlay.append(align);
-
+		// hide by default ?
 		if(!o.show)
 			o.overlay.hide();
 	}
@@ -300,22 +298,25 @@
 	}
 
 	// * * * DATA API * * *
-	g.dataAPI.alert = function(){
-		$(this).alert();
+	g.dataAPI.alert = function( trs ){
+		if( !trs )
+			trs = "default";
+		$(this).alert({switchable : {transition:trs}});
 	}
 	g.dataAPI.open = function( target ){
 		$(this).on("click",function(){
-			$(taget).alert('open');
+			$(target).alert('open');
 		})
 	}
 	g.dataAPI.close = function( target ){
 		$(this).on("click",function(){
-			$(taget).alert('close');
+			$(target).alert('close');
 		})
 	}
 	g.dataAPI.closeThis = function(){
+		console.log("hello")
 		$(this).on("click",function(){
-			$(this).parents(".panel").alert('close');
+			$(this).parents(".alert-content").alert('close');
 		})
 	}
 })(gear);
