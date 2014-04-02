@@ -98,11 +98,13 @@
                     var params = [];
                     Array.prototype.push.apply( params, args );
 
+
                     // first let's make a ref to our jquery object
                     var $this = $(this);
                     // options so already init ?
                     var options = $this.data(name+"Options");
                     // need an init ?
+         
                     if( options === undefined ){
                         
                         // if there are some defaults properties
@@ -236,17 +238,16 @@
 
 	var name = "alert";
 
-	var self = g.factory(name,$.extend({
+	var self = g.factory(name,{
 			show 			: false,
 			overlay_color	: "rgba(0,0,0,.1)",
 			switchable		: {},
 			zIndex 			: 5000,
 			width 			: "400px",
-		},g.plugin.tog.defaults)
-	);
+		});
 
 	self.init = function(){
-		var $this 	= this;
+		var $this 	= $(this);
 		var o 		= $this.data(name+"Options");
 		
 		// create overlay
@@ -269,7 +270,7 @@
 		// add style to this
 		$this.css({
 			display 		: "inline-block",
-			verticalAlign 	: middle,
+			verticalAlign 	: "middle",
 			maxWidth 		: "90%",
 			width 			: o.width
 		})
@@ -279,7 +280,7 @@
 		// style align
 		align.css({
 			display 		: "inline-block",
-			verticalAlign 	: middle,
+			verticalAlign 	: "middle",
 			width 			: 0,
 			height 			: "100%"
 		});
@@ -298,8 +299,26 @@
 		$(this).data(name+"Options").overlay.switchable('hide');
 	}
 
-
-});
+	// * * * DATA API * * *
+	g.dataAPI.alert = function(){
+		$(this).alert();
+	}
+	g.dataAPI.open = function( target ){
+		$(this).on("click",function(){
+			$(taget).alert('open');
+		})
+	}
+	g.dataAPI.close = function( target ){
+		$(this).on("click",function(){
+			$(taget).alert('close');
+		})
+	}
+	g.dataAPI.closeThis = function(){
+		$(this).on("click",function(){
+			$(this).parents(".panel").alert('close');
+		})
+	}
+})(gear);
 (function(g){
     var name = "switchable";
     var self = g.factory(name,{

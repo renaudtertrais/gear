@@ -98,11 +98,13 @@
                     var params = [];
                     Array.prototype.push.apply( params, args );
 
+
                     // first let's make a ref to our jquery object
                     var $this = $(this);
                     // options so already init ?
                     var options = $this.data(name+"Options");
                     // need an init ?
+         
                     if( options === undefined ){
                         
                         // if there are some defaults properties
