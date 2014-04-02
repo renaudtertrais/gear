@@ -9,19 +9,19 @@
     };
     var g = w.gear;
     // objects
-    /*
+
     g.Object = function(){};
     g.Object.prototype.parent = Object.prototype;
     g.Object.extend = function( construct ){
         construct.prototype = new this.prototype.parent.constructor();
         construct.prototype.constructor = construct;
-        construct.prototype.parent = parent.prototype;
+        construct.prototype.parent =  this.prototype;
         return construct;
-    }*/
+    }
     // methods
-    g.getArgs = function(){
+    g.getArgs = function(obj){
         var args = [];
-        Array.prototype.push.apply( args, arguments );
+        Array.prototype.push.apply( args, obj );
         return args;
     }
   
@@ -53,7 +53,6 @@
         $.each( gear.plugin , function( name , plugin ){
             plugin.name = gear.camelCase(  g.prefix+plugin.slug );
             $.fn[ plugin.name ] = plugin.plugin;
-    
         });
     };
     g.setDataAPI = function(){
@@ -173,45 +172,95 @@
     }
     // - - - 
     // alert();
-    /*
+    
     g.Alert = g.Object.extend(function(){
         var self    = g.Alert.prototype;                 
-        var parent  = self.parent;
+        var that    = this;
         // options
         var args = g.getArgs(arguments);
-        this.options = {};
-        if(typeof(args[args.length-1]) === "object" ){
-            this.options = args[args.length-1];
-            args.shift();
+        that.options = {};
+
+        self.options = {
+            destroy : true,
+            panel   : {
+                class : "panel"
+            },
+            buttons : [
+                {
+                    text    : "Ok",
+                    class   : "btn",
+                    onClick : function(){ self.close() }
+                }
+            ],
+            alert   : {
+                show    : true
+            } 
         }
-        this.options = $.extend({},
+
+        if(typeof(args[args.length-1]) === "object" ){
+            that.options = args[args.length-1];
+            args.pop();
+        }
+        that.options = $.extend({},
             self.options,
-            this.options
+            that.options
         );
+        // title
+        if( typeof(args[0]) !== "string" ){
+            throw new Error("g.alert() must need a string as second argument, currently : " + typeof(args[0]) );
+            return false;
+        }
+        that.title = args[0];
+        args.shift();
         // content
         if( typeof(args[0]) !== "string" ){
             throw new Error("g.alert() must need a string as first argument, currently : " + typeof(args[0]) );
             return false;
         }
-        this.content = args[0];
-        // title
-        if( typeof(args[1]) !== "string" ){
-            throw new Error("g.alert() must need a string as second argument, currently : " + typeof(args[0]) );
-            return false;
-        }
-        this.title = args[1];
+        that.content = args[0];
+
+        // build html
+        that.panel      = $("<div/>")
+            .appendTo("body")
+            .addClass(that.options.panel.class);
+        that.header     = $("<div/>")
+            .appendTo(that.panel)
+            .addClass("panel-header")
+            .html(that.title);
+        that.content    = $("<div/>")
+            .appendTo(that.panel)
+            .addClass("panel-section")
+            .html(that.content);
+        that.footer     = $("<div/>")
+            .appendTo(that.panel)
+            .addClass("panel-footer");
+        // buttons
+        that.buttons = [];
+        $.each( that.options.buttons , function( i , btn ){
+            that.buttons.push($("<button/>")
+                .appendTo(that.footer)
+                .addClass(btn.class)
+                .text(btn.text)
+                .on("click",btn.onClick));
+        })
+       
+        // add the alert() behavior
+        that.panel.alert(that.options.alert);
 
         // * * * METHODS * * *
         // open
         self.open = function(){
-
+            that.panel.alert("show");
         }
         // close
         self.close = function(){
-
+            that.panel.alert("close");
+            if(that.options.destroy)
+                that.panel.parent().remove();
         }
     });
     // confirm()
+    /*
     g.confirm = g.Alert.extend(function(){
 
     });
@@ -236,8 +285,25 @@
 			switchable		: {},
 			zIndex 			: 5000,
 			width 			: "400px",
+			onClose 		: "",
+			onOpen 			: ""
 		});
 
+	// * * * EVENTS * * *
+	var onOpen = new CustomEvent("open",{
+		detail:{},
+		bubbles: true,
+		cancelable: true
+	});
+	var onClose = new CustomEvent("close",{
+		detail:{},
+		bubbles: true,
+		cancelable: true
+	});
+
+
+
+	// * * * METHODS * * *
 	self.init = function(){
 		var $this 	= $(this);
 		var o 		= $this.data(name+"Options");
@@ -290,11 +356,21 @@
 	}
 
 	self.open = function(){
-		$(this).data(name+"Options").overlay.switchable('show');
+		var $this = $(this);
+		var o = $(this).data(name+"Options");
+		o.overlay.switchable('show');
+		this.dispatchEvent(onOpen);
+		if( typeof(o.onOpen) === "function" )
+			o[onOpen]()
 	}
 
 	self.close = function(){
-		$(this).data(name+"Options").overlay.switchable('hide');
+		var $this = $(this);
+		var o = $(this).data(name+"Options");
+		o.overlay.switchable('hide');
+		this.dispatchEvent(onClose);
+		if( typeof(o.onClose) === "function" )
+			o[onClose]()
 	}
 
 	// * * * DATA API * * *
@@ -314,11 +390,14 @@
 		})
 	}
 	g.dataAPI.closeThis = function(){
-		console.log("hello")
 		$(this).on("click",function(){
 			$(this).parents(".alert-content").alert('close');
 		})
 	}
+
+	
+
+
 })(gear);
 (function(g){
     var name = "switchable";

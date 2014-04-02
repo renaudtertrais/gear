@@ -8,8 +8,25 @@
 			switchable		: {},
 			zIndex 			: 5000,
 			width 			: "400px",
+			onClose 		: "",
+			onOpen 			: ""
 		});
 
+	// * * * EVENTS * * *
+	var onOpen = new CustomEvent("open",{
+		detail:{},
+		bubbles: true,
+		cancelable: true
+	});
+	var onClose = new CustomEvent("close",{
+		detail:{},
+		bubbles: true,
+		cancelable: true
+	});
+
+
+
+	// * * * METHODS * * *
 	self.init = function(){
 		var $this 	= $(this);
 		var o 		= $this.data(name+"Options");
@@ -62,11 +79,21 @@
 	}
 
 	self.open = function(){
-		$(this).data(name+"Options").overlay.switchable('show');
+		var $this = $(this);
+		var o = $(this).data(name+"Options");
+		o.overlay.switchable('show');
+		this.dispatchEvent(onOpen);
+		if( typeof(o.onOpen) === "function" )
+			o[onOpen]()
 	}
 
 	self.close = function(){
-		$(this).data(name+"Options").overlay.switchable('hide');
+		var $this = $(this);
+		var o = $(this).data(name+"Options");
+		o.overlay.switchable('hide');
+		this.dispatchEvent(onClose);
+		if( typeof(o.onClose) === "function" )
+			o[onClose]()
 	}
 
 	// * * * DATA API * * *
@@ -86,9 +113,12 @@
 		})
 	}
 	g.dataAPI.closeThis = function(){
-		console.log("hello")
 		$(this).on("click",function(){
 			$(this).parents(".alert-content").alert('close');
 		})
 	}
+
+	
+
+
 })(gear);

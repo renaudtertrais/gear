@@ -8,12 +8,14 @@
 	&:hover{
 		background-color: darken( $color-bg , 5% );
 		border-color 	: darken( $color-border , 5% );
+		text-decoration : none; 
 	}
 	// active
 	&:active,
 	&.active{
 		background-color: darken( $color-bg , 10% ) ;
 		border-color 	: darken( $color-border , 10% ) ;
+		text-decoration : none; 
 	}
 }
 
@@ -120,6 +122,7 @@
 		cursor 			: pointer ;
 		display 		: inline-block ;
 		border-style 	: solid ;
+		text-decoration : none; 
 		@include border-radius( $radius );
 
 		// * COLORS *

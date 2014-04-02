@@ -1155,6 +1155,7 @@ ul.list-check-square li:before {
   cursor: pointer;
   display: inline-block;
   border-style: solid;
+  text-decoration: none;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
@@ -1166,12 +1167,14 @@ ul.list-check-square li:before {
 .btn-sign:hover {
   background-color: #f2f2f2;
   border-color: #bfbfbf;
+  text-decoration: none;
 }
 .btn:active, .btn.active,
 .btn-sign:active,
 .btn-sign.active {
   background-color: #e6e6e6;
   border-color: #b3b3b3;
+  text-decoration: none;
 }
 .btn.btn-default,
 .btn-sign.btn-default {
@@ -1183,12 +1186,14 @@ ul.list-check-square li:before {
 .btn-sign.btn-default:hover {
   background-color: #f2f2f2;
   border-color: #bfbfbf;
+  text-decoration: none;
 }
 .btn.btn-default:active, .btn.btn-default.active,
 .btn-sign.btn-default:active,
 .btn-sign.btn-default.active {
   background-color: #e6e6e6;
   border-color: #b3b3b3;
+  text-decoration: none;
 }
 .btn.btn-primary,
 .btn-sign.btn-primary {
@@ -1200,12 +1205,14 @@ ul.list-check-square li:before {
 .btn-sign.btn-primary:hover {
   background-color: #258cd1;
   border-color: #258cd1;
+  text-decoration: none;
 }
 .btn.btn-primary:active, .btn.btn-primary.active,
 .btn-sign.btn-primary:active,
 .btn-sign.btn-primary.active {
   background-color: #217dbb;
   border-color: #217dbb;
+  text-decoration: none;
 }
 .btn.btn-success,
 .btn-sign.btn-success {
@@ -1217,12 +1224,14 @@ ul.list-check-square li:before {
 .btn-sign.btn-success:hover {
   background-color: #4d9e5d;
   border-color: #4d9e5d;
+  text-decoration: none;
 }
 .btn.btn-success:active, .btn.btn-success.active,
 .btn-sign.btn-success:active,
 .btn-sign.btn-success.active {
   background-color: #458c53;
   border-color: #458c53;
+  text-decoration: none;
 }
 .btn.btn-warning,
 .btn-sign.btn-warning {
@@ -1234,12 +1243,14 @@ ul.list-check-square li:before {
 .btn-sign.btn-warning:hover {
   background-color: #f4721c;
   border-color: #f4721c;
+  text-decoration: none;
 }
 .btn.btn-warning:active, .btn.btn-warning.active,
 .btn-sign.btn-warning:active,
 .btn-sign.btn-warning.active {
   background-color: #ea640c;
   border-color: #ea640c;
+  text-decoration: none;
 }
 .btn.btn-alert,
 .btn-sign.btn-alert {
@@ -1251,12 +1262,14 @@ ul.list-check-square li:before {
 .btn-sign.btn-alert:hover {
   background-color: #e43725;
   border-color: #e43725;
+  text-decoration: none;
 }
 .btn.btn-alert:active, .btn.btn-alert.active,
 .btn-sign.btn-alert:active,
 .btn-sign.btn-alert.active {
   background-color: #d62c1a;
   border-color: #d62c1a;
+  text-decoration: none;
 }
 .btn.btn-negative,
 .btn-sign.btn-negative {
@@ -1268,12 +1281,14 @@ ul.list-check-square li:before {
 .btn-sign.btn-negative:hover {
   background-color: #233140;
   border-color: #233140;
+  text-decoration: none;
 }
 .btn.btn-negative:active, .btn.btn-negative.active,
 .btn-sign.btn-negative:active,
 .btn-sign.btn-negative.active {
   background-color: #1a242f;
   border-color: #1a242f;
+  text-decoration: none;
 }
 
 .btn {
