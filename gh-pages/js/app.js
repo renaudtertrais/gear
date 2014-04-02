@@ -130,5 +130,32 @@ app.config(function (hljsServiceProvider) {
   });
 });
 
+$(function(){
+	setTimeout(init,2000);
+})
 
-
+function init(){
+	var myAlert = new gear.Alert('Attention',"Are you <strong>sure</strong> ? <br><em>(Don't worry, it's just an example)</em>",{
+		destroy : false,
+		panel : {
+			class : "panel panel-alert",
+		},
+		alert : {
+			show : false
+		},
+		buttons : [
+			{
+				text 	: "Cancel",
+				class 	: "btn",
+				onClick : function(){ myAlert.close(); } 
+			},{
+				text 	: "Do it !",
+				class 	: "btn btn-alert ml10",
+				onClick : function(){ myAlert.close(); gear.Alert("Message","Done !"); } 
+			}
+		]
+	});
+	$("#btn-alert-1").on("click",function(){
+		myAlert.open();
+	})
+}

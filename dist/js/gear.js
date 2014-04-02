@@ -16,6 +16,7 @@
         construct.prototype = new this.prototype.parent.constructor();
         construct.prototype.constructor = construct;
         construct.prototype.parent =  this.prototype;
+        construct.extend = this.extend;
         return construct;
     }
     // methods
@@ -189,7 +190,7 @@
                 {
                     text    : "Ok",
                     class   : "btn",
-                    onClick : function(){ self.close() }
+                    onClick : function(){ that.close() }
                 }
             ],
             alert   : {
@@ -249,23 +250,25 @@
 
         // * * * METHODS * * *
         // open
-        self.open = function(){
-            that.panel.alert("show");
+        this.open = function(){
+            this.panel.alert("open");
         }
         // close
-        self.close = function(){
+        this.close = function(){
             that.panel.alert("close");
             if(that.options.destroy)
                 that.panel.parent().remove();
         }
     });
     // confirm()
-    /*
-    g.confirm = g.Alert.extend(function(){
-
-    });
+    g.Confirm = g.Alert.extend(function(){
+        var self    = g.Alert.prototype;
+        var parent  = self.parent;                 
+        var that    = this;
+        parent.b();
+    });/*
     // prompt()
-    g.prompt = g.Alert.extend(function(){
+    g.Prompt = g.Alert.extend(function(){
 
     });*/
 

@@ -1,3 +1,34 @@
-<h1>gear.Alert( title , message );</h1>
+<h1>gear.Alert();</h1>
+<h2>basic</h2>
+<p>Ok we know that using javascript inside tags isn't a good practise but it's for the example :)</p>
 <demo><div onclick="gear.Alert('Say','Hello world !')" class="btn btn-negative">alert !</div>
+</demo>
+<h2>advanced</h2>
+<demo><div id="btn-alert-1" class="btn btn-negative">alert !</div>
+	
+<script type="text/javascript">
+	var myAlert = new Alert('Attention',"Are you <strong>sure</strong> ? <br><em>(Don't worry, it's just an example)</em>",{
+		destroy : false,
+		panel : {
+			class : "panel panel-alert",
+		},
+		alert : {
+			show : false
+		},
+		buttons : [
+			{
+				text 	: "Cancel",
+				class 	: "btn",
+				onClick : function(){ myAlert.close(); } 
+			},{
+				text 	: "Do it !",
+				class 	: "btn btn-alert ml10",
+				onClick : function(){ myAlert.close(); gear.Alert("Message","Done !"); } 
+			}
+		]
+	});
+	$("#btn-alert-1").on("click",function(){
+		myAlert.open();
+	})
+</script>
 </demo>
