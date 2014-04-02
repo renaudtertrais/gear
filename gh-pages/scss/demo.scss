@@ -54,3 +54,19 @@
 #doc .table{
 	font-size: 12px;
 }
+
+#img-logo {
+	position:absolute;
+	top:60px;
+	left:0;
+	right:0;
+	background-image: url("../img/gear-bg.jpg");
+	background-size: cover;
+	background-position: center 60% ;
+	height:350px;
+	max-height:400px;
+}
+
+#empty{
+	height:350px;
+}
