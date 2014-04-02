@@ -92,18 +92,19 @@
                 var returnValue;
                 // convert arguments into an array
                 var params = [];
-                Array.prototype.push.apply( params, arguments );
-                
+                var args = arguments; 
                 // let's go for a loop !
                 this.each(function(){
+                    var params = [];
+                    Array.prototype.push.apply( params, args );
 
                     // first let's make a ref to our jquery object
                     var $this = $(this);
                     // options so already init ?
                     var options = $this.data(name+"Options");
-
                     // need an init ?
                     if( options === undefined ){
+                        
                         // if there are some defaults properties
                         if( typeof(gear.plugin[name].defaults) === "object" ){
                             // if params is an object, overwrite defaults
@@ -117,6 +118,7 @@
                             // no defaults ? just put an empty object
                             options = {};
                         }
+
                         // then put options on the element
                         $this.data(name+"Options",options);
                         // is there an init function ?
@@ -130,7 +132,7 @@
                             }else{
                                 returnValue = self.init.apply(this,params);
                             }
-                            return false;
+                            return true;
                         }
                     }
 
@@ -143,17 +145,17 @@
                             params.shift();
                             // then call it with its params
                             returnValue = self[f].apply(this,params);
-                            return false;
+                            return true;
                         }else{
                             // no. perhaps a param for a main function. Does it exist ?
                             if( typeof(self.main) == "function"){
                                 // good so we can call it
                                 returnValue = self.main.apply(this,params);
-                                return false;
+                                return true;
                             }else{
                                 // no ? strange... let's return the jquery object
                                 returnValue = $this;
-                                return false;
+                                return true;
                             }
                         }
                     }else{
@@ -161,11 +163,11 @@
                         if( typeof(self.main) == "function"){
                             // yes so we can call it
                             returnValue = self.main.apply(this,params);
-                            return false;
+                            return true;
                         }else{
                             // no ? strange... let's return the jquery object
                             returnValue = $this;
-                            return false;
+                            return true;
                         }
                     }
                 });// end of the loop. Best things have also an end :)

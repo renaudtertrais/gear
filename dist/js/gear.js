@@ -92,18 +92,19 @@
                 var returnValue;
                 // convert arguments into an array
                 var params = [];
-                Array.prototype.push.apply( params, arguments );
-                
+                var args = arguments; 
                 // let's go for a loop !
                 this.each(function(){
+                    var params = [];
+                    Array.prototype.push.apply( params, args );
 
                     // first let's make a ref to our jquery object
                     var $this = $(this);
                     // options so already init ?
                     var options = $this.data(name+"Options");
-
                     // need an init ?
                     if( options === undefined ){
+                        
                         // if there are some defaults properties
                         if( typeof(gear.plugin[name].defaults) === "object" ){
                             // if params is an object, overwrite defaults
@@ -117,6 +118,7 @@
                             // no defaults ? just put an empty object
                             options = {};
                         }
+
                         // then put options on the element
                         $this.data(name+"Options",options);
                         // is there an init function ?
@@ -130,7 +132,7 @@
                             }else{
                                 returnValue = self.init.apply(this,params);
                             }
-                            return false;
+                            return true;
                         }
                     }
 
@@ -143,17 +145,17 @@
                             params.shift();
                             // then call it with its params
                             returnValue = self[f].apply(this,params);
-                            return false;
+                            return true;
                         }else{
                             // no. perhaps a param for a main function. Does it exist ?
                             if( typeof(self.main) == "function"){
                                 // good so we can call it
                                 returnValue = self.main.apply(this,params);
-                                return false;
+                                return true;
                             }else{
                                 // no ? strange... let's return the jquery object
                                 returnValue = $this;
-                                return false;
+                                return true;
                             }
                         }
                     }else{
@@ -161,11 +163,11 @@
                         if( typeof(self.main) == "function"){
                             // yes so we can call it
                             returnValue = self.main.apply(this,params);
-                            return false;
+                            return true;
                         }else{
                             // no ? strange... let's return the jquery object
                             returnValue = $this;
-                            return false;
+                            return true;
                         }
                     }
                 });// end of the loop. Best things have also an end :)
@@ -232,21 +234,68 @@
 
 (function(g){
 
-	var self = g.factory("alert",$.extend({
-			triggers		: false,
+	var name = "alert";
+
+	var self = g.factory(name,$.extend({
 			show 			: false,
-			overlay			: true,
-			overlay_color	: "rgba(0,0,0,.1)"
+			overlay_color	: "rgba(0,0,0,.1)",
+			switchable		: {},
+			zIndex 			: 5000,
+			width 			: "400px",
 		},g.plugin.tog.defaults)
 	);
 
 	self.init = function(){
 		var $this 	= this;
-		var o 		= $this.data("alertOptions");
+		var o 		= $this.data(name+"Options");
 		
-		if(o.triggers){
-			
-		}
+		// create overlay
+		o.overlay = $("<div/>");
+		// style overlay
+		o.overlay.css({
+			position : 'fixed',
+			top 			: 0,
+			left 			: 0,
+			right 			: 0,
+			bottom 			: 0,
+			backgroundColor : o.overlay_color,
+			textAlign 		: "center",
+			zIndex			: o.zIndex
+		})
+		// add switchable beahvior to the overlay
+		o.overlay.switchable(o.switchable);
+		// put this inside the overlay
+		$this.wrap(o.overlay);
+		// add style to this
+		$this.css({
+			display 		: "inline-block",
+			verticalAlign 	: middle,
+			maxWidth 		: "90%",
+			width 			: o.width
+		})
+
+		// Create the align helper
+		var align = $("<div/>");
+		// style align
+		align.css({
+			display 		: "inline-block",
+			verticalAlign 	: middle,
+			width 			: 0,
+			height 			: "100%"
+		});
+		// Add align to overlay
+		o.overlay.append(align);
+
+		if(!o.show)
+			o.overlay.hide();
+	}
+
+	self.open = function(){
+		$(this).data(name+"Options").overlay.switchable('show');
+	}
+
+	self.close = function(){
+		$(this).data(name+"Options").overlay.switchable('hide');
 	}
 
 
@@ -256,8 +305,8 @@
     var self = g.factory(name,{
             transitionIn  : "show",
             transitionOut : "hide",
-            transition    : "toggle",
-            time          : "",
+            transition    : "default",
+            time          : 0,
             init          : true
         });
 
@@ -272,6 +321,9 @@
             o.transitionIn = "slideIn";
             o.transitionOut = "slideOut";
         }
+        if(o.transition != "default")
+            o.time = 300;
+
         return $this;
     };
 
@@ -288,7 +340,7 @@
     self.hide = function(){
         var $this = $(this);
         var o = $this.data(name+"Options");
-
+       
         if($this.css("display")!="none")
             $this[o.transitionOut](o.time);
 

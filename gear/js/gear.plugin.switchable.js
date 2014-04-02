@@ -3,8 +3,8 @@
     var self = g.factory(name,{
             transitionIn  : "show",
             transitionOut : "hide",
-            transition    : "toggle",
-            time          : "",
+            transition    : "default",
+            time          : 0,
             init          : true
         });
 
@@ -19,6 +19,9 @@
             o.transitionIn = "slideIn";
             o.transitionOut = "slideOut";
         }
+        if(o.transition != "default")
+            o.time = 300;
+
         return $this;
     };
 
@@ -35,7 +38,7 @@
     self.hide = function(){
         var $this = $(this);
         var o = $this.data(name+"Options");
-
+       
         if($this.css("display")!="none")
             $this[o.transitionOut](o.time);
 
