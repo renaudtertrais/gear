@@ -105,3 +105,11 @@ $radius : $radius-round-min , $radius-square , $radius-round ;
 @include hp-position();
 // MARGIN : m10 -> m50 (mv10, mh20, mt40...)
 @include hp-margin(10,50,10);
+// BG COLORS : colors = map of color (name : color)
+@include hp-bg-color((
+	"negative"		: $color-negative ,
+	"primary"		: $color-primary ,
+	"success"		: $color-success ,
+	"warning"		: $color-warning ,
+	"alert" 		: $color-alert
+));

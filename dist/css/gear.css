@@ -1623,6 +1623,7 @@ input[type=radio][disabled=disabled] + label {
 
 .panel {
   display: block;
+  text-align: left;
   border: 1px solid rgba(0, 0, 0, 0.2);
   padding: 20px;
   background-color: #FFF;
@@ -2098,4 +2099,24 @@ pre code {
 .mh50,
 .mr50 {
   margin-right: 50px;
+}
+
+.bg-negative {
+  background-color: #2c3e50;
+}
+
+.bg-primary {
+  background-color: #3498db;
+}
+
+.bg-success {
+  background-color: #57ad68;
+}
+
+.bg-warning {
+  background-color: #f58134;
+}
+
+.bg-alert {
+  background-color: #e74c3c;
 }

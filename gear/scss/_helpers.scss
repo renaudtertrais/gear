@@ -81,3 +81,16 @@
 		$i : $i + $step;
 	}
 }
+@mixin hp-bg-color($colors , $options : () ){
+	$options : map-merge((
+			"bg_class" : "bg"
+		),$options);
+
+	$bg-class : $PX + map-get( $options , "bg_class" );
+
+	@each $name,$color in $colors{
+		.#{$bg-class+"-"+$name}{
+			background-color: $color ;
+		}
+	}
+}

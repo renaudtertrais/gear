@@ -37,8 +37,8 @@
         });
     };
     g.unCamelCase = function(str){
-        return str.replace(/[a-z]([A-Z])/g,function(match) {
-            return "-"+match[0].toUpperCase();
+        return str.replace(/([a-z])([A-Z])/g,function(match,m1,m2) {
+            return m1+"-"+m2.toLowerCase();
         });
     };
     g.unPrefix = function(pre,obj){
@@ -51,12 +51,7 @@
     };
     g.setPlugin = function(){
         $.each( gear.plugin , function( name , plugin ){
-
-            if( gear.prefix != ""){
-                plugin.slug = gear.prefix+'-'+plugin.slug;
-                plugin.name = gear.camelCase( plugin.slug );
-            }
-
+            plugin.name = gear.camelCase(  g.prefix+plugin.slug );
             $.fn[ plugin.name ] = plugin.plugin;
     
         });
@@ -64,8 +59,7 @@
     g.setDataAPI = function(){
         if( gear.enableDataAPI ){
             $.each( gear.dataAPI , function(name,f){
-                if(g.prefix != "")
-                    name = g.prefix+"-"+name;
+                name = g.prefix+g.unCamelCase(name);
                 $('[data-'+name+']').each(function(){
                     f.call(this,$(this).data(name));
                 });
@@ -90,11 +84,11 @@
                 var self = gear.plugin[name].plugin ;
                 // value to return at the end
                 var returnValue;
-                // convert arguments into an array
-                var params = [];
+               
                 var args = arguments; 
                 // let's go for a loop !
                 this.each(function(){
+                    // convert arguments into an array
                     var params = [];
                     Array.prototype.push.apply( params, args );
 
@@ -104,9 +98,7 @@
                     // options so already init ?
                     var options = $this.data(name+"Options");
                     // need an init ?
-         
                     if( options === undefined ){
-                        
                         // if there are some defaults properties
                         if( typeof(gear.plugin[name].defaults) === "object" ){
                             // if params is an object, overwrite defaults
