@@ -1,5 +1,6 @@
 <h1>Switchable</h1>
-<h2>basic usage</h2>
+<h2>Using data API</h2>
+<h3>basic usage</h3>
 <demo><div data-show="#switchable-1" class="btn btn-negative mv10">show</div>
 <div data-hide="#switchable-1" class="btn btn-negative m10">hide</div>
 <div data-toggle="#switchable-1" class="btn btn-negative mv10">toggle</div>
@@ -7,7 +8,7 @@
 <div id="switchable-1" class="panel" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, corporis, vitae unde hic et architecto eaque harum beatae suscipit voluptas id alias iure vel ipsam a doloribus vero. Quas, soluta!</div>
 </demo>
 
-<h2>Tabs behavior</h2>
+<h3>Tabs behavior</h3>
 <demo><div data-show="#switchable-2" data-hide=".tab-switchable:not(#switchable-2)" class="btn btn-negative mv10">tab 1</div>
 <div data-show="#switchable-3" data-hide=".tab-switchable:not(#switchable-3)" class="btn btn-negative m10">tab 2</div>
 <div data-show="#switchable-4" data-hide=".tab-switchable:not(#switchable-4)" class="btn btn-negative mv10">tab 3</div>
@@ -16,3 +17,42 @@
 <div id="switchable-3" class="tab-switchable" style="display:none">Tab content 2</div>
 <div id="switchable-4" class="tab-switchable" style="display:none">Tab content 3</div>
 </demo>
+
+<h3>Available data attributes</h3>
+<ul class="list-circle">
+	<li><strong>data-switchable</strong> = switchable transition (none, fade or slide) (value optionnal)</li>
+	<li><strong>data-show</strong> = jQuery selector of the switchable html element to show</li>
+	<li><strong>data-hide</strong> = jQuery selector of the switchable html element to hide</li>
+	<li><strong>data-toggle</strong> = jQuery selector of the switchable html element to toggle</li>
+</ul>
+
+<h2>Using jQuery</h2>
+<div hljs language="js">// init with default options
+$("#myElement-1").switchable();
+// call a method (open) :
+$("#myElement-1").switchable('toggle');
+
+
+// init with default options and call immediately a method
+$("#myElement-2").switchable('hide');
+
+// init with custom arguments
+$("#myElement-3").switchable( args );	
+</div>
+<h3>Arguments</h3>
+<div hljs language="js">var args = {
+	transitionIn  : "show",
+    transitionOut : "hide",
+    transition    : "none",
+    time          : 0,
+    init          : true
+}
+$("#myElement").switchable( args );
+</div>
+
+<h3>Methods</h3>
+<ul class="list-circle">
+	<li><strong>data-show</strong> : show the switchable element</li>
+	<li><strong>data-hide</strong> : hide the switchable element</li>
+	<li><strong>data-toggle</strong> : toggle the element</li>
+</ul>

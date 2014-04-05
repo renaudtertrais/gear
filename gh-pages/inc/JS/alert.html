@@ -1,7 +1,10 @@
 <h1>Alert</h1>
+<h2>Using data API</h2>
 
-<h2>Basic example</h2>
-<demo><div class="btn btn-negative" data-open="#alert-1">open</div>
+<h3>Basic example</h3>
+<demo><!-- Button -->
+<div class="btn btn-negative" data-open="#alert-1">open</div>
+<!-- Panel -->
 <div id="alert-1" data-alert class="panel panel-primary">
 	<div class="panel-header">Alert<i class="float-right" data-close-this>&times;</i></div>
 	<div class="panel-section">Hello world !</div>
@@ -12,8 +15,10 @@
 </div>
 </demo>
 
-<h2>Change transition</h2>
-<demo><div class="btn btn-negative" data-open="#alert-2">open</div>
+<h3>Change transition</h3>
+<demo><!-- Button -->
+<div class="btn btn-negative" data-open="#alert-2">open</div>
+<!-- Panel -->
 <div id="alert-2" data-alert="fade" class="panel panel-primary">
 	<div class="panel-header">Alert<i class="float-right" data-close-this>&times;</i></div>
 	<div class="panel-section">Hello world !</div>
@@ -23,3 +28,39 @@
 	</div>
 </div>
 </demo>
+
+<h3>Available data attributes</h3>
+<ul class="list-circle">
+	<li><strong>data-alert</strong> = switchable transition (none, fade or slide) (optionnal)</li>
+	<li><strong>data-open</strong> = jQuery selector of the alert html element to open</li>
+	<li><strong>data-close</strong> = jQuery selector of the alert html element to close</li>
+	<li><strong>data-close-this</strong> = no value. It will close the parent alert.</li>
+</ul>
+
+<h2>Using jQuery</h2>
+<h3>Usage</h3>
+<div hljs>// init with default
+ options
+$("#myElement-1").alert();
+// call a method (open) :
+$("#myElement-1").alert('open');
+
+
+// init with default options and call immediately a method
+$("#myElement-2").alert('open');
+
+// init with custom arguments
+$("#myElement-3").alert( args );	
+</div>
+<h3>Arguments</h3>
+<div hljs language="js">var args = {
+	show			: false,
+	overlay_color		: "rgba(0,0,0,.7)",
+	switchable			: {}, 
+	zIndex			: 5000,
+	width			: "400px",
+	onClose			: "",
+	onOpen			: ""
+}
+$("#myElement").alert( args );
+</div>

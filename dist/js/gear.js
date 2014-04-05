@@ -379,7 +379,7 @@
 	// * * * DATA API * * *
 	g.dataAPI.alert = function( trs ){
 		if( !trs )
-			trs = "default";
+			trs = "none";
 		$(this).alert({switchable : {transition:trs}});
 	}
 	g.dataAPI.open = function( target ){
@@ -407,7 +407,7 @@
     var self = g.factory(name,{
             transitionIn  : "show",
             transitionOut : "hide",
-            transition    : "default",
+            transition    : "none",
             time          : 0,
             init          : true
         });
@@ -423,7 +423,7 @@
             o.transitionIn = "slideIn";
             o.transitionOut = "slideOut";
         }
-        if(o.transition != "default")
+        if(o.transition != "none")
             o.time = 300;
 
         return $this;

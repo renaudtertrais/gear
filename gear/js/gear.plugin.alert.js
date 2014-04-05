@@ -99,7 +99,7 @@
 	// * * * DATA API * * *
 	g.dataAPI.alert = function( trs ){
 		if( !trs )
-			trs = "default";
+			trs = "none";
 		$(this).alert({switchable : {transition:trs}});
 	}
 	g.dataAPI.open = function( target ){
