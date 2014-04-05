@@ -19,7 +19,7 @@ module.exports = function(grunt){
 			        'dist/css/gear.css' : 'themes/default/default.scss',    
 			    }
 			},
-			demo_min: {                          
+			ghPages_min: {                          
 				options: {                      
 					style: 'compressed',
 					compass : true
@@ -28,7 +28,7 @@ module.exports = function(grunt){
 			        'gh-pages/css/demo.min.css' : 'gh-pages/scss/demo.scss',       // 'destination': 'source'
 			    }
 			},
-			demo_exp: {                          
+			ghPages_exp: {                          
 				options: {                      
 					style: 'expanded',
 					compass : true
@@ -39,30 +39,50 @@ module.exports = function(grunt){
 			}
 		},
 		concat: {
-			dist_exp : {
+			dist : {
 				src: ['gear/js/gear.js','gear/js/gear.plugin.*.js','gear/js/init.js'],
 				dest: 'dist/js/gear.js',
+			},
+			ghPages : {
+				src: ['gh-pages/js/app.js','gh-pages/js/controller/*.js','gh-pages/js/directive/*.js'],
+				dest: 'gh-pages/js/app.min.js',
 			}
 		},
 		watch: {
 			livereload: {
-				files: ['*.html,gh-pages/**'],
+				files: ['*.html,gh-pages/*.html','gh-pages/**/*.html'],
 				options: {
 					spawn: false,
 					livereload: true
 				},
 			},
-			scss: {
-				files: ['gear/scss/**','themes/**','gh-pages/scss/**'],
+			dist_sass: {
+				files: ['gear/scss/**','themes/**'],
 				tasks: ['dist-css'],
 				options: {
 					spawn: false,
 					livereload: true
 				}
 			},
-			js: {
-				files: ['gear/js/**'],
+			ghPages_sass: {
+				files: ['gh-pages/scss/**'],
+				tasks: ['ghPages-css'],
+				options: {
+					spawn: false,
+					livereload: true
+				}
+			},
+			dist_js: {
+				files: ['gear/js/*.js','gear/js/**/*.js'],
 				tasks: ['dist-js'],
+				options: {
+					spawn: false,
+					livereload: true
+				}
+			},
+			ghPages_js: {
+				files: ['gh-pages/js/*.js','gh-pages/js/**/*.js'],
+				tasks: ['ghPages-js'],
 				options: {
 					spawn: false,
 					livereload: true
@@ -73,9 +93,13 @@ module.exports = function(grunt){
 
 	// * * * Custom tasks * * *
 	// dist-css (sass->css)
-	grunt.task.registerTask("dist-css", ["sass"]);
+	grunt.task.registerTask("dist-css", ["sass:dist_min","sass:dist_exp"]);
 	// dist-js
-	grunt.task.registerTask("dist-js", ["concat"]);
+	grunt.task.registerTask("dist-js", ["concat:dist"]);
+	// ghPages-css (sass->css)
+	grunt.task.registerTask("ghPages-css", ["sass:ghPages_min","sass:ghPages_exp"]);
+	// ghPages-js
+	grunt.task.registerTask("ghPages-js", ["concat:ghPages"]);
 
 	// * * * Grunt Plugins * * *
 	grunt.loadNpmTasks('grunt-contrib-watch');
