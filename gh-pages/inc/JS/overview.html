@@ -1,8 +1,107 @@
 <h1>Overview</h1>
-<h2>gear's options</h2>
-<h3>prefix</h3>
-<h3>enableDataAPI</h3>
+
 <h2>Data API</h2>
+<p>Gear allow you to define special <code>javascript</code> behaviors with html5 data attributes.</p>
+<p>For example, gear use some of them as <strong>shortcuts</strong> for jQuery plugins :</p>
+<div hljs><button id="btn" data-open="#myID">my message</button></div>
+<p>Is the same than :</p>
+<div hljs language="js">$("#btn").on("click",function(){
+	$("#myID").alert("open");
+});
+</div>
+
+<p>The advantage in that case is that we can easily init plugins and behaviors without any line of <code>javascript</code>.</p>
+
+<p>But you can also use it for any <code>javascript</code> behavior, not only jQuery plugins.</p>
+
+<h3>Create our own data attribute</h3>
+<p>Put this before the DOM is loaded (document.ready) :</p>
+<div hljs language="js">gear.dataAPI.sayHello = function( name ){
+	$(this).on("click",function(){
+		alert('Hello '+name);
+	}
+}</div>
+
+<p>In <code>html</code> we just need : </p>
+<div hljs><button data-say-hello="Paul">clic to say hello to Paul</button>
+<button data-say-hello="John">clic to say hello to John</button>
+</div>
+
+<p>If it doesn't work be sure that the DOM isn't loaded. Otherwise set Data API manually.</p>
+
+<h3>set Data API Manually</h3>
+<div hljs language="js">gear.setDataAPI();</div>
+
+<h3>Disable Data API</h3>
+<p>Put this before the DOM is loaded (document.ready) :</p>
+<div hljs language="js">gear.enableDataAPI = false ;</div>
+
 <h2>Using Plugins</h2>
-<h2>Plugin API</h2>
-<h2>gear's objects</h2>
+<h3>Init</h3>
+<div hljs language="js">// init with default options
+$("#myID").myPlugin();
+
+// init with custom options
+$("#myID").myPlugin({
+	option1 : "value",
+	option2 : "value"
+});
+</div>
+
+<h3>Call a method</h3>
+<div hljs language="js">// default behavior
+$("#myID").myPlugin( "myMethod" , param1 , param2 , ... );
+
+// example
+$("#myID").alert("open");
+</div>
+
+<h3>Event</h3>
+<p>Some plugins have events. Use them normally in jQuery or pur javascript</p>
+<div hljs language="js">// jQuery
+$("#myAlert").on( "open" , function( event ){
+	// ...
+});
+
+// Pure JS
+document.querySelector("#myAlert").addEventListener("open",function( event ){
+	// ...
+})
+</div>
+
+<h2>Plugin factory</h2>
+<p>Gear give you an easy way to create advanced jquery plugin using its factory.</p>
+<p>This is a quick example :</p>
+<div hljs language="js">(function(g){
+	// call the factory
+    var self = g.factory( "colorMe" ,{
+    		// default options
+            fontColor  	: "white",
+            bgColor 	: "blue"
+        });
+	
+	// init method (launch if first time)
+    self.init = function(){
+        var $this = $(this);
+        // get back options
+        var o = $this.data("colorMeOptions");
+        // color method
+        $this.colorMe("color");
+
+        return $this; // jQuery chain
+    };
+	// method color
+    self.color = function(){
+        var $this = $(this);
+        var o = $this.data(name+"Options");
+
+        $this.css({
+	        backgroundColor : o.bgColor,
+	        color			: fontColor 
+    	})
+
+        return $this; // jQuery chain
+    };
+
+})(gear);
+</div>

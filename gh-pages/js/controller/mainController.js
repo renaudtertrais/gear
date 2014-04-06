@@ -19,23 +19,4 @@ app.controller( 'mainController', ['$scope','$location','$timeout',function($sco
 	$scope.isCurrentPath = function ( path ){
        return $location.path().slice(0,path.length) == path ? 'active' : '' ;
     }
-
-
-    $scope.loadJS = function(){
-    	if($("demo").length > 0){
-    		$scope.timeout = $timeout( $scope.loadJS , 10 );
-    	}else{
-    		$timeout.cancel($scope.timeout);
-    		console.log("Loaded " + $scope.theTime());
-    		init();
-    	}
-    }
-
-    $scope.theTime = function(){
-		var d = new Date() - $scope.time;
-		d = new Date(d);
-		return d.getSeconds()+":"+d.getMilliseconds();
-	}
-
-    $scope.time = new Date();
 }]);
